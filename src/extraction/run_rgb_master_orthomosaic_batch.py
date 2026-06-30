@@ -74,6 +74,8 @@ def run_one(
     max_range_m: float,
     margin_px: int,
     trim_bottom_px: int,
+    trajectory_mode: str,
+    blend_mode: str,
     calibration: Path,
     skip_lidar: bool,
     no_geotiff: bool,
@@ -108,6 +110,10 @@ def run_one(
         str(int(margin_px)),
         "--trim-bottom-px",
         str(int(trim_bottom_px)),
+        "--trajectory-mode",
+        trajectory_mode,
+        "--blend-mode",
+        blend_mode,
         "--calibration",
         str(calibration),
     ]
@@ -151,6 +157,8 @@ def main() -> int:
     ap.add_argument("--max-range-m", type=float, default=8.0)
     ap.add_argument("--margin-px", type=int, default=2)
     ap.add_argument("--trim-bottom-px", type=int, default=0)
+    ap.add_argument("--trajectory-mode", choices=["homography", "translation", "vertical_strip"], default="homography")
+    ap.add_argument("--blend-mode", choices=["feather", "centerline"], default="feather")
     ap.add_argument("--calibration", type=Path, default=PROJECT_ROOT / "data/calibration/new_session/20260623/calibration_20260623_final_candidate.json")
     ap.add_argument("--max-plots", type=int, default=0)
     ap.add_argument("--plots", nargs="*", help="Optional explicit plot IDs to process after discovery.")
@@ -187,6 +195,8 @@ def main() -> int:
                         args.max_range_m,
                         args.margin_px,
                         args.trim_bottom_px,
+                        args.trajectory_mode,
+                        args.blend_mode,
                         args.calibration,
                         args.skip_lidar,
                         args.no_geotiff,
@@ -218,6 +228,8 @@ def main() -> int:
             "max_range_m": args.max_range_m,
             "splat_radius": args.splat_radius,
             "trim_bottom_px": args.trim_bottom_px,
+            "trajectory_mode": args.trajectory_mode,
+            "blend_mode": args.blend_mode,
             "window_ms": args.window_ms,
             "sample_windows": args.sample_windows,
             "no_geotiff": bool(args.no_geotiff),

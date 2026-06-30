@@ -464,20 +464,41 @@ def estimate_ecc_affine(src: np.ndarray, dst: np.ndarray, initial: np.ndarray | 
     return H, float(cc)
 
 
-def estimate_pair_transform(src: Frame, dst: Frame) -> tuple[np.ndarray, dict[str, Any]]:
+def translation_from_homography(H: np.ndarray, shape_hw: tuple[int, int], vertical_only: bool) -> np.ndarray:
+    h, w = shape_hw
+    pts = np.float32([[w * 0.25, h * 0.25], [w * 0.75, h * 0.25], [w * 0.75, h * 0.75], [w * 0.25, h * 0.75]]).reshape(-1, 1, 2)
+    warped = cv2.perspectiveTransform(pts, H).reshape(-1, 2)
+    delta = np.median(warped - pts.reshape(-1, 2), axis=0)
+    dx = 0.0 if vertical_only else float(delta[0])
+    dy = float(delta[1])
+    return np.array([[1.0, 0.0, dx], [0.0, 1.0, dy], [0.0, 0.0, 1.0]], dtype=np.float64)
+
+
+def constrain_pair_transform(H: np.ndarray, shape_hw: tuple[int, int], mode: str) -> np.ndarray:
+    if mode == "translation":
+        return translation_from_homography(H, shape_hw, vertical_only=False)
+    if mode == "vertical_strip":
+        return translation_from_homography(H, shape_hw, vertical_only=True)
+    return H
+
+
+def estimate_pair_transform(src: Frame, dst: Frame, trajectory_mode: str) -> tuple[np.ndarray, dict[str, Any]]:
     H, inliers = estimate_homography(src.rgb, dst.rgb)
     if H is not None and inliers >= 25:
-        return H, {"method": "rgb_feature_homography", "score": int(inliers), "inliers": int(inliers)}
+        H_out = constrain_pair_transform(H, src.rgb.shape[:2], trajectory_mode)
+        return H_out, {"method": f"rgb_feature_{trajectory_mode}", "score": int(inliers), "inliers": int(inliers)}
 
     H_soil, soil_inliers = estimate_homography(src.soil, dst.soil)
     if H_soil is not None and soil_inliers >= 18:
-        return H_soil, {"method": "soil_feature_homography", "score": int(soil_inliers), "inliers": int(soil_inliers), "rgb_inliers": int(inliers)}
+        H_out = constrain_pair_transform(H_soil, src.rgb.shape[:2], trajectory_mode)
+        return H_out, {"method": f"soil_feature_{trajectory_mode}", "score": int(soil_inliers), "inliers": int(soil_inliers), "rgb_inliers": int(inliers)}
 
     H_phase, response = estimate_translation_phase(src.rgb, dst.rgb)
     H_ecc, cc = estimate_ecc_affine(src.rgb, dst.rgb, H_phase)
     if H_ecc is not None:
-        return H_ecc, {
-            "method": "rgb_ecc_affine",
+        H_out = constrain_pair_transform(H_ecc, src.rgb.shape[:2], trajectory_mode)
+        return H_out, {
+            "method": f"rgb_ecc_{trajectory_mode}",
             "score": round(cc, 4),
             "ecc_cc": round(cc, 4),
             "phase_response": round(response, 4),
@@ -485,8 +506,9 @@ def estimate_pair_transform(src: Frame, dst: Frame) -> tuple[np.ndarray, dict[st
             "soil_inliers": int(soil_inliers),
         }
     if H_phase is not None:
-        return H_phase, {
-            "method": "rgb_phase_translation",
+        H_out = constrain_pair_transform(H_phase, src.rgb.shape[:2], trajectory_mode)
+        return H_out, {
+            "method": f"rgb_phase_{trajectory_mode}",
             "score": round(response, 4),
             "phase_response": round(response, 4),
             "rgb_inliers": int(inliers),
@@ -503,11 +525,11 @@ def estimate_pair_transform(src: Frame, dst: Frame) -> tuple[np.ndarray, dict[st
     }
 
 
-def temporal_transforms(frames: list[Frame]) -> tuple[list[np.ndarray], list[dict[str, Any]]]:
+def temporal_transforms(frames: list[Frame], trajectory_mode: str) -> tuple[list[np.ndarray], list[dict[str, Any]]]:
     transforms = [np.eye(3, dtype=np.float64)]
     diagnostics = []
     for i in range(1, len(frames)):
-        H, diag = estimate_pair_transform(frames[i], frames[i - 1])
+        H, diag = estimate_pair_transform(frames[i], frames[i - 1], trajectory_mode)
         diag = {"pair": [i - 1, i], **diag}
         diagnostics.append(diag)
         transforms.append(transforms[-1] @ H)
@@ -516,7 +538,10 @@ def temporal_transforms(frames: list[Frame]) -> tuple[list[np.ndarray], list[dic
 
 def trajectory_quality(diagnostics: list[dict[str, Any]]) -> dict[str, Any]:
     total = max(len(diagnostics), 1)
-    reliable = sum(d["method"] in {"rgb_feature_homography", "soil_feature_homography", "rgb_ecc_affine"} for d in diagnostics)
+    reliable = sum(
+        d["method"].startswith(("rgb_feature_", "soil_feature_", "rgb_ecc_", "rgb_phase_"))
+        for d in diagnostics
+    )
     fallback = sum(d["method"] == "fallback_translation" for d in diagnostics)
     return {
         "pairs": len(diagnostics),
@@ -564,6 +589,7 @@ def stitch_color(
     translate: np.ndarray,
     size: tuple[int, int],
     color_balance: bool = True,
+    blend_mode: str = "feather",
 ) -> tuple[np.ndarray, np.ndarray]:
     out_w, out_h = size
     acc = np.zeros((out_h, out_w, 3), np.float32)
@@ -574,13 +600,29 @@ def stitch_color(
         M = translate @ H
         warped = cv2.warpPerspective(img, M, (out_w, out_h), flags=cv2.INTER_LINEAR)
         mask = cv2.warpPerspective(np.full(img.shape[:2], 255, np.uint8), M, (out_w, out_h), flags=cv2.INTER_NEAREST) > 0
-        feather = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 11.0)
+        if blend_mode == "centerline":
+            h = img.shape[0]
+            yy = np.arange(h, dtype=np.float32)[:, None]
+            local = np.exp(-0.5 * ((yy - h * 0.5) / max(h * 0.18, 1.0)) ** 2)
+            local = np.repeat(local, img.shape[1], axis=1).astype(np.float32)
+            feather = cv2.warpPerspective(local, M, (out_w, out_h), flags=cv2.INTER_LINEAR)
+            feather *= mask.astype(np.float32)
+        else:
+            feather = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 11.0)
         acc += warped.astype(np.float32) * feather[:, :, None]
         weight += feather
     return np.divide(acc, np.maximum(weight[:, :, None], 1e-3)).astype(np.uint8), weight > 0.05
 
 
-def stitch_scalar(images: list[np.ndarray], masks: list[np.ndarray], transforms: list[np.ndarray], translate: np.ndarray, size: tuple[int, int], reducer: str = "mean") -> tuple[np.ndarray, np.ndarray]:
+def stitch_scalar(
+    images: list[np.ndarray],
+    masks: list[np.ndarray],
+    transforms: list[np.ndarray],
+    translate: np.ndarray,
+    size: tuple[int, int],
+    reducer: str = "mean",
+    blend_mode: str = "feather",
+) -> tuple[np.ndarray, np.ndarray]:
     out_w, out_h = size
     if reducer == "max":
         out = np.zeros((out_h, out_w), np.float32)
@@ -599,7 +641,15 @@ def stitch_scalar(images: list[np.ndarray], masks: list[np.ndarray], transforms:
         M = translate @ H
         warped = cv2.warpPerspective(np.nan_to_num(img.astype(np.float32), nan=0), M, (out_w, out_h), flags=cv2.INTER_LINEAR)
         valid = cv2.warpPerspective(mask.astype(np.uint8) * 255, M, (out_w, out_h), flags=cv2.INTER_NEAREST) > 0
-        feather = cv2.GaussianBlur(valid.astype(np.float32), (0, 0), 5.0)
+        if blend_mode == "centerline":
+            h = img.shape[0]
+            yy = np.arange(h, dtype=np.float32)[:, None]
+            local = np.exp(-0.5 * ((yy - h * 0.5) / max(h * 0.18, 1.0)) ** 2)
+            local = np.repeat(local, img.shape[1], axis=1).astype(np.float32)
+            feather = cv2.warpPerspective(local, M, (out_w, out_h), flags=cv2.INTER_LINEAR)
+            feather *= valid.astype(np.float32)
+        else:
+            feather = cv2.GaussianBlur(valid.astype(np.float32), (0, 0), 5.0)
         acc += warped * feather
         weight += feather
     return acc / np.maximum(weight, 1e-6), weight > 0.05
@@ -740,15 +790,17 @@ def write_outputs(
     gpkg: Path | None = None,
     plot_id: str | None = None,
     write_geotiff: bool = True,
+    trajectory_mode: str = "homography",
+    blend_mode: str = "feather",
 ) -> dict[str, str]:
-    transforms, diagnostics = temporal_transforms(frames)
+    transforms, diagnostics = temporal_transforms(frames, trajectory_mode)
     translate, size = canvas_geometry(frames[0].rgb.shape[:2], transforms)
-    rgb_m, valid = stitch_color([f.rgb for f in frames], transforms, translate, size)
-    vis_m, _ = stitch_color([f.vis for f in frames], transforms, translate, size)
-    nir_m, _ = stitch_color([f.nir for f in frames], transforms, translate, size)
-    soil_m, _ = stitch_color([f.soil for f in frames], transforms, translate, size, color_balance=False)
-    thermal_m, thermal_valid = stitch_scalar([f.thermal_c for f in frames], [f.thermal_mask for f in frames], transforms, translate, size)
-    depth_m, depth_valid = stitch_scalar([f.depth_mm for f in frames], [f.depth_mask for f in frames], transforms, translate, size, reducer="mean")
+    rgb_m, valid = stitch_color([f.rgb for f in frames], transforms, translate, size, blend_mode=blend_mode)
+    vis_m, _ = stitch_color([f.vis for f in frames], transforms, translate, size, blend_mode=blend_mode)
+    nir_m, _ = stitch_color([f.nir for f in frames], transforms, translate, size, blend_mode=blend_mode)
+    soil_m, _ = stitch_color([f.soil for f in frames], transforms, translate, size, color_balance=False, blend_mode=blend_mode)
+    thermal_m, thermal_valid = stitch_scalar([f.thermal_c for f in frames], [f.thermal_mask for f in frames], transforms, translate, size, blend_mode=blend_mode)
+    depth_m, depth_valid = stitch_scalar([f.depth_mm for f in frames], [f.depth_mask for f in frames], transforms, translate, size, reducer="mean", blend_mode=blend_mode)
     height_m, height_valid = stitch_scalar([f.height_m for f in frames], [f.height_mask for f in frames], transforms, translate, size, reducer="max")
     intensity_m, intensity_valid = stitch_scalar([f.intensity for f in frames], [f.intensity_mask for f in frames], transforms, translate, size, reducer="max")
 
@@ -859,6 +911,13 @@ def main() -> int:
     ap.add_argument("--splat-radius", type=int, default=11)
     ap.add_argument("--margin-px", type=int, default=2)
     ap.add_argument("--trim-bottom-px", type=int, default=0, help="Remove this many RGB-master crop pixels from the bottom after common sensor intersection.")
+    ap.add_argument(
+        "--trajectory-mode",
+        choices=["homography", "translation", "vertical_strip"],
+        default="homography",
+        help="Temporal mosaic geometry. vertical_strip keeps plot width constant and only accumulates forward motion.",
+    )
+    ap.add_argument("--blend-mode", choices=["feather", "centerline"], default="feather")
     ap.add_argument("--skip-lidar", action="store_true")
     ap.add_argument("--no-geotiff", action="store_true", help="Do not write approximate QGIS GeoTIFF exports.")
     ap.add_argument("--scan-plots", action="store_true")
@@ -903,6 +962,8 @@ def main() -> int:
         gpkg=args.gpkg,
         plot_id=str(plot_id),
         write_geotiff=not args.no_geotiff,
+        trajectory_mode=args.trajectory_mode,
+        blend_mode=args.blend_mode,
     )
     summary = {
         "bag": str(args.bag),
@@ -914,6 +975,8 @@ def main() -> int:
         "speed_mps": [f.speed_mps for f in frames],
         "common_roi_rgb_xyxy_per_frame": [list(f.common_roi_rgb_xyxy) for f in frames],
         "trim_bottom_px": int(args.trim_bottom_px),
+        "trajectory_mode": args.trajectory_mode,
+        "blend_mode": args.blend_mode,
         "outputs": {k: v for k, v in outputs.items() if not k.startswith("_")},
         "notes": [
             "Camera layers are dense inside the RGB-master common crop.",

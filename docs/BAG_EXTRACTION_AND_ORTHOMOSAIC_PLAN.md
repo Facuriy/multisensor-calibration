@@ -609,6 +609,85 @@ de pose local. Para eliminarlas de forma robusta hay que combinar pose(t)
 FAST-LIO/GPS/pose-graph y calibracion radiometrica por frame.
 ```
 
+### Correccion de geometria para plots lineales
+
+Problema observado:
+
+```text
+Con homografias libres entre frames, el mosaico conectaba visualmente las
+imagenes pero deformaba la franja: ancho grande arriba y mas chico abajo.
+Eso es incorrecto para una pasada casi recta del robot por un plot.
+```
+
+Causa:
+
+```text
+La homografia libre permite escala, perspectiva y shear. En escenas de suelo y
+plantas puede encontrar muchos inliers y aun asi acumular una perspectiva falsa.
+La metrica de inliers decia "bueno", pero la geometria de robot/plot decia
+"imposible".
+```
+
+Solucion implementada:
+
+```text
+--trajectory-mode vertical_strip
+  usa los matches visuales para estimar avance entre frames,
+  pero fuerza transformaciones de traslacion vertical:
+  sin escala, sin perspectiva, sin cambio de ancho.
+
+--blend-mode centerline
+  pondera mas el centro de cada frame que los bordes solapados.
+  Reduce plantas fantasmas/transparencias frente al feather promedio.
+```
+
+Comando recomendado para previews lineales:
+
+```powershell
+python src\extraction\run_rgb_master_orthomosaic_batch.py `
+  --bag X:\PhenoRob_UAVClimate\Projects\MSP_im_Mais\UGV\BAGS\20260601\2026-06-01-14-59-48.bag `
+  --gpkg N:\Sensorik\02_Projekte\2026\SE08\versuchslayout.gpkg `
+  --out-root runs\orthomosaic_rgb_master_vertical_strip_centerline_10frames_20260630 `
+  --sample-windows 8 `
+  --window-ms 7000 `
+  --min-frames 10 `
+  --frames 10 `
+  --plots 17 `
+  --max-plots 1 `
+  --skip-lidar `
+  --trim-bottom-px 100 `
+  --trajectory-mode vertical_strip `
+  --blend-mode centerline `
+  --child-timeout-sec 300
+```
+
+Resultado:
+
+```text
+runs\orthomosaic_rgb_master_vertical_strip_centerline_10frames_20260630\plot_17
+candidate_frames: 39
+used_frames: 10
+trajectory_mode: vertical_strip
+blend_mode: centerline
+quality: production_candidate
+reliable_pairs: 9 / 9
+```
+
+Comparacion con la version homografia:
+
+```text
+homografia libre canvas: 3989 x 9703 px, franja deformada
+vertical_strip canvas:  1385 x 3768 px, ancho constante
+```
+
+Decision actual:
+
+```text
+Para pasadas lineales UGV usar vertical_strip + centerline como producto visual
+preliminar. Para producto metrico final, reemplazar este mosaico visual por
+pose(t) FAST-LIO/GPS/pose-graph + proyeccion/ortorrectificacion por profundidad.
+```
+
 ## SLAM / odometria / poses metricas
 
 Estado implementado:
