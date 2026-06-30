@@ -215,6 +215,7 @@ def common_camera_crops(
     thermal_raw: np.ndarray,
     calib: dict[str, Any],
     margin_px: int,
+    trim_bottom_px: int,
 ) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray], tuple[int, int, int, int]] | None:
     rgb = to_bgr_for_display(rgb_raw, "rgb")
     # These previews reproduce the 512x256 geometry used by the 20260623
@@ -236,6 +237,8 @@ def common_camera_crops(
     if rect is None:
         return None
     x0, y0, x1, y1 = rect
+    if trim_bottom_px > 0:
+        y1 = max(y0 + 32, y1 - int(trim_bottom_px))
     crops = {k: v[y0:y1, x0:x1].copy() for k, v in registered.items()}
     crop_masks = {k: v[y0:y1, x0:x1].copy() for k, v in masks.items()}
     return crops, crop_masks, (x0, y0, x1, y1)
@@ -337,6 +340,7 @@ def build_frames(
     max_range_m: float,
     splat_radius: int,
     margin_px: int,
+    trim_bottom_px: int,
     include_lidar: bool,
 ) -> list[Frame]:
     plots = load_plots(gpkg)
@@ -362,7 +366,7 @@ def build_frames(
         thermal_raw = decode_ros_image(thermal.msg)
         if rgb_raw is None or vis_raw is None or nir_raw is None or thermal_raw is None:
             continue
-        coreg = common_camera_crops(rgb_raw, vis_raw, nir_raw, thermal_raw, calib, margin_px)
+        coreg = common_camera_crops(rgb_raw, vis_raw, nir_raw, thermal_raw, calib, margin_px, trim_bottom_px)
         if coreg is None:
             continue
         crops, _masks, roi = coreg
@@ -536,15 +540,41 @@ def canvas_geometry(shape_hw: tuple[int, int], transforms: list[np.ndarray]) -> 
     return translate, size
 
 
-def stitch_color(images: list[np.ndarray], transforms: list[np.ndarray], translate: np.ndarray, size: tuple[int, int]) -> tuple[np.ndarray, np.ndarray]:
+def balance_color_images(images: list[np.ndarray]) -> list[np.ndarray]:
+    if len(images) < 2:
+        return images
+    ref = images[len(images) // 2].astype(np.float32)
+    ref_mean = ref.reshape(-1, 3).mean(axis=0)
+    ref_std = ref.reshape(-1, 3).std(axis=0)
+    balanced: list[np.ndarray] = []
+    for img in images:
+        src = img.astype(np.float32)
+        pix = src.reshape(-1, 3)
+        mean = pix.mean(axis=0)
+        std = pix.std(axis=0)
+        gain = np.clip(ref_std / np.maximum(std, 1.0), 0.75, 1.35)
+        out = (src - mean[None, None, :]) * gain[None, None, :] + ref_mean[None, None, :]
+        balanced.append(np.clip(out, 0, 255).astype(np.uint8))
+    return balanced
+
+
+def stitch_color(
+    images: list[np.ndarray],
+    transforms: list[np.ndarray],
+    translate: np.ndarray,
+    size: tuple[int, int],
+    color_balance: bool = True,
+) -> tuple[np.ndarray, np.ndarray]:
     out_w, out_h = size
     acc = np.zeros((out_h, out_w, 3), np.float32)
     weight = np.zeros((out_h, out_w), np.float32)
+    if color_balance:
+        images = balance_color_images(images)
     for img, H in zip(images, transforms):
         M = translate @ H
         warped = cv2.warpPerspective(img, M, (out_w, out_h), flags=cv2.INTER_LINEAR)
         mask = cv2.warpPerspective(np.full(img.shape[:2], 255, np.uint8), M, (out_w, out_h), flags=cv2.INTER_NEAREST) > 0
-        feather = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 7.0)
+        feather = cv2.GaussianBlur(mask.astype(np.float32), (0, 0), 11.0)
         acc += warped.astype(np.float32) * feather[:, :, None]
         weight += feather
     return np.divide(acc, np.maximum(weight[:, :, None], 1e-3)).astype(np.uint8), weight > 0.05
@@ -716,7 +746,7 @@ def write_outputs(
     rgb_m, valid = stitch_color([f.rgb for f in frames], transforms, translate, size)
     vis_m, _ = stitch_color([f.vis for f in frames], transforms, translate, size)
     nir_m, _ = stitch_color([f.nir for f in frames], transforms, translate, size)
-    soil_m, _ = stitch_color([f.soil for f in frames], transforms, translate, size)
+    soil_m, _ = stitch_color([f.soil for f in frames], transforms, translate, size, color_balance=False)
     thermal_m, thermal_valid = stitch_scalar([f.thermal_c for f in frames], [f.thermal_mask for f in frames], transforms, translate, size)
     depth_m, depth_valid = stitch_scalar([f.depth_mm for f in frames], [f.depth_mask for f in frames], transforms, translate, size, reducer="mean")
     height_m, height_valid = stitch_scalar([f.height_m for f in frames], [f.height_mask for f in frames], transforms, translate, size, reducer="max")
@@ -828,6 +858,7 @@ def main() -> int:
     ap.add_argument("--max-range-m", type=float, default=8.0)
     ap.add_argument("--splat-radius", type=int, default=11)
     ap.add_argument("--margin-px", type=int, default=2)
+    ap.add_argument("--trim-bottom-px", type=int, default=0, help="Remove this many RGB-master crop pixels from the bottom after common sensor intersection.")
     ap.add_argument("--skip-lidar", action="store_true")
     ap.add_argument("--no-geotiff", action="store_true", help="Do not write approximate QGIS GeoTIFF exports.")
     ap.add_argument("--scan-plots", action="store_true")
@@ -858,6 +889,7 @@ def main() -> int:
         args.max_range_m,
         args.splat_radius,
         args.margin_px,
+        args.trim_bottom_px,
         include_lidar=not args.skip_lidar,
     )
     frames = select_frames(frames_all, args.frames)
@@ -881,6 +913,7 @@ def main() -> int:
         "lat_lon": [[f.lat, f.lon] for f in frames],
         "speed_mps": [f.speed_mps for f in frames],
         "common_roi_rgb_xyxy_per_frame": [list(f.common_roi_rgb_xyxy) for f in frames],
+        "trim_bottom_px": int(args.trim_bottom_px),
         "outputs": {k: v for k, v in outputs.items() if not k.startswith("_")},
         "notes": [
             "Camera layers are dense inside the RGB-master common crop.",

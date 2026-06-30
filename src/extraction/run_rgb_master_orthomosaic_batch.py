@@ -73,6 +73,7 @@ def run_one(
     max_sync_ms: float,
     max_range_m: float,
     margin_px: int,
+    trim_bottom_px: int,
     calibration: Path,
     skip_lidar: bool,
     no_geotiff: bool,
@@ -105,6 +106,8 @@ def run_one(
         str(float(max_range_m)),
         "--margin-px",
         str(int(margin_px)),
+        "--trim-bottom-px",
+        str(int(trim_bottom_px)),
         "--calibration",
         str(calibration),
     ]
@@ -147,6 +150,7 @@ def main() -> int:
     ap.add_argument("--splat-radius", type=int, default=11)
     ap.add_argument("--max-range-m", type=float, default=8.0)
     ap.add_argument("--margin-px", type=int, default=2)
+    ap.add_argument("--trim-bottom-px", type=int, default=0)
     ap.add_argument("--calibration", type=Path, default=PROJECT_ROOT / "data/calibration/new_session/20260623/calibration_20260623_final_candidate.json")
     ap.add_argument("--max-plots", type=int, default=0)
     ap.add_argument("--plots", nargs="*", help="Optional explicit plot IDs to process after discovery.")
@@ -182,6 +186,7 @@ def main() -> int:
                         args.max_sync_ms,
                         args.max_range_m,
                         args.margin_px,
+                        args.trim_bottom_px,
                         args.calibration,
                         args.skip_lidar,
                         args.no_geotiff,
@@ -212,6 +217,7 @@ def main() -> int:
             "skip_lidar": bool(args.skip_lidar),
             "max_range_m": args.max_range_m,
             "splat_radius": args.splat_radius,
+            "trim_bottom_px": args.trim_bottom_px,
             "window_ms": args.window_ms,
             "sample_windows": args.sample_windows,
             "no_geotiff": bool(args.no_geotiff),

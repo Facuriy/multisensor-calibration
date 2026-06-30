@@ -539,6 +539,76 @@ velocity-only, pero todavia no es el pose-graph GPS/FAST-LIO final. El siguiente
 paso serio es reemplazar esta alineacion por una optimizacion con factores GPS
 para producir `pose(t)` de produccion.
 
+### Variante sin panel inferior, 10 frames - 2026-06-30
+
+Motivo:
+
+```text
+VIS y NIR todavia mostraban una parte del panel de calibracion radiometrica en
+la zona inferior. Ese panel debe quedar fuera del area de extraccion final, para
+que no contamine mosaicos, indices ni hipercubos.
+```
+
+Cambios implementados:
+
+```text
+src\extraction\make_rgb_master_multisensor_orthomosaic.py:
+  --trim-bottom-px N
+    recorta N pixeles desde abajo despues de calcular la interseccion comun
+    RGB/VIS/NIR/Thermal. El recorte se aplica tambien al ROI usado por LiDAR.
+
+  balance_color_images()
+    iguala media/desvio por canal contra el frame central antes del blend para
+    reducir costuras visuales por diferencias de brillo/contraste.
+
+src\extraction\run_rgb_master_orthomosaic_batch.py:
+  propaga --trim-bottom-px al script individual.
+```
+
+Comando ejecutado:
+
+```powershell
+python src\extraction\run_rgb_master_orthomosaic_batch.py `
+  --bag X:\PhenoRob_UAVClimate\Projects\MSP_im_Mais\UGV\BAGS\20260601\2026-06-01-14-59-48.bag `
+  --gpkg N:\Sensorik\02_Projekte\2026\SE08\versuchslayout.gpkg `
+  --out-root runs\orthomosaic_rgb_master_trimmed_10frames_20260630 `
+  --sample-windows 8 `
+  --window-ms 7000 `
+  --min-frames 10 `
+  --frames 10 `
+  --plots 17 `
+  --max-plots 1 `
+  --skip-lidar `
+  --trim-bottom-px 100 `
+  --child-timeout-sec 300
+```
+
+Salida:
+
+```text
+runs\orthomosaic_rgb_master_trimmed_10frames_20260630\plot_17
+```
+
+Resultado:
+
+```text
+candidate_frames: 39
+used_frames: 10
+trim_bottom_px: 100
+quality: production_candidate
+reliable_pairs: 9 / 9
+```
+
+Interpretacion:
+
+```text
+El panel inferior queda fuera del preview de 10 frames. Las lineas que todavia
+pueden verse, sobre todo en thermal, ya no son solamente problema de crop:
+vienen de limites entre frames, AGC/diferencias radiometricas y pequenos errores
+de pose local. Para eliminarlas de forma robusta hay que combinar pose(t)
+FAST-LIO/GPS/pose-graph y calibracion radiometrica por frame.
+```
+
 ## SLAM / odometria / poses metricas
 
 Estado implementado:
