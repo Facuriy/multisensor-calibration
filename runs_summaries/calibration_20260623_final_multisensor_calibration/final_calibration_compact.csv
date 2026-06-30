@@ -1,0 +1,11 @@
+block,sensor,status,n_views_or_pairs,rms_or_median_px,notes
+intrinsics,rgb,candidate_fixed_principal_point,32,1.7456062605598934,fixed_pp_zero_tangent_fix_k3
+intrinsics,vis,candidate_partial_subpixel,12,2.692974904114868,
+intrinsics,nir,candidate_partial_subpixel,16,2.156672075776716,
+intrinsics,thermal,candidate_model_assisted,17,0.6384597679979469,
+homography_to_rgb,vis_to_rgb,target_plane_homography_candidate,8,15.764913530073684,points=373
+homography_to_rgb,nir_to_rgb,target_plane_homography_candidate,6,10.797691443882833,points=265
+homography_to_rgb,thermal_to_rgb,target_plane_homography_candidate,17,9.870614620217026,points=715
+physical_extrinsic_candidate,T_rgb_vis,physical_extrinsic_candidate,8,7.2396573769764805,X_rgb = T_rgb_vis @ X_vis_homogeneous
+physical_extrinsic_candidate,T_rgb_nir,physical_extrinsic_candidate,6,4.249712949325043,X_rgb = T_rgb_nir @ X_nir_homogeneous
+physical_extrinsic_candidate,T_rgb_thermal,physical_extrinsic_candidate,17,4.595019303521764,X_rgb = T_rgb_thermal @ X_thermal_homogeneous

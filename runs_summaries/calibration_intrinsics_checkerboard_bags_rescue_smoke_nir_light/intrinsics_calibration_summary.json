@@ -1,0 +1,131 @@
+{
+  "checker": {
+    "internal_corners": [
+      9,
+      6
+    ],
+    "square_size_m": 0.04
+  },
+  "manifest": "data\\calibration\\new_session\\20260623\\bag_manifest_20260623.csv",
+  "sensors": [
+    "nir"
+  ],
+  "n_bags": 1,
+  "detections": {
+    "nir": 1
+  },
+  "rescue_candidates": 0,
+  "rescue_promoted_detections": {
+    "nir": 0
+  },
+  "calibration_status": {
+    "nir": "ok"
+  },
+  "calibrations": {
+    "nir": {
+      "status": "ok",
+      "model": "fixed_principal_zero_tangent_k1k2",
+      "pattern_internal_corners": [
+        9,
+        6
+      ],
+      "square_size_m": 0.04,
+      "image_size_wh": [
+        512,
+        256
+      ],
+      "n_views_input": 1,
+      "n_views_usable": 1,
+      "n_views_used": 1,
+      "removed_outliers": [],
+      "rms_px": 0.27487679875841714,
+      "mean_view_error_px": 0.23555220663547516,
+      "median_view_error_px": 0.23555220663547516,
+      "max_view_error_px": 0.23555220663547516,
+      "K": [
+        [
+          3637.4150118040257,
+          0.0,
+          256.0
+        ],
+        [
+          0.0,
+          3611.6476932182322,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "dist_coeffs": [
+        1.2526900766033764,
+        -363.85501557617687,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "flags": 141,
+      "K_initial": [
+        [
+          716.8,
+          0.0,
+          256.0
+        ],
+        [
+          0.0,
+          716.8,
+          128.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "K_initial_source": "nir_photonfocus_hs02_single_band_preview:resolution_mismatch_409x217",
+      "views": [
+        {
+          "label": "calib_p01_low_center",
+          "bag": "2026-06-23-08-26-48.bag",
+          "frame_index": 0,
+          "stamp_ns": 1782196009555334500,
+          "method": "classic_fast_s1_inv",
+          "variant": "pf_mean_unsharp",
+          "confidence": "subpixel_full",
+          "rescue": false,
+          "score": 45.38362705071767,
+          "bbox_xyxy": [
+            80.43716430664062,
+            48.94667053222656,
+            385.1733703613281,
+            240.6007080078125
+          ],
+          "preview_path": "previews/nir/calib_p01_low_center_2026-06-23-08-26-48_00000.jpg",
+          "rvec": [
+            -0.03178842465754199,
+            -0.11346557026269026,
+            0.004155317720777605
+          ],
+          "tvec_m": [
+            -0.182271304862685,
+            -0.08264159234832247,
+            3.793736690538089
+          ],
+          "mean_px": 0.23555220663547516,
+          "median_px": 0.23955829441547394,
+          "rms_px": 0.2748764157295227,
+          "max_px": 0.7238845825195312
+        }
+      ]
+    }
+  },
+  "failures": [],
+  "notes": [
+    "VIS/NIR intrinsics are for the Photonfocus demosaiced/downsampled preview image plane used by the RGB-master pipeline.",
+    "thermal_c and thermal_raw intrinsics are calibrated in their scalar image coordinate systems.",
+    "Default behavior keeps one best checkerboard detection per bag/sensor to avoid overweighting static duplicate frames.",
+    "Rescue detections are written separately. Only full 9x6 subpixel detections in the calibrated image plane are promoted into intrinsics."
+  ]
+}

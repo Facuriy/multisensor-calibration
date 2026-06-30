@@ -1,0 +1,2 @@
+label,bag,frame_index,mean_px,median_px,rms_px,max_px,method,variant,confidence,rescue,preview_path
+calib_p01_low_center,2026-06-23-08-26-48.bag,0,0.23555220663547516,0.23955829441547394,0.2748764157295227,0.7238845825195312,classic_fast_s1_inv,pf_mean_unsharp,subpixel_full,False,previews/nir/calib_p01_low_center_2026-06-23-08-26-48_00000.jpg

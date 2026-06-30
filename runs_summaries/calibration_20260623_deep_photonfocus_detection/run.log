@@ -1,0 +1,52 @@
+[1/37] calib_p01_low_center
+[2/37] calib_p01_low_left
+[3/37] calib_p01_low_left_02
+[4/37] calib_p03_low_right
+[5/37] calib_p04_low_top
+[6/37] calib_p05_low_bottom
+[7/37] calib_p06_low_topleft
+[8/37] calib_p07_low_topright
+[9/37] calib_p08_low_bottomleft
+[10/37] calib_p09_low_bottomright
+[11/37] calib_p10_low_roll_plus
+[12/37] calib_p11_low_roll_minus
+[13/37] calib_p12_low_tilt
+[14/37] calib_p13_mid_center
+[15/37] calib_p14_mid_left
+[16/37] calib_p15_mid_right
+[17/37] calib_p16_mid_top
+[18/37] calib_p17_mid_bottom
+[19/37] calib_p18_mid_topleft
+[20/37] calib_p19_mid_topright
+[21/37] calib_p20_mid_bottomleft
+[22/37] calib_p21_mid_bottomright
+[23/37] calib_p22_mid_roll_plus
+[24/37] calib_p23_mid_roll_minus
+[25/37] calib_p24_mid_tilt
+[26/37] calib_p25_high_center
+[27/37] calib_p26_high_left
+[28/37] calib_p27_high_right
+[29/37] calib_p28_high_top
+[30/37] calib_p29_high_bottom
+[31/37] calib_p30_high_topleft
+[32/37] calib_p31_high_topright
+[33/37] calib_p32_high_bottomleft
+[34/37] calib_p33_high_bottomright
+[35/37] calib_p34_high_roll_plus
+[36/37] calib_p35_high_roll_minus
+[37/37] calib_p36_high_tilt
+{
+  "n_bags": 37,
+  "checker_counts": {
+    "vis": 8,
+    "nir": 7
+  },
+  "panel_counts": {
+    "vis": 37,
+    "nir": 37
+  },
+  "rotation_warnings": {
+    "vis": [],
+    "nir": []
+  }
+}

@@ -1,0 +1,120 @@
+# Runs Cleanup 20260627
+
+Goal: leave the workspace focused on the 2026-06-23 final calibration candidate
+and remove large, obsolete or reproducible artifacts.
+
+## Kept
+
+Final calibration and validation:
+
+```text
+runs/calibration_20260623_final_multisensor_calibration
+runs/calibration_20260623_final_rgb_validation
+runs/calibration_20260623_final_ouster_rgb_validation
+runs/calibration_20260623_rgb_master_common_crop_validation
+```
+
+Core source runs needed to understand or rebuild the final package:
+
+```text
+runs/calibration_20260623_rgb_intrinsics_from_detections
+runs/calibration_20260623_checker_lidar_scan
+runs/calibration_20260623_refined_multisensor_detection
+runs/calibration_20260623_deep_photonfocus_detection
+runs/calibration_20260623_refined_vis_homographies
+runs/calibration_20260623_rgb_master_homographies
+runs/calibration_20260623_ouster_rgb_multipose_6dof
+runs/calibration_20260623_photonfocus_partial_grid_campaign
+runs/calibration_20260623_all_sensor_grid_campaign
+runs/calibration_20260623_thermal_grid_recovery_lab
+runs/calibration_20260623_thermal_production_lowload
+runs/calibration_20260623_thermal_candidates_merged
+runs/calibration_20260623_full_review
+```
+
+## Removed
+
+Large local caches and old run archives:
+
+```text
+runs/calibration_20260623_raw_bag_cache
+runs/_archive_20260613_cleanup
+runs/calibration
+runs/slam_export_plot14_liosam_full
+runs/kiss_icp_plot14_windows
+runs/rgb_colored_lidar_plot14_straight_fixedrot
+```
+
+Old presentation/orthomosaic/prototype products:
+
+```text
+runs/ortho_variant_gallery_20260601
+runs/presentation_20260601_multiplot_final_sensors
+runs/weed_annotation_dataset
+runs/current
+```
+
+Obsolete 20260623 smoke, scalar, retry or superseded validation runs:
+
+```text
+runs/calibration_20260623_all_sensor_grid_campaign_smoke
+runs/calibration_20260623_checker_lidar_scan_p03_fix
+runs/calibration_20260623_final_detection_inventory
+runs/calibration_20260623_initial_review
+runs/calibration_20260623_lidar_intensity_fallback
+runs/calibration_20260623_multiframe_campaign_smoke_visnir
+runs/calibration_20260623_multiframe_campaign_visnir
+runs/calibration_20260623_ouster_rgb_multipose_6dof_loose_centroid
+runs/calibration_20260623_ouster_rgb_multipose_6dof_loose_nocentroid
+runs/calibration_20260623_ouster_rgb_multipose_6dof_wide_checkerbase
+runs/calibration_20260623_ouster_rgb_multipose_6dof_wide_effectivebase
+runs/calibration_20260623_ouster_rgb_multipose_6dof_wide_prevbase
+runs/calibration_20260623_overlay_validation
+runs/calibration_20260623_photonfocus_partial_grid_campaign_smoke
+runs/calibration_20260623_refined_multisensor_detection_fast_smoke
+runs/calibration_20260623_refined_multisensor_detection_smoke
+runs/calibration_20260623_refined_multisensor_detection_smoke2
+runs/calibration_20260623_registration_chain_validation
+runs/calibration_20260623_registration_chain_validation_refinedH
+runs/calibration_20260623_rgb_master_validation
+runs/calibration_20260623_thermal_c_float_checker_test
+runs/calibration_20260623_thermal_campaign_full
+runs/calibration_20260623_thermal_campaign_per_label
+runs/calibration_20260623_thermal_campaign_smoke
+runs/calibration_20260623_thermal_guided_panel
+runs/calibration_20260623_thermal_guided_panel_scalar
+runs/calibration_20260623_thermal_guided_panel_scalar_fast
+runs/calibration_20260623_thermal_guided_panel_scalar_pragmatic
+runs/calibration_20260623_thermal_production
+runs/calibration_20260623_thermal_production_p03
+runs/calibration_20260623_thermal_production_p03_fast
+runs/calibration_20260623_thermal_production_p03_lowload
+runs/calibration_20260623_thermal_production_p04_deep
+runs/calibration_20260623_thermal_production_p04_deep_lowload
+runs/calibration_20260623_thermal_raw_checker_test
+runs/calibration_20260623_thermal_raw_smoke_extract
+runs/calibration_20260623_thermal_scalar_checker_test
+runs/calibration_20260623_thermal_scalar_checker_test_v2
+runs/calibration_20260623_thermal_to_vis_guided_checker
+runs/calibration_20260623_thermal_to_vis_merged_candidates
+runs/calibration_20260623_thermal_to_vis_scalar_checker
+```
+
+Other local generated folders:
+
+```text
+.venv_slam_win
+backups
+```
+
+## Notes
+
+The deleted calibration bag cache is reproducible from:
+
+```text
+data/calibration/new_session/20260623/bag_manifest_20260623.csv
+```
+
+If Ouster visual validation needs to be regenerated, rebuild
+`runs/calibration_20260623_raw_bag_cache` or point scripts to the original
+network bags.

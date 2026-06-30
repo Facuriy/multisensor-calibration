@@ -1,0 +1,3103 @@
+{
+  "inputs": {
+    "scan_summary": "runs\\calibration_20260623_checker_lidar_scan\\scan_summary.json",
+    "fallback_summary": "runs\\calibration_20260623_lidar_intensity_fallback\\fallback_intensity_summary.json",
+    "refined_summary": "runs\\calibration_20260623_refined_multisensor_detection\\refined_multisensor_detection_summary.json",
+    "intrinsics": "data\\calibration\\new_session\\20260623\\rgb_intrinsics_20260623.json",
+    "base_T": "runs\\calibration\\multipose_6dof_refined_20260528\\T_cam_lidar_multipose_6dof.npy",
+    "compare_T": [
+      "runs\\calibration\\T_from_api_values_effective_20260528\\T_cam_lidar_effective.npy",
+      "runs\\calibration\\T_checker_intensity_refined_txyz_20260528\\T_cam_lidar_checker_intensity_refined.npy"
+    ]
+  },
+  "pattern_internal_corners": [
+    9,
+    6
+  ],
+  "square_size_m": 0.04,
+  "n_rgb_detections": 32,
+  "n_lidar_planes": 36,
+  "n_frames_all": 31,
+  "n_frames_used": 30,
+  "rejected_labels": [
+    "calib_p09_low_bottomright"
+  ],
+  "used_labels": [
+    "calib_p01_low_center",
+    "calib_p01_low_left",
+    "calib_p01_low_left_02",
+    "calib_p04_low_top",
+    "calib_p05_low_bottom",
+    "calib_p06_low_topleft",
+    "calib_p07_low_topright",
+    "calib_p10_low_roll_plus",
+    "calib_p11_low_roll_minus",
+    "calib_p12_low_tilt",
+    "calib_p13_mid_center",
+    "calib_p14_mid_left",
+    "calib_p15_mid_right",
+    "calib_p16_mid_top",
+    "calib_p17_mid_bottom",
+    "calib_p18_mid_topleft",
+    "calib_p19_mid_topright",
+    "calib_p20_mid_bottomleft",
+    "calib_p22_mid_roll_plus",
+    "calib_p23_mid_roll_minus",
+    "calib_p24_mid_tilt",
+    "calib_p25_high_center",
+    "calib_p26_high_left",
+    "calib_p27_high_right",
+    "calib_p28_high_top",
+    "calib_p30_high_topleft",
+    "calib_p31_high_topright",
+    "calib_p34_high_roll_plus",
+    "calib_p35_high_roll_minus",
+    "calib_p36_high_tilt"
+  ],
+  "params": {
+    "max_rot_deg": 15.0,
+    "max_trans_m": 0.5,
+    "normal_weight": 0.15,
+    "centroid_weight": 0.05,
+    "prior_weight": 0.03,
+    "folds": 5
+  },
+  "first_pass": {
+    "success": true,
+    "cost": 0.15195337082252794,
+    "delta_deg_xyz": [
+      8.797037559662032,
+      1.0243365879621122,
+      -3.1063166607683113
+    ],
+    "delta_t_m": [
+      0.010007824406999412,
+      0.25907352447547993,
+      0.062343941234514685
+    ],
+    "metrics": {
+      "name": "first_pass_all_frames",
+      "n_poses": 31,
+      "corner_plane_abs_mean_m": 0.009726521503140977,
+      "corner_plane_abs_median_m": 0.0058939245131983675,
+      "pose_corner_plane_rms_mean_m": 0.011288618246788182,
+      "pose_corner_plane_rms_median_m": 0.007869372008052652,
+      "normal_angle_mean_deg": 7.932247766808988,
+      "normal_angle_median_deg": 3.9153641941671746,
+      "centroid_error_mean_m": 0.07584601242138687,
+      "centroid_error_median_m": 0.07542271165336113
+    }
+  },
+  "optimization": {
+    "success": true,
+    "message": "`ftol` termination condition is satisfied.",
+    "cost": 0.09384920414039033,
+    "nfev": 10,
+    "delta_rotvec": [
+      0.14843496346369384,
+      0.017944014962307457,
+      -0.03895104991317463
+    ],
+    "delta_deg_xyz": [
+      8.504696938648232,
+      1.0281163248598182,
+      -2.231730767628318
+    ],
+    "delta_t_m": [
+      0.005476071081765542,
+      0.2553975191282513,
+      0.062423927377097205
+    ],
+    "hit_bounds": {
+      "rotation": false,
+      "translation": false
+    }
+  },
+  "T_cam_lidar_20260623_multipose_6dof": [
+    [
+      -0.9992193212095634,
+      0.00524403917908664,
+      0.03915671302072509,
+      0.05069115812288073
+    ],
+    [
+      0.038981844781565154,
+      -0.030090189525478973,
+      0.9987867621628488,
+      0.1229994200534078
+    ],
+    [
+      0.006415909828323505,
+      0.9995334314305897,
+      0.029862276431408583,
+      -0.10353635998879168
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "comparison": [
+    {
+      "name": "A_base_previous_multipose",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.08162538780941644,
+      "corner_plane_abs_median_m": 0.08015769843047393,
+      "pose_corner_plane_rms_mean_m": 0.08252429223205353,
+      "pose_corner_plane_rms_median_m": 0.08670098104598727,
+      "normal_angle_mean_deg": 8.964687351332914,
+      "normal_angle_median_deg": 9.12036253490998,
+      "centroid_error_mean_m": 0.09536659686178164,
+      "centroid_error_median_m": 0.10108303767828769,
+      "per_pose": [
+        {
+          "label": "calib_p01_low_center",
+          "bag": "2026-06-23-08-26-48.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10002140007927633,
+          "corner_plane_median_abs_m": 0.09961919651936924,
+          "center_plane_abs_m": 0.09961919668453767,
+          "normal_angle_deg": 7.536823148980419,
+          "centroid_error_m": 0.11378219865937117,
+          "n_lidar_pts": 1569,
+          "lidar_plane_rms_m": 0.01528182371286678
+        },
+        {
+          "label": "calib_p01_low_left",
+          "bag": "2026-06-23-08-30-20.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10491721131950645,
+          "corner_plane_median_abs_m": 0.10438683282674432,
+          "center_plane_abs_m": 0.10438683293683693,
+          "normal_angle_deg": 8.478181179016413,
+          "centroid_error_m": 0.11777482017282148,
+          "n_lidar_pts": 1552,
+          "lidar_plane_rms_m": 0.015378630145201229
+        },
+        {
+          "label": "calib_p01_low_left_02",
+          "bag": "2026-06-23-08-39-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10359242634028851,
+          "corner_plane_median_abs_m": 0.10266729204186853,
+          "center_plane_abs_m": 0.10266729219407833,
+          "normal_angle_deg": 11.20895889228846,
+          "centroid_error_m": 0.1188478484098018,
+          "n_lidar_pts": 1215,
+          "lidar_plane_rms_m": 0.0159423064979706
+        },
+        {
+          "label": "calib_p04_low_top",
+          "bag": "2026-06-23-08-49-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06660534387885207,
+          "corner_plane_median_abs_m": 0.06642941974885141,
+          "center_plane_abs_m": 0.06642941981050843,
+          "normal_angle_deg": 3.992407874043991,
+          "centroid_error_m": 0.07486054849823635,
+          "n_lidar_pts": 828,
+          "lidar_plane_rms_m": 0.016339096822577757
+        },
+        {
+          "label": "calib_p05_low_bottom",
+          "bag": "2026-06-23-08-51-56.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.1117917618464576,
+          "corner_plane_median_abs_m": 0.1107751549985051,
+          "center_plane_abs_m": 0.11077515524827741,
+          "normal_angle_deg": 12.68875509191703,
+          "centroid_error_m": 0.1168158223704613,
+          "n_lidar_pts": 986,
+          "lidar_plane_rms_m": 0.01621217899349554
+        },
+        {
+          "label": "calib_p06_low_topleft",
+          "bag": "2026-06-23-08-54-31.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06902112327074744,
+          "corner_plane_median_abs_m": 0.06842937959692452,
+          "center_plane_abs_m": 0.06842937983373099,
+          "normal_angle_deg": 6.889336378294926,
+          "centroid_error_m": 0.07670901194271951,
+          "n_lidar_pts": 871,
+          "lidar_plane_rms_m": 0.01690294924380188
+        },
+        {
+          "label": "calib_p07_low_topright",
+          "bag": "2026-06-23-08-56-12.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06847833819947076,
+          "corner_plane_median_abs_m": 0.06823658252146547,
+          "center_plane_abs_m": 0.06823658264827182,
+          "normal_angle_deg": 4.764406294556776,
+          "centroid_error_m": 0.07673102963733987,
+          "n_lidar_pts": 754,
+          "lidar_plane_rms_m": 0.01678487611291147
+        },
+        {
+          "label": "calib_p10_low_roll_plus",
+          "bag": "2026-06-23-09-02-50.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09399006655274186,
+          "corner_plane_median_abs_m": 0.09316148193645912,
+          "center_plane_abs_m": 0.0931614820695732,
+          "normal_angle_deg": 10.059624494192686,
+          "centroid_error_m": 0.1017598430221581,
+          "n_lidar_pts": 909,
+          "lidar_plane_rms_m": 0.016999132097421887
+        },
+        {
+          "label": "calib_p11_low_roll_minus",
+          "bag": "2026-06-23-09-04-17.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0925741839164372,
+          "corner_plane_median_abs_m": 0.09195108330375623,
+          "center_plane_abs_m": 0.09195108314417877,
+          "normal_angle_deg": 7.688763644218919,
+          "centroid_error_m": 0.09470826922200956,
+          "n_lidar_pts": 964,
+          "lidar_plane_rms_m": 0.01685291572338774
+        },
+        {
+          "label": "calib_p12_low_tilt",
+          "bag": "2026-06-23-09-06-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09852608956278108,
+          "corner_plane_median_abs_m": 0.09747247199825171,
+          "center_plane_abs_m": 0.0974724722412863,
+          "normal_angle_deg": 12.123613553776021,
+          "centroid_error_m": 0.09830655533234789,
+          "n_lidar_pts": 599,
+          "lidar_plane_rms_m": 0.01692127214225933
+        },
+        {
+          "label": "calib_p13_mid_center",
+          "bag": "2026-06-23-09-10-36.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.08982704388321197,
+          "corner_plane_median_abs_m": 0.08915381759808205,
+          "center_plane_abs_m": 0.0891538177930602,
+          "normal_angle_deg": 9.24505718749048,
+          "centroid_error_m": 0.09768488992849227,
+          "n_lidar_pts": 1269,
+          "lidar_plane_rms_m": 0.017683173773780664
+        },
+        {
+          "label": "calib_p14_mid_left",
+          "bag": "2026-06-23-09-12-23.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.08897802621102288,
+          "corner_plane_median_abs_m": 0.08813116014215461,
+          "center_plane_abs_m": 0.08813116042124136,
+          "normal_angle_deg": 10.12461479433543,
+          "centroid_error_m": 0.10110298276452598,
+          "n_lidar_pts": 1297,
+          "lidar_plane_rms_m": 0.017614558437833064
+        },
+        {
+          "label": "calib_p15_mid_right",
+          "bag": "2026-06-23-09-14-07.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.08936424568272808,
+          "corner_plane_median_abs_m": 0.08859344125675195,
+          "center_plane_abs_m": 0.08859344147060533,
+          "normal_angle_deg": 9.871821975412283,
+          "centroid_error_m": 0.10461464239377845,
+          "n_lidar_pts": 1018,
+          "lidar_plane_rms_m": 0.017532599362899838
+        },
+        {
+          "label": "calib_p16_mid_top",
+          "bag": "2026-06-23-09-17-27.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07551803008312037,
+          "corner_plane_median_abs_m": 0.07467024384897714,
+          "center_plane_abs_m": 0.0746702441014877,
+          "normal_angle_deg": 9.222610237455003,
+          "centroid_error_m": 0.10946315057022206,
+          "n_lidar_pts": 1183,
+          "lidar_plane_rms_m": 0.01744416644492912
+        },
+        {
+          "label": "calib_p17_mid_bottom",
+          "bag": "2026-06-23-09-19-08.bag",
+          "rgb_source": "refined",
+          "lidar_source": "fallback_intensity",
+          "corner_plane_rms_m": 0.10689592703487369,
+          "corner_plane_median_abs_m": 0.10347586296862177,
+          "center_plane_abs_m": 0.10347586339466686,
+          "normal_angle_deg": 22.99759857304506,
+          "centroid_error_m": 0.1355293904304485,
+          "n_lidar_pts": 1298,
+          "lidar_plane_rms_m": 0.019753614146952345
+        },
+        {
+          "label": "calib_p18_mid_topleft",
+          "bag": "2026-06-23-09-21-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0740265667073617,
+          "corner_plane_median_abs_m": 0.07320021462795057,
+          "center_plane_abs_m": 0.07320021480605332,
+          "normal_angle_deg": 9.254626115312188,
+          "centroid_error_m": 0.11864172715130823,
+          "n_lidar_pts": 1261,
+          "lidar_plane_rms_m": 0.017422784931895637
+        },
+        {
+          "label": "calib_p19_mid_topright",
+          "bag": "2026-06-23-09-23-06.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07856212965899632,
+          "corner_plane_median_abs_m": 0.07780111871851814,
+          "center_plane_abs_m": 0.07780111885463792,
+          "normal_angle_deg": 9.018114832364956,
+          "centroid_error_m": 0.11243682136668028,
+          "n_lidar_pts": 1059,
+          "lidar_plane_rms_m": 0.017954939959624053
+        },
+        {
+          "label": "calib_p20_mid_bottomleft",
+          "bag": "2026-06-23-09-24-53.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10281580189456607,
+          "corner_plane_median_abs_m": 0.10130929760134277,
+          "center_plane_abs_m": 0.10130929779580344,
+          "normal_angle_deg": 14.296328448247303,
+          "centroid_error_m": 0.10919887357305419,
+          "n_lidar_pts": 1378,
+          "lidar_plane_rms_m": 0.017266121995593447
+        },
+        {
+          "label": "calib_p22_mid_roll_plus",
+          "bag": "2026-06-23-09-49-39.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0887627863091939,
+          "corner_plane_median_abs_m": 0.08786863962810942,
+          "center_plane_abs_m": 0.0878686399572497,
+          "normal_angle_deg": 9.652874136499804,
+          "centroid_error_m": 0.10649872651415432,
+          "n_lidar_pts": 1466,
+          "lidar_plane_rms_m": 0.0170011900010125
+        },
+        {
+          "label": "calib_p23_mid_roll_minus",
+          "bag": "2026-06-23-09-51-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09154785058828578,
+          "corner_plane_median_abs_m": 0.09090210120853615,
+          "center_plane_abs_m": 0.09090210146293232,
+          "normal_angle_deg": 8.605425555155856,
+          "centroid_error_m": 0.10498584384236513,
+          "n_lidar_pts": 1233,
+          "lidar_plane_rms_m": 0.017933103919884587
+        },
+        {
+          "label": "calib_p24_mid_tilt",
+          "bag": "2026-06-23-09-55-04.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06765228125324366,
+          "corner_plane_median_abs_m": 0.06733269706365952,
+          "center_plane_abs_m": 0.06733269707266532,
+          "normal_angle_deg": 4.853133150061243,
+          "centroid_error_m": 0.07580800612259948,
+          "n_lidar_pts": 516,
+          "lidar_plane_rms_m": 0.01840032212646023
+        },
+        {
+          "label": "calib_p25_high_center",
+          "bag": "2026-06-23-10-00-18.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.08463917578278063,
+          "corner_plane_median_abs_m": 0.08447429928598038,
+          "center_plane_abs_m": 0.0844742994054013,
+          "normal_angle_deg": 4.354223546062165,
+          "centroid_error_m": 0.10106309259204942,
+          "n_lidar_pts": 1116,
+          "lidar_plane_rms_m": 0.018544647371808727
+        },
+        {
+          "label": "calib_p26_high_left",
+          "bag": "2026-06-23-10-02-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09204583902487513,
+          "corner_plane_median_abs_m": 0.0911693570321701,
+          "center_plane_abs_m": 0.09116935702844264,
+          "normal_angle_deg": 8.778335005214887,
+          "centroid_error_m": 0.10904524892040367,
+          "n_lidar_pts": 1125,
+          "lidar_plane_rms_m": 0.01823318500695125
+        },
+        {
+          "label": "calib_p27_high_right",
+          "bag": "2026-06-23-10-03-25.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06772563471150327,
+          "corner_plane_median_abs_m": 0.0654362466127677,
+          "center_plane_abs_m": 0.06543624621553601,
+          "normal_angle_deg": 14.519806755105161,
+          "centroid_error_m": 0.06646241114333712,
+          "n_lidar_pts": 841,
+          "lidar_plane_rms_m": 0.018887501352419952
+        },
+        {
+          "label": "calib_p28_high_top",
+          "bag": "2026-06-23-10-05-51.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0582456700211091,
+          "corner_plane_median_abs_m": 0.05801759749480795,
+          "center_plane_abs_m": 0.05801759755175118,
+          "normal_angle_deg": 3.140207235279833,
+          "centroid_error_m": 0.06786510552942351,
+          "n_lidar_pts": 1024,
+          "lidar_plane_rms_m": 0.018570453227249407
+        },
+        {
+          "label": "calib_p30_high_topleft",
+          "bag": "2026-06-23-10-10-54.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0669573827913357,
+          "corner_plane_median_abs_m": 0.06644741323396852,
+          "center_plane_abs_m": 0.06644741313186575,
+          "normal_angle_deg": 4.6812286435073265,
+          "centroid_error_m": 0.0842076036061712,
+          "n_lidar_pts": 926,
+          "lidar_plane_rms_m": 0.018971242477384617
+        },
+        {
+          "label": "calib_p31_high_topright",
+          "bag": "2026-06-23-10-12-24.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0719348180392504,
+          "corner_plane_median_abs_m": 0.07102815292639209,
+          "center_plane_abs_m": 0.07102815258119688,
+          "normal_angle_deg": 6.71004507359337,
+          "centroid_error_m": 0.07954861349416184,
+          "n_lidar_pts": 714,
+          "lidar_plane_rms_m": 0.019058751977268903
+        },
+        {
+          "label": "calib_p34_high_roll_plus",
+          "bag": "2026-06-23-10-18-28.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06012207371603644,
+          "corner_plane_median_abs_m": 0.0584972214593511,
+          "center_plane_abs_m": 0.05849722122469525,
+          "normal_angle_deg": 11.706265359687226,
+          "centroid_error_m": 0.06589170603060351,
+          "n_lidar_pts": 1115,
+          "lidar_plane_rms_m": 0.01873287905238089
+        },
+        {
+          "label": "calib_p35_high_roll_minus",
+          "bag": "2026-06-23-10-20-30.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07349533147743154,
+          "corner_plane_median_abs_m": 0.07342569188335712,
+          "center_plane_abs_m": 0.07342569192813575,
+          "normal_angle_deg": 1.7877499241209547,
+          "centroid_error_m": 0.07984569972635515,
+          "n_lidar_pts": 1104,
+          "lidar_plane_rms_m": 0.018626475440287154
+        },
+        {
+          "label": "calib_p36_high_tilt",
+          "bag": "2026-06-23-10-22-47.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.037094207124120024,
+          "corner_plane_median_abs_m": 0.034698160977591486,
+          "center_plane_abs_m": 0.03469816127378644,
+          "normal_angle_deg": 10.689683440751253,
+          "centroid_error_m": 0.04080742288604734,
+          "n_lidar_pts": 842,
+          "lidar_plane_rms_m": 0.019424935576820113
+        }
+      ]
+    },
+    {
+      "name": "B_compare_0_T_cam_lidar_effective",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.12255038257601245,
+      "corner_plane_abs_median_m": 0.12254096098048994,
+      "pose_corner_plane_rms_mean_m": 0.12311224082754661,
+      "pose_corner_plane_rms_median_m": 0.12802449614201317,
+      "normal_angle_mean_deg": 8.518407428814971,
+      "normal_angle_median_deg": 8.489913524787296,
+      "centroid_error_mean_m": 0.13345898866706735,
+      "centroid_error_median_m": 0.13991350855119522,
+      "per_pose": [
+        {
+          "label": "calib_p01_low_center",
+          "bag": "2026-06-23-08-26-48.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.14215392402569443,
+          "corner_plane_median_abs_m": 0.14191799293851926,
+          "center_plane_abs_m": 0.14191799309669495,
+          "normal_angle_deg": 6.872092208698669,
+          "centroid_error_m": 0.1477751101985063,
+          "n_lidar_pts": 1569,
+          "lidar_plane_rms_m": 0.01528182371286678
+        },
+        {
+          "label": "calib_p01_low_left",
+          "bag": "2026-06-23-08-30-20.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.1456689945253013,
+          "corner_plane_median_abs_m": 0.14534818365364588,
+          "center_plane_abs_m": 0.14534818375694059,
+          "normal_angle_deg": 7.78949676805911,
+          "centroid_error_m": 0.1502622005104446,
+          "n_lidar_pts": 1552,
+          "lidar_plane_rms_m": 0.015378630145201229
+        },
+        {
+          "label": "calib_p01_low_left_02",
+          "bag": "2026-06-23-08-39-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.14438682077604267,
+          "corner_plane_median_abs_m": 0.14380744842923343,
+          "center_plane_abs_m": 0.14380744857633254,
+          "normal_angle_deg": 10.513415704374694,
+          "centroid_error_m": 0.14999069298840179,
+          "n_lidar_pts": 1215,
+          "lidar_plane_rms_m": 0.0159423064979706
+        },
+        {
+          "label": "calib_p04_low_top",
+          "bag": "2026-06-23-08-49-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11028367275578796,
+          "corner_plane_median_abs_m": 0.11020486227607551,
+          "center_plane_abs_m": 0.11020486237086025,
+          "normal_angle_deg": 3.3676983791879986,
+          "centroid_error_m": 0.11834482983475492,
+          "n_lidar_pts": 828,
+          "lidar_plane_rms_m": 0.016339096822577757
+        },
+        {
+          "label": "calib_p05_low_bottom",
+          "bag": "2026-06-23-08-51-56.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.1535901598248054,
+          "corner_plane_median_abs_m": 0.15293006836521894,
+          "center_plane_abs_m": 0.1529300686116999,
+          "normal_angle_deg": 12.009124966611536,
+          "centroid_error_m": 0.15669679819416835,
+          "n_lidar_pts": 986,
+          "lidar_plane_rms_m": 0.01621217899349554
+        },
+        {
+          "label": "calib_p06_low_topleft",
+          "bag": "2026-06-23-08-54-31.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11138916603849629,
+          "corner_plane_median_abs_m": 0.111089560523291,
+          "center_plane_abs_m": 0.11108956073768605,
+          "normal_angle_deg": 6.233227726268807,
+          "centroid_error_m": 0.11657428450352376,
+          "n_lidar_pts": 871,
+          "lidar_plane_rms_m": 0.01690294924380188
+        },
+        {
+          "label": "calib_p07_low_topright",
+          "bag": "2026-06-23-08-56-12.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11162428952786485,
+          "corner_plane_median_abs_m": 0.11151516562950403,
+          "center_plane_abs_m": 0.1115151657039013,
+          "normal_angle_deg": 4.106121679863314,
+          "centroid_error_m": 0.12153930139192222,
+          "n_lidar_pts": 754,
+          "lidar_plane_rms_m": 0.01678487611291147
+        },
+        {
+          "label": "calib_p10_low_roll_plus",
+          "bag": "2026-06-23-09-02-50.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.13641696903790745,
+          "corner_plane_median_abs_m": 0.1359285565516991,
+          "center_plane_abs_m": 0.13592855668362036,
+          "normal_angle_deg": 9.377689030487415,
+          "centroid_error_m": 0.14316463322393427,
+          "n_lidar_pts": 909,
+          "lidar_plane_rms_m": 0.016999132097421887
+        },
+        {
+          "label": "calib_p11_low_roll_minus",
+          "bag": "2026-06-23-09-04-17.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.13529779981054915,
+          "corner_plane_median_abs_m": 0.13492058204726765,
+          "center_plane_abs_m": 0.13492058229053883,
+          "normal_angle_deg": 7.0686253474332865,
+          "centroid_error_m": 0.13722069426190747,
+          "n_lidar_pts": 964,
+          "lidar_plane_rms_m": 0.01685291572338774
+        },
+        {
+          "label": "calib_p12_low_tilt",
+          "bag": "2026-06-23-09-06-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.1335669737664784,
+          "corner_plane_median_abs_m": 0.13286878687946102,
+          "center_plane_abs_m": 0.13286878710303873,
+          "normal_angle_deg": 11.480441755873565,
+          "centroid_error_m": 0.13607370057724497,
+          "n_lidar_pts": 599,
+          "lidar_plane_rms_m": 0.01692127214225933
+        },
+        {
+          "label": "calib_p13_mid_center",
+          "bag": "2026-06-23-09-10-36.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.13226884855751744,
+          "corner_plane_median_abs_m": 0.13187640805315004,
+          "center_plane_abs_m": 0.13187640824268487,
+          "normal_angle_deg": 8.569462877378164,
+          "centroid_error_m": 0.13846443420893056,
+          "n_lidar_pts": 1269,
+          "lidar_plane_rms_m": 0.017683173773780664
+        },
+        {
+          "label": "calib_p14_mid_left",
+          "bag": "2026-06-23-09-12-23.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.1303518248410401,
+          "corner_plane_median_abs_m": 0.12985562555204888,
+          "center_plane_abs_m": 0.12985562580690058,
+          "normal_angle_deg": 9.419289028631185,
+          "centroid_error_m": 0.13448453337339025,
+          "n_lidar_pts": 1297,
+          "lidar_plane_rms_m": 0.017614558437833064
+        },
+        {
+          "label": "calib_p15_mid_right",
+          "bag": "2026-06-23-09-14-07.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.13204476688176095,
+          "corner_plane_median_abs_m": 0.1315891877569061,
+          "center_plane_abs_m": 0.13158918796548424,
+          "normal_angle_deg": 9.223782633912137,
+          "centroid_error_m": 0.14556262436824,
+          "n_lidar_pts": 1018,
+          "lidar_plane_rms_m": 0.017532599362899838
+        },
+        {
+          "label": "calib_p16_mid_top",
+          "bag": "2026-06-23-09-17-27.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11951577904736728,
+          "corner_plane_median_abs_m": 0.11903280505834091,
+          "center_plane_abs_m": 0.11903280530579696,
+          "normal_angle_deg": 8.625285364509962,
+          "centroid_error_m": 0.1429373398527095,
+          "n_lidar_pts": 1183,
+          "lidar_plane_rms_m": 0.01744416644492912
+        },
+        {
+          "label": "calib_p17_mid_bottom",
+          "bag": "2026-06-23-09-19-08.bag",
+          "rgb_source": "refined",
+          "lidar_source": "fallback_intensity",
+          "corner_plane_rms_m": 0.1475425958388882,
+          "corner_plane_median_abs_m": 0.14523291075663158,
+          "center_plane_abs_m": 0.1452329111858044,
+          "normal_angle_deg": 22.30985225433608,
+          "centroid_error_m": 0.17119879482035644,
+          "n_lidar_pts": 1298,
+          "lidar_plane_rms_m": 0.019753614146952345
+        },
+        {
+          "label": "calib_p18_mid_topleft",
+          "bag": "2026-06-23-09-21-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11684864014838146,
+          "corner_plane_median_abs_m": 0.11640374231676442,
+          "center_plane_abs_m": 0.11640374249011254,
+          "normal_angle_deg": 8.564208146124532,
+          "centroid_error_m": 0.14606769067673264,
+          "n_lidar_pts": 1261,
+          "lidar_plane_rms_m": 0.017422784931895637
+        },
+        {
+          "label": "calib_p19_mid_topright",
+          "bag": "2026-06-23-09-23-06.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.12245398555585556,
+          "corner_plane_median_abs_m": 0.12201930606391176,
+          "center_plane_abs_m": 0.12201930629482738,
+          "normal_angle_deg": 8.41561890345006,
+          "centroid_error_m": 0.14811522713350542,
+          "n_lidar_pts": 1059,
+          "lidar_plane_rms_m": 0.017954939959624053
+        },
+        {
+          "label": "calib_p20_mid_bottomleft",
+          "bag": "2026-06-23-09-24-53.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.14284346048674784,
+          "corner_plane_median_abs_m": 0.14187420328669065,
+          "center_plane_abs_m": 0.14187420347847257,
+          "normal_angle_deg": 13.587241556715961,
+          "centroid_error_m": 0.14480915151926563,
+          "n_lidar_pts": 1378,
+          "lidar_plane_rms_m": 0.017266121995593447
+        },
+        {
+          "label": "calib_p22_mid_roll_plus",
+          "bag": "2026-06-23-09-49-39.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.131222905690675,
+          "corner_plane_median_abs_m": 0.13071699114139057,
+          "center_plane_abs_m": 0.1307169914398274,
+          "normal_angle_deg": 8.93431537552491,
+          "centroid_error_m": 0.14381992341593416,
+          "n_lidar_pts": 1466,
+          "lidar_plane_rms_m": 0.0170011900010125
+        },
+        {
+          "label": "calib_p23_mid_roll_minus",
+          "bag": "2026-06-23-09-51-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.13298356251755963,
+          "corner_plane_median_abs_m": 0.1325944700473456,
+          "center_plane_abs_m": 0.13259447028809346,
+          "normal_angle_deg": 7.962567561902539,
+          "centroid_error_m": 0.14305471932841404,
+          "n_lidar_pts": 1233,
+          "lidar_plane_rms_m": 0.017933103919884587
+        },
+        {
+          "label": "calib_p24_mid_tilt",
+          "bag": "2026-06-23-09-55-04.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10164397608849217,
+          "corner_plane_median_abs_m": 0.10149556291045136,
+          "center_plane_abs_m": 0.10149556291699002,
+          "normal_angle_deg": 4.046002288564142,
+          "centroid_error_m": 0.11771280162807055,
+          "n_lidar_pts": 516,
+          "lidar_plane_rms_m": 0.01840032212646023
+        },
+        {
+          "label": "calib_p25_high_center",
+          "bag": "2026-06-23-10-00-18.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.1256971674429862,
+          "corner_plane_median_abs_m": 0.1256185785836954,
+          "center_plane_abs_m": 0.12561857868223547,
+          "normal_angle_deg": 3.677915831570299,
+          "centroid_error_m": 0.14381093281219143,
+          "n_lidar_pts": 1116,
+          "lidar_plane_rms_m": 0.018544647371808727
+        },
+        {
+          "label": "calib_p26_high_left",
+          "bag": "2026-06-23-10-02-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.1317518921753592,
+          "corner_plane_median_abs_m": 0.1312103646012348,
+          "center_plane_abs_m": 0.13121036451151813,
+          "normal_angle_deg": 8.178129632734429,
+          "centroid_error_m": 0.14136258289345985,
+          "n_lidar_pts": 1125,
+          "lidar_plane_rms_m": 0.01823318500695125
+        },
+        {
+          "label": "calib_p27_high_right",
+          "bag": "2026-06-23-10-03-25.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10272749663409643,
+          "corner_plane_median_abs_m": 0.1011189319839757,
+          "center_plane_abs_m": 0.10111893158243013,
+          "normal_angle_deg": 15.15131267143811,
+          "centroid_error_m": 0.10963229349701174,
+          "n_lidar_pts": 841,
+          "lidar_plane_rms_m": 0.018887501352419952
+        },
+        {
+          "label": "calib_p28_high_top",
+          "bag": "2026-06-23-10-05-51.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09877686514619571,
+          "corner_plane_median_abs_m": 0.09863039511491822,
+          "center_plane_abs_m": 0.09863039514301386,
+          "normal_angle_deg": 3.4656295238358936,
+          "centroid_error_m": 0.11273864279082815,
+          "n_lidar_pts": 1024,
+          "lidar_plane_rms_m": 0.018570453227249407
+        },
+        {
+          "label": "calib_p30_high_topleft",
+          "bag": "2026-06-23-10-10-54.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10772618627471717,
+          "corner_plane_median_abs_m": 0.10743367441355856,
+          "center_plane_abs_m": 0.1074336743015778,
+          "normal_angle_deg": 4.434225590982103,
+          "centroid_error_m": 0.11413721918399194,
+          "n_lidar_pts": 926,
+          "lidar_plane_rms_m": 0.018971242477384617
+        },
+        {
+          "label": "calib_p31_high_topright",
+          "bag": "2026-06-23-10-12-24.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11627795828778145,
+          "corner_plane_median_abs_m": 0.11571377076438283,
+          "center_plane_abs_m": 0.11571377044635534,
+          "normal_angle_deg": 6.569776026713466,
+          "centroid_error_m": 0.1281848657606533,
+          "n_lidar_pts": 714,
+          "lidar_plane_rms_m": 0.019058751977268903
+        },
+        {
+          "label": "calib_p34_high_roll_plus",
+          "bag": "2026-06-23-10-18-28.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0973335783233902,
+          "corner_plane_median_abs_m": 0.09622838240152298,
+          "center_plane_abs_m": 0.0962283821561869,
+          "normal_angle_deg": 12.338304115137598,
+          "centroid_error_m": 0.11222415200899434,
+          "n_lidar_pts": 1115,
+          "lidar_plane_rms_m": 0.01873287905238089
+        },
+        {
+          "label": "calib_p35_high_roll_minus",
+          "bag": "2026-06-23-10-20-30.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11500014410337282,
+          "corner_plane_median_abs_m": 0.11496168334012824,
+          "center_plane_abs_m": 0.11496168326462075,
+          "normal_angle_deg": 1.7928376217894277,
+          "centroid_error_m": 0.12338664624812017,
+          "n_lidar_pts": 1104,
+          "lidar_plane_rms_m": 0.018626475440287154
+        },
+        {
+          "label": "calib_p36_high_tilt",
+          "bag": "2026-06-23-10-22-47.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0639768206952857,
+          "corner_plane_median_abs_m": 0.06237327251786007,
+          "center_plane_abs_m": 0.062373272846128924,
+          "normal_angle_deg": 11.468532292339741,
+          "centroid_error_m": 0.0644228388064112,
+          "n_lidar_pts": 842,
+          "lidar_plane_rms_m": 0.019424935576820113
+        }
+      ]
+    },
+    {
+      "name": "B_compare_1_T_cam_lidar_checker_intensity_refined",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.08300808287330436,
+      "corner_plane_abs_median_m": 0.08253281940913881,
+      "pose_corner_plane_rms_mean_m": 0.08385603174583804,
+      "pose_corner_plane_rms_median_m": 0.08786875597837002,
+      "normal_angle_mean_deg": 8.518407428814971,
+      "normal_angle_median_deg": 8.489913524787296,
+      "centroid_error_mean_m": 0.0967299289509057,
+      "centroid_error_median_m": 0.10250603106064118,
+      "per_pose": [
+        {
+          "label": "calib_p01_low_center",
+          "bag": "2026-06-23-08-26-48.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10196855356581293,
+          "corner_plane_median_abs_m": 0.10163938475237289,
+          "center_plane_abs_m": 0.10163938491054858,
+          "normal_angle_deg": 6.872092208698669,
+          "centroid_error_m": 0.1090211313842392,
+          "n_lidar_pts": 1569,
+          "lidar_plane_rms_m": 0.01528182371286678
+        },
+        {
+          "label": "calib_p01_low_left",
+          "bag": "2026-06-23-08-30-20.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10547271967873553,
+          "corner_plane_median_abs_m": 0.10502920132115778,
+          "center_plane_abs_m": 0.10502920142445249,
+          "normal_angle_deg": 7.78949676805911,
+          "centroid_error_m": 0.11141121048151112,
+          "n_lidar_pts": 1552,
+          "lidar_plane_rms_m": 0.015378630145201229
+        },
+        {
+          "label": "calib_p01_low_left_02",
+          "bag": "2026-06-23-08-39-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10435973521860326,
+          "corner_plane_median_abs_m": 0.10355666350675963,
+          "center_plane_abs_m": 0.10355666365385874,
+          "normal_angle_deg": 10.513415704374694,
+          "centroid_error_m": 0.11127497072752711,
+          "n_lidar_pts": 1215,
+          "lidar_plane_rms_m": 0.0159423064979706
+        },
+        {
+          "label": "calib_p04_low_top",
+          "bag": "2026-06-23-08-49-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07001526769902375,
+          "corner_plane_median_abs_m": 0.06989106460336136,
+          "center_plane_abs_m": 0.0698910646981461,
+          "normal_angle_deg": 3.3676983791879986,
+          "centroid_error_m": 0.08273711705688432,
+          "n_lidar_pts": 828,
+          "lidar_plane_rms_m": 0.016339096822577757
+        },
+        {
+          "label": "calib_p05_low_bottom",
+          "bag": "2026-06-23-08-51-56.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.11382186740297259,
+          "corner_plane_median_abs_m": 0.11292956271056698,
+          "center_plane_abs_m": 0.11292956295704792,
+          "normal_angle_deg": 12.009124966611536,
+          "centroid_error_m": 0.11704029365310324,
+          "n_lidar_pts": 986,
+          "lidar_plane_rms_m": 0.01621217899349554
+        },
+        {
+          "label": "calib_p06_low_topleft",
+          "bag": "2026-06-23-08-54-31.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0712834946464808,
+          "corner_plane_median_abs_m": 0.07081441077062423,
+          "center_plane_abs_m": 0.07081441098501928,
+          "normal_angle_deg": 6.233227726268807,
+          "centroid_error_m": 0.0782478138964275,
+          "n_lidar_pts": 871,
+          "lidar_plane_rms_m": 0.01690294924380188
+        },
+        {
+          "label": "calib_p07_low_topright",
+          "bag": "2026-06-23-08-56-12.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07135611948042124,
+          "corner_plane_median_abs_m": 0.07118529304624699,
+          "center_plane_abs_m": 0.07118529312064426,
+          "normal_angle_deg": 4.106121679863314,
+          "centroid_error_m": 0.0860539216562695,
+          "n_lidar_pts": 754,
+          "lidar_plane_rms_m": 0.01678487611291147
+        },
+        {
+          "label": "calib_p10_low_roll_plus",
+          "bag": "2026-06-23-09-02-50.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09637942879334009,
+          "corner_plane_median_abs_m": 0.09568687135593368,
+          "center_plane_abs_m": 0.09568687148785493,
+          "normal_angle_deg": 9.377689030487415,
+          "centroid_error_m": 0.10544360955034071,
+          "n_lidar_pts": 909,
+          "lidar_plane_rms_m": 0.016999132097421887
+        },
+        {
+          "label": "calib_p11_low_roll_minus",
+          "bag": "2026-06-23-09-04-17.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09520954180182892,
+          "corner_plane_median_abs_m": 0.09467272942138383,
+          "center_plane_abs_m": 0.09467272966465501,
+          "normal_angle_deg": 7.0686253474332865,
+          "centroid_error_m": 0.09813991199743845,
+          "n_lidar_pts": 964,
+          "lidar_plane_rms_m": 0.01685291572338774
+        },
+        {
+          "label": "calib_p12_low_tilt",
+          "bag": "2026-06-23-09-06-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0954087531519774,
+          "corner_plane_median_abs_m": 0.09442885279875057,
+          "center_plane_abs_m": 0.09442885302232829,
+          "normal_angle_deg": 11.480441755873565,
+          "centroid_error_m": 0.09605451982125474,
+          "n_lidar_pts": 599,
+          "lidar_plane_rms_m": 0.01692127214225933
+        },
+        {
+          "label": "calib_p13_mid_center",
+          "bag": "2026-06-23-09-10-36.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0922712079816628,
+          "corner_plane_median_abs_m": 0.09170776706414485,
+          "center_plane_abs_m": 0.09170776725367968,
+          "normal_angle_deg": 8.569462877378164,
+          "centroid_error_m": 0.10026333734486288,
+          "n_lidar_pts": 1269,
+          "lidar_plane_rms_m": 0.017683173773780664
+        },
+        {
+          "label": "calib_p14_mid_left",
+          "bag": "2026-06-23-09-12-23.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09033005791264492,
+          "corner_plane_median_abs_m": 0.08961252496798977,
+          "center_plane_abs_m": 0.08961252522284147,
+          "normal_angle_deg": 9.419289028631185,
+          "centroid_error_m": 0.09527768696577237,
+          "n_lidar_pts": 1297,
+          "lidar_plane_rms_m": 0.017614558437833064
+        },
+        {
+          "label": "calib_p15_mid_right",
+          "bag": "2026-06-23-09-14-07.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09203182352182558,
+          "corner_plane_median_abs_m": 0.09137696882251556,
+          "center_plane_abs_m": 0.09137696903109371,
+          "normal_angle_deg": 9.223782633912137,
+          "centroid_error_m": 0.10986543304768256,
+          "n_lidar_pts": 1018,
+          "lidar_plane_rms_m": 0.017532599362899838
+        },
+        {
+          "label": "calib_p16_mid_top",
+          "bag": "2026-06-23-09-17-27.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07974387712294581,
+          "corner_plane_median_abs_m": 0.07901818269968675,
+          "center_plane_abs_m": 0.0790181829471428,
+          "normal_angle_deg": 8.625285364509962,
+          "centroid_error_m": 0.10939656580418428,
+          "n_lidar_pts": 1183,
+          "lidar_plane_rms_m": 0.01744416644492912
+        },
+        {
+          "label": "calib_p17_mid_bottom",
+          "bag": "2026-06-23-09-19-08.bag",
+          "rgb_source": "refined",
+          "lidar_source": "fallback_intensity",
+          "corner_plane_rms_m": 0.1096627389425722,
+          "corner_plane_median_abs_m": 0.10653495729369367,
+          "center_plane_abs_m": 0.10653495772286647,
+          "normal_angle_deg": 22.30985225433608,
+          "centroid_error_m": 0.13301234448003552,
+          "n_lidar_pts": 1298,
+          "lidar_plane_rms_m": 0.019753614146952345
+        },
+        {
+          "label": "calib_p18_mid_topleft",
+          "bag": "2026-06-23-09-21-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0769919501298446,
+          "corner_plane_median_abs_m": 0.07631505041285613,
+          "center_plane_abs_m": 0.07631505058620425,
+          "normal_angle_deg": 8.564208146124532,
+          "centroid_error_m": 0.11345711631050666,
+          "n_lidar_pts": 1261,
+          "lidar_plane_rms_m": 0.017422784931895637
+        },
+        {
+          "label": "calib_p19_mid_topright",
+          "bag": "2026-06-23-09-23-06.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.08253201299985086,
+          "corner_plane_median_abs_m": 0.08188568655233619,
+          "center_plane_abs_m": 0.08188568678325181,
+          "normal_angle_deg": 8.41561890345006,
+          "centroid_error_m": 0.11562844421465054,
+          "n_lidar_pts": 1059,
+          "lidar_plane_rms_m": 0.017954939959624053
+        },
+        {
+          "label": "calib_p20_mid_bottomleft",
+          "bag": "2026-06-23-09-24-53.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.10324485607064453,
+          "corner_plane_median_abs_m": 0.10189963530251234,
+          "center_plane_abs_m": 0.10189963549429426,
+          "normal_angle_deg": 13.587241556715961,
+          "centroid_error_m": 0.1047487247764195,
+          "n_lidar_pts": 1378,
+          "lidar_plane_rms_m": 0.017266121995593447
+        },
+        {
+          "label": "calib_p22_mid_roll_plus",
+          "bag": "2026-06-23-09-49-39.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09139335540669302,
+          "corner_plane_median_abs_m": 0.09066546327877201,
+          "center_plane_abs_m": 0.09066546357720884,
+          "normal_angle_deg": 8.93431537552491,
+          "centroid_error_m": 0.10689388569784763,
+          "n_lidar_pts": 1466,
+          "lidar_plane_rms_m": 0.0170011900010125
+        },
+        {
+          "label": "calib_p23_mid_roll_minus",
+          "bag": "2026-06-23-09-51-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09299609399074438,
+          "corner_plane_median_abs_m": 0.0924388398031093,
+          "center_plane_abs_m": 0.09243884004385716,
+          "normal_angle_deg": 7.962567561902539,
+          "centroid_error_m": 0.10521878163481942,
+          "n_lidar_pts": 1233,
+          "lidar_plane_rms_m": 0.017933103919884587
+        },
+        {
+          "label": "calib_p24_mid_tilt",
+          "bag": "2026-06-23-09-55-04.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06534690990340125,
+          "corner_plane_median_abs_m": 0.06511582027303653,
+          "center_plane_abs_m": 0.06511582027957519,
+          "normal_angle_deg": 4.046002288564142,
+          "centroid_error_m": 0.07788892895990131,
+          "n_lidar_pts": 516,
+          "lidar_plane_rms_m": 0.01840032212646023
+        },
+        {
+          "label": "calib_p25_high_center",
+          "bag": "2026-06-23-10-00-18.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.08540745404409512,
+          "corner_plane_median_abs_m": 0.08529174987324262,
+          "center_plane_abs_m": 0.08529174997178268,
+          "normal_angle_deg": 3.677915831570299,
+          "centroid_error_m": 0.11030113198220483,
+          "n_lidar_pts": 1116,
+          "lidar_plane_rms_m": 0.018544647371808727
+        },
+        {
+          "label": "calib_p26_high_left",
+          "bag": "2026-06-23-10-02-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.09168043005872266,
+          "corner_plane_median_abs_m": 0.09090049469348838,
+          "center_plane_abs_m": 0.0909004946037717,
+          "normal_angle_deg": 8.178129632734429,
+          "centroid_error_m": 0.10537276153099426,
+          "n_lidar_pts": 1125,
+          "lidar_plane_rms_m": 0.01823318500695125
+        },
+        {
+          "label": "calib_p27_high_right",
+          "bag": "2026-06-23-10-03-25.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0659598088322889,
+          "corner_plane_median_abs_m": 0.06342551688234377,
+          "center_plane_abs_m": 0.0634255164807982,
+          "normal_angle_deg": 15.15131267143811,
+          "centroid_error_m": 0.07112158302228042,
+          "n_lidar_pts": 841,
+          "lidar_plane_rms_m": 0.018887501352419952
+        },
+        {
+          "label": "calib_p28_high_top",
+          "bag": "2026-06-23-10-05-51.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.05876655750442243,
+          "corner_plane_median_abs_m": 0.05852003106278747,
+          "center_plane_abs_m": 0.05852003109088311,
+          "normal_angle_deg": 3.4656295238358936,
+          "centroid_error_m": 0.0774762716115864,
+          "n_lidar_pts": 1024,
+          "lidar_plane_rms_m": 0.018570453227249407
+        },
+        {
+          "label": "calib_p30_high_topleft",
+          "bag": "2026-06-23-10-10-54.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.06766534068472728,
+          "corner_plane_median_abs_m": 0.06719867193384521,
+          "center_plane_abs_m": 0.06719867182186445,
+          "normal_angle_deg": 4.434225590982103,
+          "centroid_error_m": 0.07667094738742093,
+          "n_lidar_pts": 926,
+          "lidar_plane_rms_m": 0.018971242477384617
+        },
+        {
+          "label": "calib_p31_high_topright",
+          "bag": "2026-06-23-10-12-24.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07647175362864404,
+          "corner_plane_median_abs_m": 0.07561112509723433,
+          "center_plane_abs_m": 0.07561112477920684,
+          "normal_angle_deg": 6.569776026713466,
+          "centroid_error_m": 0.09494535434352541,
+          "n_lidar_pts": 714,
+          "lidar_plane_rms_m": 0.019058751977268903
+        },
+        {
+          "label": "calib_p34_high_roll_plus",
+          "bag": "2026-06-23-10-18-28.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.05912043253611458,
+          "corner_plane_median_abs_m": 0.05728264688826712,
+          "center_plane_abs_m": 0.057282646642931034,
+          "normal_angle_deg": 12.338304115137598,
+          "centroid_error_m": 0.07630951208729457,
+          "n_lidar_pts": 1115,
+          "lidar_plane_rms_m": 0.01873287905238089
+        },
+        {
+          "label": "calib_p35_high_roll_minus",
+          "bag": "2026-06-23-10-20-30.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.07478263005403175,
+          "corner_plane_median_abs_m": 0.07472347184333039,
+          "center_plane_abs_m": 0.0747234717678229,
+          "normal_angle_deg": 1.7928376217894277,
+          "centroid_error_m": 0.08625447616753014,
+          "n_lidar_pts": 1104,
+          "lidar_plane_rms_m": 0.018626475440287154
+        },
+        {
+          "label": "calib_p36_high_tilt",
+          "bag": "2026-06-23-10-22-47.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.03400617961006734,
+          "corner_plane_median_abs_m": 0.030883843845231684,
+          "center_plane_abs_m": 0.03088384417350054,
+          "normal_angle_deg": 11.468532292339741,
+          "centroid_error_m": 0.0363700809326555,
+          "n_lidar_pts": 842,
+          "lidar_plane_rms_m": 0.019424935576820113
+        }
+      ]
+    },
+    {
+      "name": "D_20260623_multipose_6dof",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.00814319753403395,
+      "corner_plane_abs_median_m": 0.005769902956711426,
+      "pose_corner_plane_rms_mean_m": 0.00947779916483376,
+      "pose_corner_plane_rms_median_m": 0.0075139328961350855,
+      "normal_angle_mean_deg": 5.787883324648844,
+      "normal_angle_median_deg": 3.704852034515143,
+      "centroid_error_mean_m": 0.06831762564422253,
+      "centroid_error_median_m": 0.06925625313696403,
+      "per_pose": [
+        {
+          "label": "calib_p01_low_center",
+          "bag": "2026-06-23-08-26-48.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.00878593072732375,
+          "corner_plane_median_abs_m": 0.008397917252918718,
+          "center_plane_abs_m": 0.00839791718640992,
+          "normal_angle_deg": 1.5819752657192405,
+          "centroid_error_m": 0.07444629953991996,
+          "n_lidar_pts": 1569,
+          "lidar_plane_rms_m": 0.01528182371286678
+        },
+        {
+          "label": "calib_p01_low_left",
+          "bag": "2026-06-23-08-30-20.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.010418646774368573,
+          "corner_plane_median_abs_m": 0.010284114645428666,
+          "center_plane_abs_m": 0.010284114614653506,
+          "normal_angle_deg": 0.9377092252276602,
+          "centroid_error_m": 0.09402328382765068,
+          "n_lidar_pts": 1552,
+          "lidar_plane_rms_m": 0.015378630145201229
+        },
+        {
+          "label": "calib_p01_low_left_02",
+          "bag": "2026-06-23-08-39-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.009746003472787656,
+          "corner_plane_median_abs_m": 0.008955073836474425,
+          "center_plane_abs_m": 0.008955073939414415,
+          "normal_angle_deg": 2.837824913961432,
+          "centroid_error_m": 0.10251189298475424,
+          "n_lidar_pts": 1215,
+          "lidar_plane_rms_m": 0.0159423064979706
+        },
+        {
+          "label": "calib_p04_low_top",
+          "bag": "2026-06-23-08-49-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0061845010217154795,
+          "corner_plane_median_abs_m": 0.004712376550227493,
+          "center_plane_abs_m": 0.0008101693343744998,
+          "normal_angle_deg": 4.797251750705443,
+          "centroid_error_m": 0.024153877636084002,
+          "n_lidar_pts": 828,
+          "lidar_plane_rms_m": 0.016339096822577757
+        },
+        {
+          "label": "calib_p05_low_bottom",
+          "bag": "2026-06-23-08-51-56.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.00945710727562691,
+          "corner_plane_median_abs_m": 0.007861980473119923,
+          "center_plane_abs_m": 0.007861980538123703,
+          "normal_angle_deg": 4.328533422007266,
+          "centroid_error_m": 0.05021520004275007,
+          "n_lidar_pts": 986,
+          "lidar_plane_rms_m": 0.01621217899349554
+        },
+        {
+          "label": "calib_p06_low_topleft",
+          "bag": "2026-06-23-08-54-31.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0036035539995220058,
+          "corner_plane_median_abs_m": 0.0024881912943288675,
+          "center_plane_abs_m": 5.065253449987317e-05,
+          "normal_angle_deg": 2.4923989347175084,
+          "centroid_error_m": 0.04767372804007852,
+          "n_lidar_pts": 871,
+          "lidar_plane_rms_m": 0.01690294924380188
+        },
+        {
+          "label": "calib_p07_low_topright",
+          "bag": "2026-06-23-08-56-12.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0044495272035239685,
+          "corner_plane_median_abs_m": 0.003805483679646504,
+          "center_plane_abs_m": 0.00042735868869603344,
+          "normal_angle_deg": 3.6720090729795056,
+          "centroid_error_m": 0.01875457593103271,
+          "n_lidar_pts": 754,
+          "lidar_plane_rms_m": 0.01678487611291147
+        },
+        {
+          "label": "calib_p10_low_roll_plus",
+          "bag": "2026-06-23-09-02-50.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.005479360583824485,
+          "corner_plane_median_abs_m": 0.005089098778971346,
+          "center_plane_abs_m": 0.0050890988208343035,
+          "normal_angle_deg": 1.6900089259530862,
+          "centroid_error_m": 0.03182248227207078,
+          "n_lidar_pts": 909,
+          "lidar_plane_rms_m": 0.016999132097421887
+        },
+        {
+          "label": "calib_p11_low_roll_minus",
+          "bag": "2026-06-23-09-04-17.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.004930893668073312,
+          "corner_plane_median_abs_m": 0.00368147096092164,
+          "center_plane_abs_m": 0.0022441200697855823,
+          "normal_angle_deg": 2.8012118920469726,
+          "centroid_error_m": 0.04142567393833127,
+          "n_lidar_pts": 964,
+          "lidar_plane_rms_m": 0.01685291572338774
+        },
+        {
+          "label": "calib_p12_low_tilt",
+          "bag": "2026-06-23-09-06-46.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.007188812445642932,
+          "corner_plane_median_abs_m": 0.005635026033473656,
+          "center_plane_abs_m": 0.005635026107715602,
+          "normal_angle_deg": 3.7376949960507804,
+          "centroid_error_m": 0.06473210264777368,
+          "n_lidar_pts": 599,
+          "lidar_plane_rms_m": 0.01692127214225933
+        },
+        {
+          "label": "calib_p13_mid_center",
+          "bag": "2026-06-23-09-10-36.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0025148646199195396,
+          "corner_plane_median_abs_m": 0.001927110566983914,
+          "center_plane_abs_m": 0.0008930693392179556,
+          "normal_angle_deg": 1.4384030624192155,
+          "centroid_error_m": 0.05966872386434695,
+          "n_lidar_pts": 1269,
+          "lidar_plane_rms_m": 0.017683173773780664
+        },
+        {
+          "label": "calib_p14_mid_left",
+          "bag": "2026-06-23-09-12-23.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.004430374034419875,
+          "corner_plane_median_abs_m": 0.0038993343991186036,
+          "center_plane_abs_m": 0.0038993343822437687,
+          "normal_angle_deg": 1.6414420119696123,
+          "centroid_error_m": 0.09575729815954241,
+          "n_lidar_pts": 1297,
+          "lidar_plane_rms_m": 0.017614558437833064
+        },
+        {
+          "label": "calib_p15_mid_right",
+          "bag": "2026-06-23-09-14-07.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0037938944431276165,
+          "corner_plane_median_abs_m": 0.0027812290589319666,
+          "center_plane_abs_m": 0.0023081161973188546,
+          "normal_angle_deg": 2.004362951212706,
+          "centroid_error_m": 0.05261092098156929,
+          "n_lidar_pts": 1018,
+          "lidar_plane_rms_m": 0.017532599362899838
+        },
+        {
+          "label": "calib_p16_mid_top",
+          "bag": "2026-06-23-09-17-27.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.007276787841603374,
+          "corner_plane_median_abs_m": 0.005434661912891325,
+          "center_plane_abs_m": 0.003832255927654238,
+          "normal_angle_deg": 3.454475158427322,
+          "centroid_error_m": 0.09456019892218714,
+          "n_lidar_pts": 1183,
+          "lidar_plane_rms_m": 0.01744416644492912
+        },
+        {
+          "label": "calib_p17_mid_bottom",
+          "bag": "2026-06-23-09-19-08.bag",
+          "rgb_source": "refined",
+          "lidar_source": "fallback_intensity",
+          "corner_plane_rms_m": 0.017138847705146922,
+          "corner_plane_median_abs_m": 0.015043085145116097,
+          "center_plane_abs_m": 0.0004560282905585744,
+          "normal_angle_deg": 14.522084045748407,
+          "centroid_error_m": 0.08905484490338213,
+          "n_lidar_pts": 1298,
+          "lidar_plane_rms_m": 0.019753614146952345
+        },
+        {
+          "label": "calib_p18_mid_topleft",
+          "bag": "2026-06-23-09-21-49.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.005769737149892019,
+          "corner_plane_median_abs_m": 0.005598485129672981,
+          "center_plane_abs_m": 0.0055984850960442145,
+          "normal_angle_deg": 0.9753224115259324,
+          "centroid_error_m": 0.12179208500504728,
+          "n_lidar_pts": 1261,
+          "lidar_plane_rms_m": 0.017422784931895637
+        },
+        {
+          "label": "calib_p19_mid_topright",
+          "bag": "2026-06-23-09-23-06.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.005483420708041168,
+          "corner_plane_median_abs_m": 0.004367869903950439,
+          "center_plane_abs_m": 0.002062816195389283,
+          "normal_angle_deg": 2.8382959178780927,
+          "centroid_error_m": 0.0843385244292405,
+          "n_lidar_pts": 1059,
+          "lidar_plane_rms_m": 0.017954939959624053
+        },
+        {
+          "label": "calib_p20_mid_bottomleft",
+          "bag": "2026-06-23-09-24-53.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.008758772364739681,
+          "corner_plane_median_abs_m": 0.006459953826557396,
+          "center_plane_abs_m": 0.004459844986443473,
+          "normal_angle_deg": 5.86828895823183,
+          "centroid_error_m": 0.08845283370470645,
+          "n_lidar_pts": 1378,
+          "lidar_plane_rms_m": 0.017266121995593447
+        },
+        {
+          "label": "calib_p22_mid_roll_plus",
+          "bag": "2026-06-23-09-49-39.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.004401380241869164,
+          "corner_plane_median_abs_m": 0.004182330774453957,
+          "center_plane_abs_m": 0.00418233075412644,
+          "normal_angle_deg": 1.138565029519316,
+          "centroid_error_m": 0.07648362411953853,
+          "n_lidar_pts": 1466,
+          "lidar_plane_rms_m": 0.0170011900010125
+        },
+        {
+          "label": "calib_p23_mid_roll_minus",
+          "bag": "2026-06-23-09-51-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0011302733716257254,
+          "corner_plane_median_abs_m": 0.0008806419959064282,
+          "center_plane_abs_m": 0.00048532218779917535,
+          "normal_angle_deg": 0.5663431108445703,
+          "centroid_error_m": 0.07378040362615437,
+          "n_lidar_pts": 1233,
+          "lidar_plane_rms_m": 0.017933103919884587
+        },
+        {
+          "label": "calib_p24_mid_tilt",
+          "bag": "2026-06-23-09-55-04.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.0071819881659923,
+          "corner_plane_median_abs_m": 0.00497006973018943,
+          "center_plane_abs_m": 0.00294488389107328,
+          "normal_angle_deg": 4.835242880401073,
+          "centroid_error_m": 0.06041890888730648,
+          "n_lidar_pts": 516,
+          "lidar_plane_rms_m": 0.01840032212646023
+        },
+        {
+          "label": "calib_p25_high_center",
+          "bag": "2026-06-23-10-00-18.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.007751077950666798,
+          "corner_plane_median_abs_m": 0.005987417106232629,
+          "center_plane_abs_m": 0.005987417186984034,
+          "normal_angle_deg": 4.119416133264538,
+          "centroid_error_m": 0.02633427988057652,
+          "n_lidar_pts": 1116,
+          "lidar_plane_rms_m": 0.018544647371808727
+        },
+        {
+          "label": "calib_p26_high_left",
+          "bag": "2026-06-23-10-02-00.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.007835538628345243,
+          "corner_plane_median_abs_m": 0.006601884043060391,
+          "center_plane_abs_m": 0.0007890987201024657,
+          "normal_angle_deg": 4.442324757729218,
+          "centroid_error_m": 0.0842377135477088,
+          "n_lidar_pts": 1125,
+          "lidar_plane_rms_m": 0.01823318500695125
+        },
+        {
+          "label": "calib_p27_high_right",
+          "bag": "2026-06-23-10-03-25.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.026834988325454803,
+          "corner_plane_median_abs_m": 0.02319741602886033,
+          "center_plane_abs_m": 0.001499930953978934,
+          "normal_angle_deg": 22.89710953234633,
+          "centroid_error_m": 0.07580203600461492,
+          "n_lidar_pts": 841,
+          "lidar_plane_rms_m": 0.018887501352419952
+        },
+        {
+          "label": "calib_p28_high_top",
+          "bag": "2026-06-23-10-05-51.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.017041173436349755,
+          "corner_plane_median_abs_m": 0.011769492087001288,
+          "center_plane_abs_m": 0.011769492239926516,
+          "normal_angle_deg": 10.195816753386481,
+          "centroid_error_m": 0.046353014083606106,
+          "n_lidar_pts": 1024,
+          "lidar_plane_rms_m": 0.018570453227249407
+        },
+        {
+          "label": "calib_p30_high_topleft",
+          "bag": "2026-06-23-10-10-54.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.011298555223858935,
+          "corner_plane_median_abs_m": 0.008026180401540683,
+          "center_plane_abs_m": 0.004222420526704962,
+          "normal_angle_deg": 7.8592943134511115,
+          "centroid_error_m": 0.09428708396472926,
+          "n_lidar_pts": 926,
+          "lidar_plane_rms_m": 0.018971242477384617
+        },
+        {
+          "label": "calib_p31_high_topright",
+          "bag": "2026-06-23-10-12-24.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.014381318891923484,
+          "corner_plane_median_abs_m": 0.010840425761300843,
+          "center_plane_abs_m": 0.0005007240552186154,
+          "normal_angle_deg": 9.059007314290696,
+          "centroid_error_m": 0.026903392022816944,
+          "n_lidar_pts": 714,
+          "lidar_plane_rms_m": 0.019058751977268903
+        },
+        {
+          "label": "calib_p34_high_roll_plus",
+          "bag": "2026-06-23-10-18-28.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.024747724398378527,
+          "corner_plane_median_abs_m": 0.019801995698265906,
+          "center_plane_abs_m": 0.007365120157649896,
+          "normal_angle_deg": 19.697029507340922,
+          "centroid_error_m": 0.05966573483043157,
+          "n_lidar_pts": 1115,
+          "lidar_plane_rms_m": 0.01873287905238089
+        },
+        {
+          "label": "calib_p35_high_roll_minus",
+          "bag": "2026-06-23-10-20-30.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.012760788659260737,
+          "corner_plane_median_abs_m": 0.00904210549224671,
+          "center_plane_abs_m": 0.007888288519135145,
+          "normal_angle_deg": 8.229787747005282,
+          "centroid_error_m": 0.050616919187671576,
+          "n_lidar_pts": 1104,
+          "lidar_plane_rms_m": 0.018626475440287154
+        },
+        {
+          "label": "calib_p36_high_tilt",
+          "bag": "2026-06-23-10-22-47.bag",
+          "rgb_source": "scan",
+          "lidar_source": "guided",
+          "corner_plane_rms_m": 0.023558131611988026,
+          "corner_plane_median_abs_m": 0.01922858520078269,
+          "center_plane_abs_m": 0.006573510071239963,
+          "normal_angle_deg": 18.977269743103758,
+          "centroid_error_m": 0.13865111234105276,
+          "n_lidar_pts": 842,
+          "lidar_plane_rms_m": 0.019424935576820113
+        }
+      ]
+    }
+  ],
+  "comparison_compact": [
+    {
+      "name": "A_base_previous_multipose",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.08162538780941644,
+      "corner_plane_abs_median_m": 0.08015769843047393,
+      "pose_corner_plane_rms_mean_m": 0.08252429223205353,
+      "pose_corner_plane_rms_median_m": 0.08670098104598727,
+      "normal_angle_mean_deg": 8.964687351332914,
+      "normal_angle_median_deg": 9.12036253490998,
+      "centroid_error_mean_m": 0.09536659686178164,
+      "centroid_error_median_m": 0.10108303767828769
+    },
+    {
+      "name": "B_compare_0_T_cam_lidar_effective",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.12255038257601245,
+      "corner_plane_abs_median_m": 0.12254096098048994,
+      "pose_corner_plane_rms_mean_m": 0.12311224082754661,
+      "pose_corner_plane_rms_median_m": 0.12802449614201317,
+      "normal_angle_mean_deg": 8.518407428814971,
+      "normal_angle_median_deg": 8.489913524787296,
+      "centroid_error_mean_m": 0.13345898866706735,
+      "centroid_error_median_m": 0.13991350855119522
+    },
+    {
+      "name": "B_compare_1_T_cam_lidar_checker_intensity_refined",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.08300808287330436,
+      "corner_plane_abs_median_m": 0.08253281940913881,
+      "pose_corner_plane_rms_mean_m": 0.08385603174583804,
+      "pose_corner_plane_rms_median_m": 0.08786875597837002,
+      "normal_angle_mean_deg": 8.518407428814971,
+      "normal_angle_median_deg": 8.489913524787296,
+      "centroid_error_mean_m": 0.0967299289509057,
+      "centroid_error_median_m": 0.10250603106064118
+    },
+    {
+      "name": "D_20260623_multipose_6dof",
+      "n_poses": 30,
+      "corner_plane_abs_mean_m": 0.00814319753403395,
+      "corner_plane_abs_median_m": 0.005769902956711426,
+      "pose_corner_plane_rms_mean_m": 0.00947779916483376,
+      "pose_corner_plane_rms_median_m": 0.0075139328961350855,
+      "normal_angle_mean_deg": 5.787883324648844,
+      "normal_angle_median_deg": 3.704852034515143,
+      "centroid_error_mean_m": 0.06831762564422253,
+      "centroid_error_median_m": 0.06925625313696403
+    }
+  ],
+  "cross_validation": [
+    {
+      "fold": 0,
+      "train_labels": [
+        "calib_p01_low_left",
+        "calib_p01_low_left_02",
+        "calib_p04_low_top",
+        "calib_p05_low_bottom",
+        "calib_p07_low_topright",
+        "calib_p10_low_roll_plus",
+        "calib_p11_low_roll_minus",
+        "calib_p12_low_tilt",
+        "calib_p14_mid_left",
+        "calib_p15_mid_right",
+        "calib_p16_mid_top",
+        "calib_p17_mid_bottom",
+        "calib_p19_mid_topright",
+        "calib_p20_mid_bottomleft",
+        "calib_p22_mid_roll_plus",
+        "calib_p23_mid_roll_minus",
+        "calib_p25_high_center",
+        "calib_p26_high_left",
+        "calib_p27_high_right",
+        "calib_p28_high_top",
+        "calib_p31_high_topright",
+        "calib_p34_high_roll_plus",
+        "calib_p35_high_roll_minus",
+        "calib_p36_high_tilt"
+      ],
+      "valid_labels": [
+        "calib_p01_low_center",
+        "calib_p06_low_topleft",
+        "calib_p13_mid_center",
+        "calib_p18_mid_topleft",
+        "calib_p24_mid_tilt",
+        "calib_p30_high_topleft"
+      ],
+      "delta_rotvec": [
+        0.14778058076007236,
+        0.02186895082867323,
+        -0.016318253423234046
+      ],
+      "delta_deg_xyz": [
+        8.467203571544362,
+        1.2529985848621004,
+        -0.9349670501762187
+      ],
+      "delta_t_m": [
+        0.007375697619129027,
+        0.2530101569978158,
+        0.06267589879093767
+      ],
+      "success": true,
+      "cost": 0.08540089902948587,
+      "train": {
+        "name": "fold_0_train",
+        "n_poses": 24,
+        "corner_plane_abs_mean_m": 0.008730501092399593,
+        "corner_plane_abs_median_m": 0.006036117193373602,
+        "pose_corner_plane_rms_mean_m": 0.010197181523776262,
+        "pose_corner_plane_rms_median_m": 0.007772826404993591,
+        "normal_angle_mean_deg": 6.442265078904268,
+        "normal_angle_median_deg": 3.95100166810883,
+        "centroid_error_mean_m": 0.06807345034727215,
+        "centroid_error_median_m": 0.07056191244363373
+      },
+      "valid": {
+        "name": "fold_0_valid",
+        "n_poses": 6,
+        "corner_plane_abs_mean_m": 0.005878719458997284,
+        "corner_plane_abs_median_m": 0.0050209640725319415,
+        "pose_corner_plane_rms_mean_m": 0.006779442402920092,
+        "pose_corner_plane_rms_median_m": 0.007190670278498987,
+        "normal_angle_mean_deg": 3.2716465607483904,
+        "normal_angle_median_deg": 2.0835002804611027,
+        "centroid_error_mean_m": 0.07848925294559879,
+        "centroid_error_median_m": 0.06991114674526165
+      }
+    },
+    {
+      "fold": 1,
+      "train_labels": [
+        "calib_p01_low_center",
+        "calib_p01_low_left_02",
+        "calib_p04_low_top",
+        "calib_p05_low_bottom",
+        "calib_p06_low_topleft",
+        "calib_p10_low_roll_plus",
+        "calib_p11_low_roll_minus",
+        "calib_p12_low_tilt",
+        "calib_p13_mid_center",
+        "calib_p15_mid_right",
+        "calib_p16_mid_top",
+        "calib_p17_mid_bottom",
+        "calib_p18_mid_topleft",
+        "calib_p20_mid_bottomleft",
+        "calib_p22_mid_roll_plus",
+        "calib_p23_mid_roll_minus",
+        "calib_p24_mid_tilt",
+        "calib_p26_high_left",
+        "calib_p27_high_right",
+        "calib_p28_high_top",
+        "calib_p30_high_topleft",
+        "calib_p34_high_roll_plus",
+        "calib_p35_high_roll_minus",
+        "calib_p36_high_tilt"
+      ],
+      "valid_labels": [
+        "calib_p01_low_left",
+        "calib_p07_low_topright",
+        "calib_p14_mid_left",
+        "calib_p19_mid_topright",
+        "calib_p25_high_center",
+        "calib_p31_high_topright"
+      ],
+      "delta_rotvec": [
+        0.15204986771468762,
+        0.016954978211471957,
+        -0.042333939994378095
+      ],
+      "delta_deg_xyz": [
+        8.711815695574076,
+        0.9714486932536122,
+        -2.4255560918379446
+      ],
+      "delta_t_m": [
+        0.007244252489875512,
+        0.2599373378074646,
+        0.062329985403883376
+      ],
+      "success": true,
+      "cost": 0.08227428767841426,
+      "train": {
+        "name": "fold_1_train",
+        "n_poses": 24,
+        "corner_plane_abs_mean_m": 0.008426495520992259,
+        "corner_plane_abs_median_m": 0.005636706604111419,
+        "pose_corner_plane_rms_mean_m": 0.009836016731857397,
+        "pose_corner_plane_rms_median_m": 0.007673600000008219,
+        "normal_angle_mean_deg": 6.304402759839124,
+        "normal_angle_median_deg": 3.8397978358506215,
+        "centroid_error_mean_m": 0.07112059176065298,
+        "centroid_error_median_m": 0.06934258026153423
+      },
+      "valid": {
+        "name": "fold_1_valid",
+        "n_poses": 6,
+        "corner_plane_abs_mean_m": 0.006904237997759784,
+        "corner_plane_abs_median_m": 0.005799213659194669,
+        "pose_corner_plane_rms_mean_m": 0.007883916512256716,
+        "pose_corner_plane_rms_median_m": 0.0067212296459160945,
+        "normal_angle_mean_deg": 3.7685084537692233,
+        "normal_angle_median_deg": 3.3190029273389197,
+        "centroid_error_mean_m": 0.057807064751323835,
+        "centroid_error_median_m": 0.05528455682616059
+      }
+    },
+    {
+      "fold": 2,
+      "train_labels": [
+        "calib_p01_low_center",
+        "calib_p01_low_left",
+        "calib_p04_low_top",
+        "calib_p05_low_bottom",
+        "calib_p06_low_topleft",
+        "calib_p07_low_topright",
+        "calib_p11_low_roll_minus",
+        "calib_p12_low_tilt",
+        "calib_p13_mid_center",
+        "calib_p14_mid_left",
+        "calib_p16_mid_top",
+        "calib_p17_mid_bottom",
+        "calib_p18_mid_topleft",
+        "calib_p19_mid_topright",
+        "calib_p22_mid_roll_plus",
+        "calib_p23_mid_roll_minus",
+        "calib_p24_mid_tilt",
+        "calib_p25_high_center",
+        "calib_p27_high_right",
+        "calib_p28_high_top",
+        "calib_p30_high_topleft",
+        "calib_p31_high_topright",
+        "calib_p35_high_roll_minus",
+        "calib_p36_high_tilt"
+      ],
+      "valid_labels": [
+        "calib_p01_low_left_02",
+        "calib_p10_low_roll_plus",
+        "calib_p15_mid_right",
+        "calib_p20_mid_bottomleft",
+        "calib_p26_high_left",
+        "calib_p34_high_roll_plus"
+      ],
+      "delta_rotvec": [
+        0.14789931188056246,
+        0.011854230256289563,
+        -0.02142998200449963
+      ],
+      "delta_deg_xyz": [
+        8.474006363645303,
+        0.6791973630616761,
+        -1.2278475238991327
+      ],
+      "delta_t_m": [
+        0.0053344560701325625,
+        0.2533939163816895,
+        0.0619786833903172
+      ],
+      "success": true,
+      "cost": 0.07257764946136099,
+      "train": {
+        "name": "fold_2_train",
+        "n_poses": 24,
+        "corner_plane_abs_mean_m": 0.007849407767860398,
+        "corner_plane_abs_median_m": 0.005241454502670662,
+        "pose_corner_plane_rms_mean_m": 0.009138232892834634,
+        "pose_corner_plane_rms_median_m": 0.007023987318188443,
+        "normal_angle_mean_deg": 5.629192996627133,
+        "normal_angle_median_deg": 3.693596823133929,
+        "centroid_error_mean_m": 0.05860354058057998,
+        "centroid_error_median_m": 0.05611165889956868
+      },
+      "valid": {
+        "name": "fold_2_valid",
+        "n_poses": 6,
+        "corner_plane_abs_mean_m": 0.009121459234120008,
+        "corner_plane_abs_median_m": 0.00665670115372452,
+        "pose_corner_plane_rms_mean_m": 0.010505036353413696,
+        "pose_corner_plane_rms_median_m": 0.008593548412924396,
+        "normal_angle_mean_deg": 6.175797275277254,
+        "normal_angle_median_deg": 3.9532901323443204,
+        "centroid_error_mean_m": 0.05995999183022983,
+        "centroid_error_median_m": 0.06437612854503379
+      }
+    },
+    {
+      "fold": 3,
+      "train_labels": [
+        "calib_p01_low_center",
+        "calib_p01_low_left",
+        "calib_p01_low_left_02",
+        "calib_p05_low_bottom",
+        "calib_p06_low_topleft",
+        "calib_p07_low_topright",
+        "calib_p10_low_roll_plus",
+        "calib_p12_low_tilt",
+        "calib_p13_mid_center",
+        "calib_p14_mid_left",
+        "calib_p15_mid_right",
+        "calib_p17_mid_bottom",
+        "calib_p18_mid_topleft",
+        "calib_p19_mid_topright",
+        "calib_p20_mid_bottomleft",
+        "calib_p23_mid_roll_minus",
+        "calib_p24_mid_tilt",
+        "calib_p25_high_center",
+        "calib_p26_high_left",
+        "calib_p28_high_top",
+        "calib_p30_high_topleft",
+        "calib_p31_high_topright",
+        "calib_p34_high_roll_plus",
+        "calib_p36_high_tilt"
+      ],
+      "valid_labels": [
+        "calib_p04_low_top",
+        "calib_p11_low_roll_minus",
+        "calib_p16_mid_top",
+        "calib_p22_mid_roll_plus",
+        "calib_p27_high_right",
+        "calib_p35_high_roll_minus"
+      ],
+      "delta_rotvec": [
+        0.15397584301334072,
+        0.023132531849831987,
+        -0.02276725981213966
+      ],
+      "delta_deg_xyz": [
+        8.822165951633346,
+        1.3253964444473278,
+        -1.304467898313414
+      ],
+      "delta_t_m": [
+        0.02255777726595129,
+        0.26468141864400324,
+        0.06341727064821999
+      ],
+      "success": true,
+      "cost": 0.06979542890771646,
+      "train": {
+        "name": "fold_3_train",
+        "n_poses": 24,
+        "corner_plane_abs_mean_m": 0.00787427198278282,
+        "corner_plane_abs_median_m": 0.005925120378277748,
+        "pose_corner_plane_rms_mean_m": 0.009179277807207904,
+        "pose_corner_plane_rms_median_m": 0.007901474782994026,
+        "normal_angle_mean_deg": 5.466919262111588,
+        "normal_angle_median_deg": 3.6923154404610488,
+        "centroid_error_mean_m": 0.08764474824980452,
+        "centroid_error_median_m": 0.08678051896773714
+      },
+      "valid": {
+        "name": "fold_3_valid",
+        "n_poses": 6,
+        "corner_plane_abs_mean_m": 0.00940559412711638,
+        "corner_plane_abs_median_m": 0.005986206542741512,
+        "pose_corner_plane_rms_mean_m": 0.011031007391995565,
+        "pose_corner_plane_rms_median_m": 0.007414036388996101,
+        "normal_angle_mean_deg": 7.453353775659292,
+        "normal_angle_median_deg": 4.390271212602779,
+        "centroid_error_mean_m": 0.07749275084697756,
+        "centroid_error_median_m": 0.07887793906127426
+      }
+    },
+    {
+      "fold": 4,
+      "train_labels": [
+        "calib_p01_low_center",
+        "calib_p01_low_left",
+        "calib_p01_low_left_02",
+        "calib_p04_low_top",
+        "calib_p06_low_topleft",
+        "calib_p07_low_topright",
+        "calib_p10_low_roll_plus",
+        "calib_p11_low_roll_minus",
+        "calib_p13_mid_center",
+        "calib_p14_mid_left",
+        "calib_p15_mid_right",
+        "calib_p16_mid_top",
+        "calib_p18_mid_topleft",
+        "calib_p19_mid_topright",
+        "calib_p20_mid_bottomleft",
+        "calib_p22_mid_roll_plus",
+        "calib_p24_mid_tilt",
+        "calib_p25_high_center",
+        "calib_p26_high_left",
+        "calib_p27_high_right",
+        "calib_p30_high_topleft",
+        "calib_p31_high_topright",
+        "calib_p34_high_roll_plus",
+        "calib_p35_high_roll_minus"
+      ],
+      "valid_labels": [
+        "calib_p05_low_bottom",
+        "calib_p12_low_tilt",
+        "calib_p17_mid_bottom",
+        "calib_p23_mid_roll_minus",
+        "calib_p28_high_top",
+        "calib_p36_high_tilt"
+      ],
+      "delta_rotvec": [
+        0.13622280343608492,
+        0.013695887579246552,
+        -0.10800790882662945
+      ],
+      "delta_deg_xyz": [
+        7.804991710327875,
+        0.7847165549764733,
+        -6.188397329799659
+      ],
+      "delta_t_m": [
+        0.00018611864595896731,
+        0.24246246365551333,
+        0.06203188844004408
+      ],
+      "success": true,
+      "cost": 0.06172515067811579,
+      "train": {
+        "name": "fold_4_train",
+        "n_poses": 24,
+        "corner_plane_abs_mean_m": 0.00749730229333496,
+        "corner_plane_abs_median_m": 0.0058644932106619585,
+        "pose_corner_plane_rms_mean_m": 0.00868279557544122,
+        "pose_corner_plane_rms_median_m": 0.00721076816326415,
+        "normal_angle_mean_deg": 5.004500569602732,
+        "normal_angle_median_deg": 3.321068932897957,
+        "centroid_error_mean_m": 0.07085822981664093,
+        "centroid_error_median_m": 0.06932052653113191
+      },
+      "valid": {
+        "name": "fold_4_valid",
+        "n_poses": 6,
+        "corner_plane_abs_mean_m": 0.012183302029564124,
+        "corner_plane_abs_median_m": 0.009729997826083525,
+        "pose_corner_plane_rms_mean_m": 0.014420002525425418,
+        "pose_corner_plane_rms_median_m": 0.014299325744412105,
+        "normal_angle_mean_deg": 9.125668593817853,
+        "normal_angle_median_deg": 7.247068049690619,
+        "centroid_error_mean_m": 0.08466944511056314,
+        "centroid_error_median_m": 0.07723227858685724
+      }
+    }
+  ],
+  "frames_all": [
+    {
+      "label": "calib_p01_low_center",
+      "bag": "2026-06-23-08-26-48.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.037893658677497506,
+        0.20116756348941692,
+        1.686514860043718
+      ],
+      "normal_cam": [
+        -0.04553956358499784,
+        0.03366943460470224,
+        0.9983949706012585
+      ],
+      "plane_normal_lidar": [
+        -0.02983365346286066,
+        -0.9984448368687747,
+        -0.04709417003349659
+      ],
+      "plane_d_lidar": 1.7843284903589736,
+      "plane_center_lidar": [
+        0.03645134722363253,
+        1.778454232474206,
+        0.16037160164382488
+      ],
+      "n_lidar_pts": 1569,
+      "plane_rms_m": 0.01528182371286678
+    },
+    {
+      "label": "calib_p01_low_left",
+      "bag": "2026-06-23-08-30-20.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.26762546001799054,
+        0.1903176643799074,
+        1.6777755333899405
+      ],
+      "normal_cam": [
+        -0.022973730659136892,
+        -0.0004844351432774612,
+        0.9997359516503312
+      ],
+      "plane_normal_lidar": [
+        -0.045273730668928654,
+        -0.9986687183352998,
+        -0.024720039034091926
+      ],
+      "plane_d_lidar": 1.7818416799403047,
+      "plane_center_lidar": [
+        0.24397919145181712,
+        1.7696929452652783,
+        0.13992074356455184
+      ],
+      "n_lidar_pts": 1552,
+      "plane_rms_m": 0.015378630145201229
+    },
+    {
+      "label": "calib_p01_low_left_02",
+      "bag": "2026-06-23-08-39-46.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.2672986090535777,
+        0.1912597811434606,
+        1.6760474348056509
+      ],
+      "normal_cam": [
+        -0.01792687889139081,
+        -0.0067306228915699476,
+        0.9998166460550179
+      ],
+      "plane_normal_lidar": [
+        -0.04843643474169345,
+        -0.9966792382534697,
+        -0.06545538804405082
+      ],
+      "plane_d_lidar": 1.78338066065604,
+      "plane_center_lidar": [
+        0.2321338637252894,
+        1.7693665491700663,
+        0.1320902641439128
+      ],
+      "n_lidar_pts": 1215,
+      "plane_rms_m": 0.0159423064979706
+    },
+    {
+      "label": "calib_p04_low_top",
+      "bag": "2026-06-23-08-49-49.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.04383084500827633,
+        0.04173632437121563,
+        1.6877670684224508
+      ],
+      "normal_cam": [
+        -0.05332909708727921,
+        0.04119031172413968,
+        0.9977270997742438
+      ],
+      "plane_normal_lidar": [
+        -0.028345022315892095,
+        -0.9995661556359714,
+        0.00800376267993919
+      ],
+      "plane_d_lidar": 1.7935631573400521,
+      "plane_center_lidar": [
+        -0.006561307304830247,
+        1.7943873396818188,
+        -0.01752711818491644
+      ],
+      "n_lidar_pts": 828,
+      "plane_rms_m": 0.016339096822577757
+    },
+    {
+      "label": "calib_p05_low_bottom",
+      "bag": "2026-06-23-08-51-56.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.01929805184547202,
+        0.3066615950871659,
+        1.6859475446182217
+      ],
+      "normal_cam": [
+        -0.038469213171034,
+        0.02637987225602132,
+        0.9989115185929921
+      ],
+      "plane_normal_lidar": [
+        -0.0346938459232894,
+        -0.9910256150411595,
+        -0.1290913141436816
+      ],
+      "plane_d_lidar": 1.7912501441930742,
+      "plane_center_lidar": [
+        0.00041151440752675836,
+        1.7762333860745536,
+        0.23969918882387406
+      ],
+      "n_lidar_pts": 986,
+      "plane_rms_m": 0.01621217899349554
+    },
+    {
+      "label": "calib_p06_low_topleft",
+      "bag": "2026-06-23-08-54-31.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.06914068359015023,
+        0.057170377503662335,
+        1.6816239599841738
+      ],
+      "normal_cam": [
+        -0.049909975026589955,
+        0.05443332021187576,
+        0.9972692755938872
+      ],
+      "plane_normal_lidar": [
+        -0.08340786807839852,
+        -0.9954246559881977,
+        -0.046614180175079935
+      ],
+      "plane_d_lidar": 1.7874901494121718,
+      "plane_center_lidar": [
+        0.08487557292343562,
+        1.7885196778311658,
+        0.0015933732869719442
+      ],
+      "n_lidar_pts": 871,
+      "plane_rms_m": 0.01690294924380188
+    },
+    {
+      "label": "calib_p07_low_topright",
+      "bag": "2026-06-23-08-56-12.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.13112562699742283,
+        0.07201146299594109,
+        1.6895561137524508
+      ],
+      "normal_cam": [
+        -0.05806703213710783,
+        0.034070853978179744,
+        0.9977311244458528
+      ],
+      "plane_normal_lidar": [
+        -0.05479355916835925,
+        -0.9984965299098711,
+        0.0015315454970060342
+      ],
+      "plane_d_lidar": 1.7880504953188427,
+      "plane_center_lidar": [
+        -0.08952396364324598,
+        1.7956659955118317,
+        0.0068123852823297705
+      ],
+      "n_lidar_pts": 754,
+      "plane_rms_m": 0.01678487611291147
+    },
+    {
+      "label": "calib_p09_low_bottomright",
+      "bag": "2026-06-23-08-59-53.bag",
+      "rgb_source": "refined",
+      "lidar_source": "fallback_intensity",
+      "center_cam": [
+        0.0790738671371863,
+        0.3418337400455139,
+        1.6915183387844066
+      ],
+      "normal_cam": [
+        -0.03808145892976945,
+        -0.01989853971712014,
+        0.9990764988742887
+      ],
+      "plane_normal_lidar": [
+        -0.08885142921891984,
+        -0.3077468771134286,
+        -0.9473105526450593
+      ],
+      "plane_d_lidar": 0.8228318462398143,
+      "plane_center_lidar": [
+        0.019122550554573535,
+        1.6001187737782796,
+        0.34698359870910644
+      ],
+      "n_lidar_pts": 750,
+      "plane_rms_m": 0.020283482111740154
+    },
+    {
+      "label": "calib_p10_low_roll_plus",
+      "bag": "2026-06-23-09-02-50.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.01583186561297648,
+        0.1928668905543598,
+        1.6889827438820388
+      ],
+      "normal_cam": [
+        -0.03677285046132878,
+        0.009698954567804998,
+        0.9992765822079693
+      ],
+      "plane_normal_lidar": [
+        -0.035958679726017365,
+        -0.9971336682034904,
+        -0.06656891983060298
+      ],
+      "plane_d_lidar": 1.789061376985592,
+      "plane_center_lidar": [
+        0.019719047132400257,
+        1.784593857029746,
+        0.13330075348001505
+      ],
+      "n_lidar_pts": 909,
+      "plane_rms_m": 0.016999132097421887
+    },
+    {
+      "label": "calib_p11_low_roll_minus",
+      "bag": "2026-06-23-09-04-17.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.02849885620711012,
+        0.1966158222545491,
+        1.686087800378951
+      ],
+      "normal_cam": [
+        -0.054259812469227175,
+        0.03952869166184163,
+        0.997744133175589
+      ],
+      "plane_normal_lidar": [
+        -0.015330874631161829,
+        -0.9984569082091289,
+        -0.05337383940200358
+      ],
+      "plane_d_lidar": 1.788747328395812,
+      "plane_center_lidar": [
+        -0.004856802688218862,
+        1.7849006461157344,
+        0.12506888997552654
+      ],
+      "n_lidar_pts": 964,
+      "plane_rms_m": 0.01685291572338774
+    },
+    {
+      "label": "calib_p12_low_tilt",
+      "bag": "2026-06-23-09-06-46.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.028975017912019136,
+        0.21848992705402492,
+        1.6329187421479436
+      ],
+      "normal_cam": [
+        -0.041289411891197156,
+        -0.3870553550717929,
+        0.9211315522638053
+      ],
+      "plane_normal_lidar": [
+        -0.03918563532861762,
+        -0.9533167119856649,
+        0.2994189917702842
+      ],
+      "plane_d_lidar": 1.6037406593829646,
+      "plane_center_lidar": [
+        -0.026116817325786246,
+        1.7343739119913424,
+        0.16245987398148778
+      ],
+      "n_lidar_pts": 599,
+      "plane_rms_m": 0.01692127214225933
+    },
+    {
+      "label": "calib_p13_mid_center",
+      "bag": "2026-06-23-09-10-36.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.007757444945956558,
+        0.17143799756813946,
+        1.4402702805233945
+      ],
+      "normal_cam": [
+        -0.03936893580748913,
+        0.045079067756668506,
+        0.9982073755205255
+      ],
+      "plane_normal_lidar": [
+        -0.02730306435722437,
+        -0.99572898495478,
+        -0.08819484790864378
+      ],
+      "plane_d_lidar": 1.5453911874895117,
+      "plane_center_lidar": [
+        0.022204874668400525,
+        1.5387646272672828,
+        0.14277915629797516
+      ],
+      "n_lidar_pts": 1269,
+      "plane_rms_m": 0.017683173773780664
+    },
+    {
+      "label": "calib_p14_mid_left",
+      "bag": "2026-06-23-09-12-23.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.14181757884621018,
+        0.165625666479469,
+        1.4317096022317775
+      ],
+      "normal_cam": [
+        -0.01708595557816615,
+        0.010270605600481236,
+        0.9998012726450094
+      ],
+      "plane_normal_lidar": [
+        -0.03509664817554625,
+        -0.9972185097467916,
+        -0.06575309198227909
+      ],
+      "plane_d_lidar": 1.5443483692041666,
+      "plane_center_lidar": [
+        0.12690638260991138,
+        1.535104510686723,
+        0.13778436597818675
+      ],
+      "n_lidar_pts": 1297,
+      "plane_rms_m": 0.017614558437833064
+    },
+    {
+      "label": "calib_p15_mid_right",
+      "bag": "2026-06-23-09-14-07.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.12903444201543454,
+        0.1710093049345129,
+        1.446489023163147
+      ],
+      "normal_cam": [
+        -0.059202879119113164,
+        0.024536695367577577,
+        0.9979443720390664
+      ],
+      "plane_normal_lidar": [
+        -0.04395908520133098,
+        -0.9959269491517622,
+        -0.0787217300465749
+      ],
+      "plane_d_lidar": 1.544392474544675,
+      "plane_center_lidar": [
+        -0.07756545322008106,
+        1.5424023448601218,
+        0.14839764349029924
+      ],
+      "n_lidar_pts": 1018,
+      "plane_rms_m": 0.017532599362899838
+    },
+    {
+      "label": "calib_p16_mid_top",
+      "bag": "2026-06-23-09-17-27.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.010935586054370627,
+        0.08405741334910663,
+        1.4377036434786192
+      ],
+      "normal_cam": [
+        -0.054890515100681214,
+        0.07894215207757639,
+        0.9953668509536284
+      ],
+      "plane_normal_lidar": [
+        -0.005105152722734526,
+        -0.993031751147492,
+        -0.11773647960009381
+      ],
+      "plane_d_lidar": 1.5354767459657517,
+      "plane_center_lidar": [
+        0.02085918908207012,
+        1.534776659406854,
+        0.0958777003276413
+      ],
+      "n_lidar_pts": 1183,
+      "plane_rms_m": 0.01744416644492912
+    },
+    {
+      "label": "calib_p17_mid_bottom",
+      "bag": "2026-06-23-09-19-08.bag",
+      "rgb_source": "refined",
+      "lidar_source": "fallback_intensity",
+      "center_cam": [
+        0.01016055354596991,
+        0.27707481862207733,
+        1.4389075610708824
+      ],
+      "normal_cam": [
+        -0.032245674004108285,
+        0.006969672616513186,
+        0.9994556719393008
+      ],
+      "plane_normal_lidar": [
+        0.05314218397333078,
+        0.9572010218071889,
+        0.28450327262409153
+      ],
+      "plane_d_lidar": -1.5309869017111695,
+      "plane_center_lidar": [
+        0.009504392758716408,
+        1.518152840332184,
+        0.27171697107090603
+      ],
+      "n_lidar_pts": 1298,
+      "plane_rms_m": 0.019753614146952345
+    },
+    {
+      "label": "calib_p18_mid_topleft",
+      "bag": "2026-06-23-09-21-49.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.09449715193121974,
+        0.07650788034105276,
+        1.4332908022606095
+      ],
+      "normal_cam": [
+        -0.03465875464840358,
+        0.067864161974351,
+        0.9970923860133226
+      ],
+      "plane_normal_lidar": [
+        -0.03441116224124716,
+        -0.9932871628775244,
+        -0.11043769273180701
+      ],
+      "plane_d_lidar": 1.5366116704514816,
+      "plane_center_lidar": [
+        0.09759564519089718,
+        1.5322658970278469,
+        0.10207787720973233
+      ],
+      "n_lidar_pts": 1261,
+      "plane_rms_m": 0.017422784931895637
+    },
+    {
+      "label": "calib_p19_mid_topright",
+      "bag": "2026-06-23-09-23-06.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.09312508588857506,
+        0.08645398693107575,
+        1.4401604278870832
+      ],
+      "normal_cam": [
+        -0.0686298784401437,
+        0.060993448553252276,
+        0.9957759482026431
+      ],
+      "plane_normal_lidar": [
+        -0.028918498725098198,
+        -0.9947404823263462,
+        -0.09826033407552992
+      ],
+      "plane_d_lidar": 1.5342389904575748,
+      "plane_center_lidar": [
+        -0.04170186728987899,
+        1.5342157928306501,
+        0.094630129116247
+      ],
+      "n_lidar_pts": 1059,
+      "plane_rms_m": 0.017954939959624053
+    },
+    {
+      "label": "calib_p20_mid_bottomleft",
+      "bag": "2026-06-23-09-24-53.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.1344659285766133,
+        0.2611799606719392,
+        1.431527179248736
+      ],
+      "normal_cam": [
+        -0.010344858409624912,
+        0.012295171681170282,
+        0.9998708979952439
+      ],
+      "plane_normal_lidar": [
+        -0.05719939597221985,
+        -0.9891290592145259,
+        -0.13546930765970655
+      ],
+      "plane_d_lidar": 1.552432656710933,
+      "plane_center_lidar": [
+        0.12179404472855046,
+        1.5326893684306926,
+        0.21730765709261504
+      ],
+      "n_lidar_pts": 1378,
+      "plane_rms_m": 0.017266121995593447
+    },
+    {
+      "label": "calib_p22_mid_roll_plus",
+      "bag": "2026-06-23-09-49-39.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.0025277712999083133,
+        0.17968301362490896,
+        1.4390921270719441
+      ],
+      "normal_cam": [
+        -0.01487363574739359,
+        0.06691036396770801,
+        0.9976481234149457
+      ],
+      "plane_normal_lidar": [
+        -0.02151247848483448,
+        -0.9930553648479225,
+        -0.11566440946202663
+      ],
+      "plane_d_lidar": 1.5464521240346771,
+      "plane_center_lidar": [
+        0.032108020189056306,
+        1.5368357980560312,
+        0.16944163621674543
+      ],
+      "n_lidar_pts": 1466,
+      "plane_rms_m": 0.0170011900010125
+    },
+    {
+      "label": "calib_p23_mid_roll_minus",
+      "bag": "2026-06-23-09-51-00.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.011964889573287703,
+        0.1838089855685156,
+        1.4376805920287457
+      ],
+      "normal_cam": [
+        -0.07144584446091361,
+        0.06295614604286706,
+        0.9954556820796676
+      ],
+      "plane_normal_lidar": [
+        -0.07147282749629054,
+        -0.9929668553511809,
+        -0.0943846338323798
+      ],
+      "plane_d_lidar": 1.5422306614463055,
+      "plane_center_lidar": [
+        0.03714123786867438,
+        1.5345499300898717,
+        0.16759988417709587
+      ],
+      "n_lidar_pts": 1233,
+      "plane_rms_m": 0.017933103919884587
+    },
+    {
+      "label": "calib_p24_mid_tilt",
+      "bag": "2026-06-23-09-55-04.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.011457424816720645,
+        0.17082796253941468,
+        1.3825626279529215
+      ],
+      "normal_cam": [
+        -0.03832063028427605,
+        -0.3842517574093436,
+        0.9224327163660485
+      ],
+      "plane_normal_lidar": [
+        -0.014758833860689458,
+        0.9054883497986069,
+        -0.4241144010783745
+      ],
+      "plane_d_lidar": -1.3072960014664072,
+      "plane_center_lidar": [
+        -0.0010547293464598145,
+        1.4989969656448956,
+        0.11799612028371767
+      ],
+      "n_lidar_pts": 516,
+      "plane_rms_m": 0.01840032212646023
+    },
+    {
+      "label": "calib_p25_high_center",
+      "bag": "2026-06-23-10-00-18.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.02483172391892899,
+        0.178882828076698,
+        1.1683555433936526
+      ],
+      "normal_cam": [
+        -0.04495807551467705,
+        0.03862039357646251,
+        0.9982420731696374
+      ],
+      "plane_normal_lidar": [
+        0.04412353350772611,
+        0.9990151176495649,
+        -0.004680651495122202
+      ],
+      "plane_d_lidar": -1.275380465757034,
+      "plane_center_lidar": [
+        0.01148877592820872,
+        1.276592165018068,
+        0.09856139879581297
+      ],
+      "n_lidar_pts": 1116,
+      "plane_rms_m": 0.018544647371808727
+    },
+    {
+      "label": "calib_p26_high_left",
+      "bag": "2026-06-23-10-02-00.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.12454493064084897,
+        0.1633947178770142,
+        1.1602336396830102
+      ],
+      "normal_cam": [
+        -0.006480867052820801,
+        0.006115091495281003,
+        0.9999603012211276
+      ],
+      "plane_normal_lidar": [
+        -0.08586768687399884,
+        -0.996265018930456,
+        -0.009096834966463631
+      ],
+      "plane_d_lidar": 1.2720615662074457,
+      "plane_center_lidar": [
+        0.10324184530774234,
+        1.2670967800352309,
+        0.09148568890342075
+      ],
+      "n_lidar_pts": 1125,
+      "plane_rms_m": 0.01823318500695125
+    },
+    {
+      "label": "calib_p27_high_right",
+      "bag": "2026-06-23-10-03-25.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.17783965821242873,
+        0.17116558279439056,
+        1.1760745344419588
+      ],
+      "normal_cam": [
+        -0.07420615007888172,
+        0.008795548191383482,
+        0.9972041343789563
+      ],
+      "plane_normal_lidar": [
+        -0.01119526729284028,
+        -0.9364665735077193,
+        0.35057812637549596
+      ],
+      "plane_d_lidar": 1.1622042766054077,
+      "plane_center_lidar": [
+        -0.14880069734239146,
+        1.3012752140319588,
+        0.1561152752322465
+      ],
+      "n_lidar_pts": 841,
+      "plane_rms_m": 0.018887501352419952
+    },
+    {
+      "label": "calib_p28_high_top",
+      "bag": "2026-06-23-10-05-51.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.0075147570872817196,
+        0.08251392084544715,
+        1.1648945837387752
+      ],
+      "normal_cam": [
+        -0.04172267364311439,
+        0.048441332888710595,
+        0.9979542353094331
+      ],
+      "plane_normal_lidar": [
+        0.07287632303461745,
+        0.992350111387051,
+        -0.09965088043294777
+      ],
+      "plane_d_lidar": -1.2760144226044847,
+      "plane_center_lidar": [
+        0.03707491464341217,
+        1.285955447354354,
+        0.0281532110929561
+      ],
+      "n_lidar_pts": 1024,
+      "plane_rms_m": 0.018570453227249407
+    },
+    {
+      "label": "calib_p30_high_topleft",
+      "bag": "2026-06-23-10-10-54.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.14831219300753393,
+        0.05500007492766282,
+        1.158055334310038
+      ],
+      "normal_cam": [
+        -0.009602653367636523,
+        0.032474515290925564,
+        0.9994264329628872
+      ],
+      "plane_normal_lidar": [
+        0.07366571655198073,
+        0.9952915689258766,
+        -0.06299249979124875
+      ],
+      "plane_d_lidar": -1.2777311718053312,
+      "plane_center_lidar": [
+        0.12390942424512494,
+        1.2752026269296848,
+        0.009447600530962346
+      ],
+      "n_lidar_pts": 926,
+      "plane_rms_m": 0.018971242477384617
+    },
+    {
+      "label": "calib_p31_high_topright",
+      "bag": "2026-06-23-10-12-24.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.13690446449088167,
+        0.04971768761269197,
+        1.1712593942039982
+      ],
+      "normal_cam": [
+        -0.06963275753617075,
+        0.04926456058877877,
+        0.9963554998834018
+      ],
+      "plane_normal_lidar": [
+        -0.04967346582128969,
+        0.9986243945959383,
+        -0.016788844844034978
+      ],
+      "plane_d_lidar": -1.2801502291880233,
+      "plane_center_lidar": [
+        -0.08884895495895803,
+        1.2773919770029747,
+        -0.006075698790220017
+      ],
+      "n_lidar_pts": 714,
+      "plane_rms_m": 0.019058751977268903
+    },
+    {
+      "label": "calib_p34_high_roll_plus",
+      "bag": "2026-06-23-10-18-28.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.026803824014651492,
+        0.1383009114336515,
+        1.1685204407723266
+      ],
+      "normal_cam": [
+        -0.01747085067670982,
+        0.052602013904018606,
+        0.9984627171356343
+      ],
+      "plane_normal_lidar": [
+        0.06613157546472223,
+        0.9642713466964227,
+        -0.25652950057804547
+      ],
+      "plane_d_lidar": -1.2215683913792486,
+      "plane_center_lidar": [
+        0.014835626578563773,
+        1.2936257336706325,
+        0.10454524819443688
+      ],
+      "n_lidar_pts": 1115,
+      "plane_rms_m": 0.01873287905238089
+    },
+    {
+      "label": "calib_p35_high_roll_minus",
+      "bag": "2026-06-23-10-20-30.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        0.012890096433050054,
+        0.1323037716094061,
+        1.165421027702169
+      ],
+      "normal_cam": [
+        -0.06785831031519032,
+        0.04939164627878993,
+        0.9964716328120126
+      ],
+      "plane_normal_lidar": [
+        0.024375489119477914,
+        0.9980553218275269,
+        -0.05737081228236265
+      ],
+      "plane_d_lidar": -1.2718155433309253,
+      "plane_center_lidar": [
+        0.009494257125925946,
+        1.2785909207186836,
+        0.07879192422336453
+      ],
+      "n_lidar_pts": 1104,
+      "plane_rms_m": 0.018626475440287154
+    },
+    {
+      "label": "calib_p36_high_tilt",
+      "bag": "2026-06-23-10-22-47.bag",
+      "rgb_source": "scan",
+      "lidar_source": "guided",
+      "center_cam": [
+        -0.002711180325392067,
+        0.17595802774472974,
+        1.1102657974468253
+      ],
+      "normal_cam": [
+        -0.02174043250132089,
+        -0.36409247444050036,
+        0.9311090288738743
+      ],
+      "plane_normal_lidar": [
+        0.050122618411314726,
+        0.7810909635357698,
+        -0.6224023054314279
+      ],
+      "plane_d_lidar": -0.8885987492957669,
+      "plane_center_lidar": [
+        0.021305402999486932,
+        1.290176412272057,
+        0.19314560571598605
+      ],
+      "n_lidar_pts": 842,
+      "plane_rms_m": 0.019424935576820113
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+sensor,label,bag,frame_index,stamp_ns,image_width,image_height,method,variant,confidence,rescue,usable_for_intrinsics,usable_for_registration,score,bbox_x0,bbox_y0,bbox_x1,bbox_y1,preview_path,encoding
+nir,calib_p01_low_center,2026-06-23-08-26-48.bag,0,1782196009555334500,512,256,classic_fast_s1_inv,pf_mean_unsharp,subpixel_full,False,True,True,45.383627,80.437,48.947,385.173,240.601,previews/nir/calib_p01_low_center_2026-06-23-08-26-48_00000.jpg,mono8

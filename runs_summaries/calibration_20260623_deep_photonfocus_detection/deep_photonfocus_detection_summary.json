@@ -1,0 +1,5302 @@
+{
+  "n_bags": 37,
+  "checker_counts": {
+    "vis": 8,
+    "nir": 7
+  },
+  "panel_counts": {
+    "vis": 37,
+    "nir": 37
+  },
+  "rotation_warnings": {
+    "vis": [],
+    "nir": []
+  },
+  "results": [
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-26-48.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-26-48.bag",
+      "label_raw": "calib_p01_low_center",
+      "label_norm": "calib_p01_low_center",
+      "pose_index": "01",
+      "height_level": "low",
+      "pose": "center",
+      "repeat_group": "",
+      "all_labels": "calib_p01_low_center | calib_p01_low_center",
+      "size_gb": "2.134",
+      "duration_s": "12.2",
+      "messages": "17817",
+      "rgb_msgs": "49",
+      "vis_msgs": "49",
+      "nir_msgs": "49",
+      "thermal_c_msgs": "84",
+      "cloud_msgs": "122",
+      "gps_msgs": "31",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x6_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782196015443319995,
+          "corners_px": [
+            [
+              56.398441314697266,
+              35.37754440307617
+            ],
+            [
+              94.8114242553711,
+              36.09055709838867
+            ],
+            [
+              132.85484313964844,
+              36.29001998901367
+            ],
+            [
+              171.1474151611328,
+              36.52046585083008
+            ],
+            [
+              209.0709228515625,
+              36.19087219238281
+            ],
+            [
+              247.006591796875,
+              36.629249572753906
+            ],
+            [
+              284.96038818359375,
+              36.24470520019531
+            ],
+            [
+              322.5461730957031,
+              36.865745544433594
+            ],
+            [
+              360.1122741699219,
+              35.94009780883789
+            ],
+            [
+              56.515655517578125,
+              74.08513641357422
+            ],
+            [
+              94.92312622070312,
+              74.09468841552734
+            ],
+            [
+              133.37570190429688,
+              74.4365463256836
+            ],
+            [
+              171.25160217285156,
+              74.04521179199219
+            ],
+            [
+              209.33168029785156,
+              74.53711700439453
+            ],
+            [
+              246.9111785888672,
+              73.88899230957031
+            ],
+            [
+              285.0092468261719,
+              74.7044677734375
+            ],
+            [
+              322.6662902832031,
+              74.20021057128906
+            ],
+            [
+              360.4853820800781,
+              74.86209869384766
+            ],
+            [
+              56.78270721435547,
+              112.27342224121094
+            ],
+            [
+              94.97879028320312,
+              112.3808822631836
+            ],
+            [
+              133.1112060546875,
+              112.0780029296875
+            ],
+            [
+              171.56436157226562,
+              112.62319946289062
+            ],
+            [
+              209.35748291015625,
+              112.08554077148438
+            ],
+            [
+              247.37063598632812,
+              112.43962860107422
+            ],
+            [
+              285.06842041015625,
+              111.90245056152344
+            ],
+            [
+              323.00189208984375,
+              112.60259246826172
+            ],
+            [
+              360.59844970703125,
+              111.4891128540039
+            ],
+            [
+              56.722816467285156,
+              150.48329162597656
+            ],
+            [
+              95.14918518066406,
+              150.05955505371094
+            ],
+            [
+              133.70626831054688,
+              150.49990844726562
+            ],
+            [
+              171.59100341796875,
+              149.95498657226562
+            ],
+            [
+              209.7154541015625,
+              150.3231201171875
+            ],
+            [
+              247.3856658935547,
+              149.63719177246094
+            ],
+            [
+              285.39410400390625,
+              150.3494873046875
+            ],
+            [
+              323.24725341796875,
+              149.34132385253906
+            ],
+            [
+              360.6506652832031,
+              150.14584350585938
+            ],
+            [
+              56.957611083984375,
+              188.33920288085938
+            ],
+            [
+              95.11393737792969,
+              188.16868591308594
+            ],
+            [
+              133.72938537597656,
+              187.46441650390625
+            ],
+            [
+              172.23651123046875,
+              188.12411499023438
+            ],
+            [
+              209.65354919433594,
+              187.04080200195312
+            ],
+            [
+              247.6973114013672,
+              187.7780303955078
+            ],
+            [
+              285.2128601074219,
+              187.12918090820312
+            ],
+            [
+              323.294189453125,
+              187.77243041992188
+            ],
+            [
+              360.8243408203125,
+              186.53915405273438
+            ],
+            [
+              57.27942657470703,
+              228.41299438476562
+            ],
+            [
+              95.03729248046875,
+              228.0175323486328
+            ],
+            [
+              134.1143035888672,
+              227.64797973632812
+            ],
+            [
+              171.26426696777344,
+              227.2601776123047
+            ],
+            [
+              210.86785888671875,
+              227.14976501464844
+            ],
+            [
+              247.9999542236328,
+              226.66404724121094
+            ],
+            [
+              286.794189453125,
+              226.7574005126953
+            ],
+            [
+              323.2146301269531,
+              226.7914581298828
+            ],
+            [
+              362.0535888671875,
+              227.62428283691406
+            ]
+          ],
+          "panel_box_xyxy": [
+            1.3805122375488281,
+            0.63116455078125,
+            417.071533203125,
+            263.15936279296875
+          ],
+          "orientation_deg": 0.10612588281669115,
+          "rotation_ok": true,
+          "quality": 74.09889364242554,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            6
+          ]
+        },
+        "nir": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782196015560168076,
+          "corners_px": [
+            [
+              81.15200805664062,
+              48.37091827392578
+            ],
+            [
+              119.53673553466797,
+              48.89838790893555
+            ],
+            [
+              157.67977905273438,
+              50.12811279296875
+            ],
+            [
+              195.87486267089844,
+              49.7198600769043
+            ],
+            [
+              233.6081085205078,
+              50.4039192199707
+            ],
+            [
+              271.52642822265625,
+              50.20069122314453
+            ],
+            [
+              309.3822326660156,
+              50.71824645996094
+            ],
+            [
+              347.32672119140625,
+              50.4819221496582
+            ],
+            [
+              384.8265380859375,
+              50.85618591308594
+            ],
+            [
+              80.97916412353516,
+              86.48094177246094
+            ],
+            [
+              119.34092712402344,
+              87.16334533691406
+            ],
+            [
+              157.6956787109375,
+              87.04963684082031
+            ],
+            [
+              195.54458618164062,
+              87.94050598144531
+            ],
+            [
+              233.66282653808594,
+              87.4866714477539
+            ],
+            [
+              271.28680419921875,
+              87.86726379394531
+            ],
+            [
+              309.3556213378906,
+              87.85244750976562
+            ],
+            [
+              346.90093994140625,
+              88.6552505493164
+            ],
+            [
+              385.0498962402344,
+              88.63597869873047
+            ],
+            [
+              80.83336639404297,
+              124.9830093383789
+            ],
+            [
+              119.32192993164062,
+              124.95218658447266
+            ],
+            [
+              157.35537719726562,
+              125.78601837158203
+            ],
+            [
+              195.4954376220703,
+              125.29198455810547
+            ],
+            [
+              233.59364318847656,
+              126.03631591796875
+            ],
+            [
+              271.4207458496094,
+              125.83058166503906
+            ],
+            [
+              309.04559326171875,
+              126.27825927734375
+            ],
+            [
+              347.2579345703125,
+              126.1078109741211
+            ],
+            [
+              384.7868347167969,
+              126.57470703125
+            ],
+            [
+              80.72085571289062,
+              162.6077117919922
+            ],
+            [
+              118.96580505371094,
+              163.33126831054688
+            ],
+            [
+              157.38812255859375,
+              163.36402893066406
+            ],
+            [
+              195.40985107421875,
+              164.03488159179688
+            ],
+            [
+              233.55323791503906,
+              163.50059509277344
+            ],
+            [
+              271.3686218261719,
+              163.8016815185547
+            ],
+            [
+              309.4554443359375,
+              163.61927795410156
+            ],
+            [
+              346.93292236328125,
+              164.20001220703125
+            ],
+            [
+              384.8728942871094,
+              164.38461303710938
+            ],
+            [
+              80.52454376220703,
+              200.966064453125
+            ],
+            [
+              119.04169464111328,
+              200.84185791015625
+            ],
+            [
+              157.17071533203125,
+              201.48951721191406
+            ],
+            [
+              195.716064453125,
+              200.91209411621094
+            ],
+            [
+              233.28900146484375,
+              201.37278747558594
+            ],
+            [
+              271.5038146972656,
+              201.06182861328125
+            ],
+            [
+              308.68939208984375,
+              201.93817138671875
+            ],
+            [
+              347.26080322265625,
+              201.8149871826172
+            ],
+            [
+              384.8287658691406,
+              202.25759887695312
+            ]
+          ],
+          "panel_box_xyxy": [
+            25.709976196289062,
+            20.671314239501953,
+            439.8644714355469,
+            229.9571990966797
+          ],
+          "orientation_deg": 0.4688973016562148,
+          "rotation_ok": true,
+          "quality": 66.56988430023193,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "include_default": "no",
+      "bag": "2026-06-23-08-30-20.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-30-20.bag",
+      "label_raw": "calib_p01_low_left",
+      "label_norm": "calib_p01_low_left",
+      "pose_index": "01",
+      "height_level": "low",
+      "pose": "left",
+      "repeat_group": "",
+      "all_labels": "calib_p01_low_left",
+      "size_gb": "1.595",
+      "duration_s": "9.2",
+      "messages": "13472",
+      "rgb_msgs": "36",
+      "vis_msgs": "37",
+      "nir_msgs": "37",
+      "thermal_c_msgs": "63",
+      "cloud_msgs": "92",
+      "gps_msgs": "23",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_right_half",
+          "frame_index": 0,
+          "stamp_ns": 1782196225936185565,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            225.28,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 52786.30619223898,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782196226073515502,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            239.68000000000004,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 38128.266078769055,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-39-46.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-39-46.bag",
+      "label_raw": "calib_p01_low_left_02",
+      "label_norm": "calib_p01_low_left_02",
+      "pose_index": "01",
+      "height_level": "low",
+      "pose": "left_02",
+      "repeat_group": "calib_p01_low_left",
+      "all_labels": "calib_p01_low_left_02 | calib_p02_low_left_02",
+      "size_gb": "1.573",
+      "duration_s": "9.1",
+      "messages": "13234",
+      "rgb_msgs": "36",
+      "vis_msgs": "37",
+      "nir_msgs": "36",
+      "thermal_c_msgs": "61",
+      "cloud_msgs": "90",
+      "gps_msgs": "23",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_right_half",
+          "frame_index": 0,
+          "stamp_ns": 1782196791441513448,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            225.28,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 47926.31608112686,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782196791560522546,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            240.8,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 37738.12987797735,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-43-50.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-43-50.bag",
+      "label_raw": "calib_p03_low_right",
+      "label_norm": "calib_p03_low_right",
+      "pose_index": "03",
+      "height_level": "low",
+      "pose": "right",
+      "repeat_group": "",
+      "all_labels": "calib_p03_low_right | calib_p03_low_right",
+      "size_gb": "0.683",
+      "duration_s": "7.6",
+      "messages": "991",
+      "rgb_msgs": "30",
+      "vis_msgs": "30",
+      "nir_msgs": "30",
+      "thermal_c_msgs": "50",
+      "cloud_msgs": "0",
+      "gps_msgs": "19",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_left_half",
+          "frame_index": 0,
+          "stamp_ns": 1782197035182902797,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            286.72,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 40292.50857797025,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782197035312404409,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            247.68,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 41229.631163572005,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-49-49.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-49-49.bag",
+      "label_raw": "calib_p04_low_top",
+      "label_norm": "calib_p04_low_top",
+      "pose_index": "04",
+      "height_level": "low",
+      "pose": "top",
+      "repeat_group": "",
+      "all_labels": "calib_p04_low_top | calib_p04_low_top",
+      "size_gb": "1.913",
+      "duration_s": "10.9",
+      "messages": "15955",
+      "rgb_msgs": "44",
+      "vis_msgs": "44",
+      "nir_msgs": "44",
+      "thermal_c_msgs": "76",
+      "cloud_msgs": "109",
+      "gps_msgs": "28",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782197395445015806,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            40.04,
+            0.0,
+            511.0,
+            138.88000000000002
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 22628.61987081829,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782197395310456881,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            67.2,
+            0.0,
+            511.0,
+            144.48000000000002
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 33749.878898980736,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-51-56.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-51-56.bag",
+      "label_raw": "calib_p05_low_bottom",
+      "label_norm": "calib_p05_low_bottom",
+      "pose_index": "05",
+      "height_level": "low",
+      "pose": "bottom",
+      "repeat_group": "",
+      "all_labels": "calib_p05_low_bottom | calip_p05_low_bottom",
+      "size_gb": "1.269",
+      "duration_s": "7.3",
+      "messages": "10653",
+      "rgb_msgs": "29",
+      "vis_msgs": "29",
+      "nir_msgs": "29",
+      "thermal_c_msgs": "53",
+      "cloud_msgs": "72",
+      "gps_msgs": "18",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782197520944571591,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            21.200000000000003,
+            65.6,
+            504.80000000000007,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 26080.918887680327,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782197521067338487,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            45.32,
+            80.16,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 38316.211599424445,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-54-31.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-54-31.bag",
+      "label_raw": "calib_p06_low_topleft",
+      "label_norm": "calib_p06_low_topleft",
+      "pose_index": "06",
+      "height_level": "low",
+      "pose": "topleft",
+      "repeat_group": "",
+      "all_labels": "calib_p06_low_topleft | calib_p06_low_topleft",
+      "size_gb": "1.381",
+      "duration_s": "7.9",
+      "messages": "11548",
+      "rgb_msgs": "32",
+      "vis_msgs": "32",
+      "nir_msgs": "31",
+      "thermal_c_msgs": "52",
+      "cloud_msgs": "79",
+      "gps_msgs": "20",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782197676446199819,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            433.44000000000005,
+            142.24
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 24072.373884477256,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782197676560371142,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            447.04,
+            156.8
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 36224.725780000575,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-56-12.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-56-12.bag",
+      "label_raw": "calib_p07_low_topright",
+      "label_norm": "calib_p07_low_topright",
+      "pose_index": "07",
+      "height_level": "low",
+      "pose": "topright",
+      "repeat_group": "",
+      "all_labels": "calib_p07_low_topright | calib_p07_low_topright",
+      "size_gb": "1.725",
+      "duration_s": "9.8",
+      "messages": "14388",
+      "rgb_msgs": "40",
+      "vis_msgs": "40",
+      "nir_msgs": "39",
+      "thermal_c_msgs": "67",
+      "cloud_msgs": "98",
+      "gps_msgs": "25",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782197777933395778,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            134.56,
+            0.0,
+            511.0,
+            157.92000000000002
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 22297.121993347482,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782197777810148532,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            162.56,
+            0.0,
+            511.0,
+            172.48000000000002
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 32957.020446767056,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-58-21.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-58-21.bag",
+      "label_raw": "calib_p08_low_bottomleft",
+      "label_norm": "calib_p08_low_bottomleft",
+      "pose_index": "08",
+      "height_level": "low",
+      "pose": "bottomleft",
+      "repeat_group": "",
+      "all_labels": "calib_p08_low_bottomleft | calib_p08_low_bottomleft",
+      "size_gb": "1.734",
+      "duration_s": "9.9",
+      "messages": "14495",
+      "rgb_msgs": "40",
+      "vis_msgs": "39",
+      "nir_msgs": "40",
+      "thermal_c_msgs": "68",
+      "cloud_msgs": "99",
+      "gps_msgs": "25",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_top_half",
+          "frame_index": 0,
+          "stamp_ns": 1782197907193041548,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            143.36
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 38951.19370117791,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_top_half",
+          "frame_index": 0,
+          "stamp_ns": 1782197907060221554,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            143.36
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 39958.798437523845,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-08-59-53.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-59-53.bag",
+      "label_raw": "calib_p09_low_bottomright",
+      "label_norm": "calib_p09_low_bottomright",
+      "pose_index": "09",
+      "height_level": "low",
+      "pose": "bottomright",
+      "repeat_group": "",
+      "all_labels": "calib_p09_low_bottomright | calib_p09_low_bottomright",
+      "size_gb": "1.556",
+      "duration_s": "8.9",
+      "messages": "12983",
+      "rgb_msgs": "36",
+      "vis_msgs": "35",
+      "nir_msgs": "36",
+      "thermal_c_msgs": "59",
+      "cloud_msgs": "89",
+      "gps_msgs": "22",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782197998433894635,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            80.80000000000001,
+            98.08,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 20295.649920003536,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782197998572735204,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            106.56,
+            112.64,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 30748.427043168394,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-02-50.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-02-50.bag",
+      "label_raw": "calib_p10_low_roll_plus",
+      "label_norm": "calib_p10_low_roll_plus",
+      "pose_index": "10",
+      "height_level": "low",
+      "pose": "roll_plus",
+      "repeat_group": "",
+      "all_labels": "calib_p10_low_roll_plus | calib_p10_low_roll_plus",
+      "size_gb": "1.483",
+      "duration_s": "8.5",
+      "messages": "12366",
+      "rgb_msgs": "34",
+      "vis_msgs": "34",
+      "nir_msgs": "34",
+      "thermal_c_msgs": "58",
+      "cloud_msgs": "85",
+      "gps_msgs": "21",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198174945084073,
+          "corners_px": [
+            [
+              427.00787353515625,
+              185.074462890625
+            ],
+            [
+              388.019775390625,
+              191.69664001464844
+            ],
+            [
+              353.0483093261719,
+              198.0252685546875
+            ],
+            [
+              314.3533020019531,
+              206.08230590820312
+            ],
+            [
+              278.85675048828125,
+              212.7047576904297
+            ],
+            [
+              240.10366821289062,
+              220.66839599609375
+            ],
+            [
+              204.36997985839844,
+              227.70176696777344
+            ],
+            [
+              165.76513671875,
+              235.10255432128906
+            ],
+            [
+              128.7136688232422,
+              241.91641235351562
+            ],
+            [
+              418.4383850097656,
+              145.1277618408203
+            ],
+            [
+              381.84832763671875,
+              152.65135192871094
+            ],
+            [
+              344.3398132324219,
+              159.72018432617188
+            ],
+            [
+              308.0353088378906,
+              166.80528259277344
+            ],
+            [
+              270.6197509765625,
+              174.37603759765625
+            ],
+            [
+              234.01220703125,
+              181.5712432861328
+            ],
+            [
+              196.25936889648438,
+              188.59454345703125
+            ],
+            [
+              159.2158660888672,
+              196.0318145751953
+            ],
+            [
+              120.87981414794922,
+              202.89781188964844
+            ],
+            [
+              411.4952087402344,
+              108.73939514160156
+            ],
+            [
+              374.6806945800781,
+              115.8730239868164
+            ],
+            [
+              337.9021911621094,
+              123.08206939697266
+            ],
+            [
+              300.677978515625,
+              130.4678955078125
+            ],
+            [
+              264.00811767578125,
+              137.482421875
+            ],
+            [
+              226.48374938964844,
+              145.397216796875
+            ],
+            [
+              189.58880615234375,
+              152.16917419433594
+            ],
+            [
+              151.56060791015625,
+              158.94224548339844
+            ],
+            [
+              114.38502502441406,
+              166.01075744628906
+            ],
+            [
+              404.26171875,
+              71.71360778808594
+            ],
+            [
+              367.7654113769531,
+              79.08184814453125
+            ],
+            [
+              330.3678894042969,
+              86.48279571533203
+            ],
+            [
+              293.587646484375,
+              93.14497375488281
+            ],
+            [
+              256.3608093261719,
+              100.91060638427734
+            ],
+            [
+              219.29945373535156,
+              107.59612274169922
+            ],
+            [
+              181.6980438232422,
+              115.05872344970703
+            ],
+            [
+              144.742431640625,
+              121.91295623779297
+            ],
+            [
+              106.54390716552734,
+              128.4475860595703
+            ],
+            [
+              397.49334716796875,
+              34.576622009277344
+            ],
+            [
+              359.9600830078125,
+              42.24602127075195
+            ],
+            [
+              323.5852966308594,
+              48.8447151184082
+            ],
+            [
+              285.8487854003906,
+              56.214881896972656
+            ],
+            [
+              249.31735229492188,
+              62.97321319580078
+            ],
+            [
+              211.7250213623047,
+              70.61778259277344
+            ],
+            [
+              174.71810913085938,
+              77.2853012084961
+            ],
+            [
+              136.80068969726562,
+              84.50666809082031
+            ],
+            [
+              99.80587768554688,
+              91.35594177246094
+            ]
+          ],
+          "panel_box_xyxy": [
+            40.909515380859375,
+            -2.7445411682128906,
+            485.90423583984375,
+            279.2375793457031
+          ],
+          "orientation_deg": 169.21125212328886,
+          "rotation_ok": true,
+          "quality": 79.21963405609131,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        },
+        "nir": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198174813653798,
+          "corners_px": [
+            [
+              443.3763732910156,
+              160.73526000976562
+            ],
+            [
+              406.10968017578125,
+              167.71893310546875
+            ],
+            [
+              369.3349914550781,
+              174.15228271484375
+            ],
+            [
+              331.3922424316406,
+              181.52430725097656
+            ],
+            [
+              294.9847106933594,
+              188.09478759765625
+            ],
+            [
+              257.23199462890625,
+              195.58370971679688
+            ],
+            [
+              220.58642578125,
+              202.01353454589844
+            ],
+            [
+              182.30197143554688,
+              209.64498901367188
+            ],
+            [
+              145.2768096923828,
+              216.42066955566406
+            ],
+            [
+              436.00848388671875,
+              123.59719848632812
+            ],
+            [
+              399.8394470214844,
+              129.91844177246094
+            ],
+            [
+              361.6940612792969,
+              137.59031677246094
+            ],
+            [
+              325.220947265625,
+              143.80679321289062
+            ],
+            [
+              287.3774108886719,
+              151.6366729736328
+            ],
+            [
+              250.8194580078125,
+              158.51373291015625
+            ],
+            [
+              212.68240356445312,
+              165.8858642578125
+            ],
+            [
+              176.03297424316406,
+              172.08090209960938
+            ],
+            [
+              137.6494140625,
+              179.41159057617188
+            ],
+            [
+              429.2872009277344,
+              86.61639404296875
+            ],
+            [
+              392.082763671875,
+              93.48578643798828
+            ],
+            [
+              355.2796325683594,
+              99.87808227539062
+            ],
+            [
+              317.302978515625,
+              107.40592956542969
+            ],
+            [
+              281.0254211425781,
+              114.12020874023438
+            ],
+            [
+              242.935791015625,
+              121.51571655273438
+            ],
+            [
+              206.48348999023438,
+              128.27920532226562
+            ],
+            [
+              168.2744598388672,
+              135.31390380859375
+            ],
+            [
+              131.43927001953125,
+              141.65731811523438
+            ],
+            [
+              422.21136474609375,
+              49.35279083251953
+            ],
+            [
+              385.1971740722656,
+              55.96156311035156
+            ],
+            [
+              347.6041564941406,
+              63.23781967163086
+            ],
+            [
+              310.8152160644531,
+              69.736572265625
+            ],
+            [
+              273.34637451171875,
+              77.18411254882812
+            ],
+            [
+              236.65847778320312,
+              84.02310180664062
+            ],
+            [
+              198.62451171875,
+              91.13771057128906
+            ],
+            [
+              161.97067260742188,
+              97.48331451416016
+            ],
+            [
+              123.64400482177734,
+              104.77991485595703
+            ],
+            [
+              415.37493896484375,
+              12.246771812438965
+            ],
+            [
+              378.0758056640625,
+              19.135366439819336
+            ],
+            [
+              341.263427734375,
+              25.759031295776367
+            ],
+            [
+              303.354248046875,
+              33.06696319580078
+            ],
+            [
+              266.94805908203125,
+              39.62070083618164
+            ],
+            [
+              228.9659423828125,
+              46.92849349975586
+            ],
+            [
+              192.51905822753906,
+              53.81867218017578
+            ],
+            [
+              154.0577392578125,
+              60.5405158996582
+            ],
+            [
+              117.18840026855469,
+              66.69023895263672
+            ]
+          ],
+          "panel_box_xyxy": [
+            58.47455978393555,
+            -24.504531860351562,
+            502.0902099609375,
+            253.17196655273438
+          ],
+          "orientation_deg": 169.4190176770596,
+          "rotation_ok": true,
+          "quality": 78.47981834411621,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-04-17.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-04-17.bag",
+      "label_raw": "calib_p11_low_roll_minus",
+      "label_norm": "calib_p11_low_roll_minus",
+      "pose_index": "11",
+      "height_level": "low",
+      "pose": "roll_minus",
+      "repeat_group": "",
+      "all_labels": "calib_p11_low_roll_minus | calib_p11_low_roll_minus",
+      "size_gb": "1.481",
+      "duration_s": "8.5",
+      "messages": "12398",
+      "rgb_msgs": "34",
+      "vis_msgs": "34",
+      "nir_msgs": "34",
+      "thermal_c_msgs": "57",
+      "cloud_msgs": "85",
+      "gps_msgs": "21",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "median4_norm_sb_exh_p8x5_guided_s1.25_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198261945955351,
+          "corners_px": [
+            [
+              236.677734375,
+              6.651686668395996
+            ],
+            [
+              271.9820251464844,
+              20.645401000976562
+            ],
+            [
+              306.9591979980469,
+              34.55056381225586
+            ],
+            [
+              341.79498291015625,
+              48.86165237426758
+            ],
+            [
+              376.7951354980469,
+              63.10422897338867
+            ],
+            [
+              411.4060974121094,
+              77.70140838623047
+            ],
+            [
+              446.4168395996094,
+              91.85379791259766
+            ],
+            [
+              483.3209533691406,
+              104.0835189819336
+            ],
+            [
+              222.45730590820312,
+              41.51360321044922
+            ],
+            [
+              257.64739990234375,
+              55.458885192871094
+            ],
+            [
+              293.15966796875,
+              70.5511245727539
+            ],
+            [
+              327.4940490722656,
+              83.62598419189453
+            ],
+            [
+              362.68902587890625,
+              98.80261993408203
+            ],
+            [
+              397.63848876953125,
+              112.8611068725586
+            ],
+            [
+              432.307861328125,
+              126.84102630615234
+            ],
+            [
+              466.5113220214844,
+              143.26318359375
+            ],
+            [
+              208.4886474609375,
+              76.19869995117188
+            ],
+            [
+              243.70523071289062,
+              91.32286071777344
+            ],
+            [
+              279.09576416015625,
+              105.2720947265625
+            ],
+            [
+              313.7742614746094,
+              119.66630554199219
+            ],
+            [
+              348.673095703125,
+              133.60621643066406
+            ],
+            [
+              383.2626953125,
+              148.0792694091797
+            ],
+            [
+              418.27593994140625,
+              161.8844451904297
+            ],
+            [
+              454.9480895996094,
+              173.73605346679688
+            ],
+            [
+              194.25167846679688,
+              112.53187561035156
+            ],
+            [
+              229.6514434814453,
+              126.1860580444336
+            ],
+            [
+              264.9492492675781,
+              140.5888214111328
+            ],
+            [
+              299.872802734375,
+              154.3356475830078
+            ],
+            [
+              334.50311279296875,
+              168.99819946289062
+            ],
+            [
+              369.47613525390625,
+              182.64207458496094
+            ],
+            [
+              404.286865234375,
+              197.44454956054688
+            ],
+            [
+              438.43353271484375,
+              213.08950805664062
+            ],
+            [
+              180.53077697753906,
+              146.8002471923828
+            ],
+            [
+              216.00442504882812,
+              161.69252014160156
+            ],
+            [
+              250.75106811523438,
+              175.3795166015625
+            ],
+            [
+              285.6548156738281,
+              189.8587188720703
+            ],
+            [
+              320.399658203125,
+              203.8542022705078
+            ],
+            [
+              355.64208984375,
+              218.2598419189453
+            ],
+            [
+              390.2806701660156,
+              231.9757843017578
+            ],
+            [
+              426.18634033203125,
+              245.63241577148438
+            ]
+          ],
+          "panel_box_xyxy": [
+            126.02854919433594,
+            -36.364845275878906,
+            537.8231811523438,
+            288.6489562988281
+          ],
+          "orientation_deg": 21.555579240609532,
+          "rotation_ok": true,
+          "quality": 81.91398429870605,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            8,
+            5
+          ]
+        },
+        "nir": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p8x5_guided_s1.25_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198261824701532,
+          "corners_px": [
+            [
+              414.67364501953125,
+              247.70541381835938
+            ],
+            [
+              379.47161865234375,
+              232.53524780273438
+            ],
+            [
+              344.6460266113281,
+              217.5328826904297
+            ],
+            [
+              309.35943603515625,
+              203.07077026367188
+            ],
+            [
+              274.7331848144531,
+              188.6404571533203
+            ],
+            [
+              239.40798950195312,
+              174.29689025878906
+            ],
+            [
+              204.7194366455078,
+              159.68081665039062
+            ],
+            [
+              168.85922241210938,
+              145.2949981689453
+            ],
+            [
+              428.42169189453125,
+              211.72634887695312
+            ],
+            [
+              393.80303955078125,
+              197.11660766601562
+            ],
+            [
+              358.7872009277344,
+              182.77061462402344
+            ],
+            [
+              323.9974670410156,
+              167.81787109375
+            ],
+            [
+              288.5843200683594,
+              153.77880859375
+            ],
+            [
+              253.8597869873047,
+              139.5646209716797
+            ],
+            [
+              218.2418212890625,
+              124.80870056152344
+            ],
+            [
+              183.59671020507812,
+              110.29414367675781
+            ],
+            [
+              442.5367736816406,
+              176.7246551513672
+            ],
+            [
+              407.79547119140625,
+              162.03900146484375
+            ],
+            [
+              373.09844970703125,
+              147.32374572753906
+            ],
+            [
+              337.82659912109375,
+              133.1902618408203
+            ],
+            [
+              303.15667724609375,
+              118.79383850097656
+            ],
+            [
+              267.8325500488281,
+              104.5464859008789
+            ],
+            [
+              232.8433074951172,
+              90.11918640136719
+            ],
+            [
+              197.7087860107422,
+              75.45040130615234
+            ],
+            [
+              456.96478271484375,
+              141.60781860351562
+            ],
+            [
+              422.1405334472656,
+              127.1673812866211
+            ],
+            [
+              387.1202392578125,
+              112.4745101928711
+            ],
+            [
+              352.21185302734375,
+              97.76740264892578
+            ],
+            [
+              317.1513366699219,
+              83.51976013183594
+            ],
+            [
+              282.27301025390625,
+              69.20014953613281
+            ],
+            [
+              247.2490997314453,
+              54.917022705078125
+            ],
+            [
+              212.3325958251953,
+              40.242347717285156
+            ],
+            [
+              471.20428466796875,
+              106.75313568115234
+            ],
+            [
+              436.31787109375,
+              92.3295669555664
+            ],
+            [
+              401.5384216308594,
+              77.69627380371094
+            ],
+            [
+              366.3550109863281,
+              62.8867301940918
+            ],
+            [
+              331.94415283203125,
+              48.56099319458008
+            ],
+            [
+              296.48529052734375,
+              34.035972595214844
+            ],
+            [
+              261.9073791503906,
+              19.885753631591797
+            ],
+            [
+              226.4972686767578,
+              5.0841264724731445
+            ]
+          ],
+          "panel_box_xyxy": [
+            114.4371109008789,
+            -38.58770751953125,
+            525.6264038085938,
+            291.37725830078125
+          ],
+          "orientation_deg": -157.38257008411168,
+          "rotation_ok": true,
+          "quality": 82.61953449249268,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            8,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-06-46.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-06-46.bag",
+      "label_raw": "calib_p12_low_tilt",
+      "label_norm": "calib_p12_low_tilt",
+      "pose_index": "12",
+      "height_level": "low",
+      "pose": "tilt",
+      "repeat_group": "",
+      "all_labels": "calib_p12_low_tilt | calib_p12_low_tilt",
+      "size_gb": "1.510",
+      "duration_s": "8.6",
+      "messages": "12613",
+      "rgb_msgs": "35",
+      "vis_msgs": "34",
+      "nir_msgs": "35",
+      "thermal_c_msgs": "58",
+      "cloud_msgs": "86",
+      "gps_msgs": "21",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x6_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198411441782491,
+          "corners_px": [
+            [
+              113.13727569580078,
+              55.26279067993164
+            ],
+            [
+              153.264404296875,
+              55.42196273803711
+            ],
+            [
+              193.8883514404297,
+              55.40195846557617
+            ],
+            [
+              233.87387084960938,
+              55.11894989013672
+            ],
+            [
+              274.1268615722656,
+              54.43585205078125
+            ],
+            [
+              313.7731628417969,
+              53.81978225708008
+            ],
+            [
+              354.17523193359375,
+              53.54554748535156
+            ],
+            [
+              393.4333801269531,
+              52.99695587158203
+            ],
+            [
+              433.99273681640625,
+              51.85834503173828
+            ],
+            [
+              113.99628448486328,
+              93.07228088378906
+            ],
+            [
+              154.29986572265625,
+              92.80056762695312
+            ],
+            [
+              194.08106994628906,
+              92.4872055053711
+            ],
+            [
+              233.8407440185547,
+              92.11701202392578
+            ],
+            [
+              273.7457580566406,
+              91.44978332519531
+            ],
+            [
+              313.09393310546875,
+              90.7471694946289
+            ],
+            [
+              352.7596740722656,
+              90.55542755126953
+            ],
+            [
+              392.24639892578125,
+              89.81686401367188
+            ],
+            [
+              431.552978515625,
+              88.99608612060547
+            ],
+            [
+              115.2365951538086,
+              129.17581176757812
+            ],
+            [
+              155.260498046875,
+              129.22727966308594
+            ],
+            [
+              194.52406311035156,
+              128.9379425048828
+            ],
+            [
+              233.91712951660156,
+              128.20262145996094
+            ],
+            [
+              273.29718017578125,
+              127.86090087890625
+            ],
+            [
+              312.50592041015625,
+              127.11286926269531
+            ],
+            [
+              351.3736572265625,
+              126.78054809570312
+            ],
+            [
+              390.66314697265625,
+              126.4404067993164
+            ],
+            [
+              429.5198669433594,
+              125.9094467163086
+            ],
+            [
+              116.60533905029297,
+              164.66139221191406
+            ],
+            [
+              155.78466796875,
+              164.48773193359375
+            ],
+            [
+              195.0882110595703,
+              164.36363220214844
+            ],
+            [
+              233.8753662109375,
+              163.74783325195312
+            ],
+            [
+              273.0746765136719,
+              162.7868194580078
+            ],
+            [
+              311.7471008300781,
+              162.24990844726562
+            ],
+            [
+              350.77972412109375,
+              161.9313507080078
+            ],
+            [
+              389.2249450683594,
+              161.22140502929688
+            ],
+            [
+              427.98388671875,
+              161.0675811767578
+            ],
+            [
+              117.61128234863281,
+              199.08059692382812
+            ],
+            [
+              156.792236328125,
+              199.03358459472656
+            ],
+            [
+              195.4922332763672,
+              198.22068786621094
+            ],
+            [
+              234.47796630859375,
+              197.8751220703125
+            ],
+            [
+              272.7322998046875,
+              197.2364959716797
+            ],
+            [
+              311.2262878417969,
+              196.7636260986328
+            ],
+            [
+              349.3729248046875,
+              196.3816680908203
+            ],
+            [
+              387.9368591308594,
+              195.93060302734375
+            ],
+            [
+              426.303466796875,
+              195.93963623046875
+            ],
+            [
+              119.18714141845703,
+              235.55206298828125
+            ],
+            [
+              156.86300659179688,
+              234.94033813476562
+            ],
+            [
+              195.8280792236328,
+              234.1187286376953
+            ],
+            [
+              233.10389709472656,
+              234.00559997558594
+            ],
+            [
+              272.7829895019531,
+              233.18618774414062
+            ],
+            [
+              310.3712463378906,
+              232.71498107910156
+            ],
+            [
+              348.94873046875,
+              231.98220825195312
+            ],
+            [
+              386.22900390625,
+              231.69375610351562
+            ],
+            [
+              424.5961608886719,
+              231.56744384765625
+            ]
+          ],
+          "panel_box_xyxy": [
+            55.3832893371582,
+            18.793472290039062,
+            491.7467346191406,
+            268.616943359375
+          ],
+          "orientation_deg": -0.6079156085401636,
+          "rotation_ok": true,
+          "quality": 73.56480360031128,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            6
+          ]
+        },
+        "nir": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_classic_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198411560498148,
+          "corners_px": [
+            [
+              139.6769256591797,
+              69.08172607421875
+            ],
+            [
+              179.7674560546875,
+              69.0466079711914
+            ],
+            [
+              220.3041534423828,
+              69.20159149169922
+            ],
+            [
+              260.3180847167969,
+              69.05670928955078
+            ],
+            [
+              300.5855407714844,
+              68.73298645019531
+            ],
+            [
+              339.81744384765625,
+              68.62166595458984
+            ],
+            [
+              381.13232421875,
+              68.60603332519531
+            ],
+            [
+              421.054931640625,
+              70.68208312988281
+            ],
+            [
+              460.5,
+              68.0
+            ],
+            [
+              139.46551513671875,
+              106.66614532470703
+            ],
+            [
+              181.23342895507812,
+              106.70989227294922
+            ],
+            [
+              219.9893341064453,
+              106.4443359375
+            ],
+            [
+              259.8678894042969,
+              105.69632720947266
+            ],
+            [
+              299.424072265625,
+              105.68762969970703
+            ],
+            [
+              340.3120422363281,
+              105.65979766845703
+            ],
+            [
+              378.43084716796875,
+              105.44287109375
+            ],
+            [
+              418.8619079589844,
+              104.16564178466797
+            ],
+            [
+              459.39129638671875,
+              106.02393341064453
+            ],
+            [
+              141.24916076660156,
+              143.49649047851562
+            ],
+            [
+              180.61309814453125,
+              142.90504455566406
+            ],
+            [
+              220.1386260986328,
+              143.335205078125
+            ],
+            [
+              259.50567626953125,
+              142.33677673339844
+            ],
+            [
+              299.44329833984375,
+              142.3944549560547
+            ],
+            [
+              338.27655029296875,
+              142.1818084716797
+            ],
+            [
+              377.8739318847656,
+              142.04281616210938
+            ],
+            [
+              416.0,
+              142.0
+            ],
+            [
+              455.0,
+              140.5
+            ],
+            [
+              141.69482421875,
+              178.79872131347656
+            ],
+            [
+              180.65335083007812,
+              178.57977294921875
+            ],
+            [
+              219.10491943359375,
+              178.3610076904297
+            ],
+            [
+              258.9693603515625,
+              178.17694091796875
+            ],
+            [
+              297.6712646484375,
+              178.36715698242188
+            ],
+            [
+              337.3352355957031,
+              177.49322509765625
+            ],
+            [
+              376.5,
+              176.5
+            ],
+            [
+              413.4960021972656,
+              178.57484436035156
+            ],
+            [
+              453.8969421386719,
+              178.89784240722656
+            ],
+            [
+              142.2647705078125,
+              214.4065399169922
+            ],
+            [
+              181.79331970214844,
+              214.14736938476562
+            ],
+            [
+              221.1644744873047,
+              212.953857421875
+            ],
+            [
+              259.0408935546875,
+              213.74024963378906
+            ],
+            [
+              297.7763977050781,
+              212.6934356689453
+            ],
+            [
+              335.5,
+              212.0
+            ],
+            [
+              373.5,
+              211.5
+            ],
+            [
+              412.5,
+              211.5
+            ],
+            [
+              452.39093017578125,
+              210.26275634765625
+            ]
+          ],
+          "panel_box_xyxy": [
+            81.67930603027344,
+            41.646820068359375,
+            518.2861938476562,
+            240.7597198486328
+          ],
+          "orientation_deg": -0.19318469175458872,
+          "rotation_ok": true,
+          "quality": 66.70915794372559,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-10-36.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-10-36.bag",
+      "label_raw": "calib_p13_mid_center",
+      "label_norm": "calib_p13_mid_center",
+      "pose_index": "13",
+      "height_level": "mid",
+      "pose": "center",
+      "repeat_group": "",
+      "all_labels": "calib_p13_mid_center | calib_p13_mid_center",
+      "size_gb": "1.569",
+      "duration_s": "9.0",
+      "messages": "13158",
+      "rgb_msgs": "36",
+      "vis_msgs": "36",
+      "nir_msgs": "36",
+      "thermal_c_msgs": "60",
+      "cloud_msgs": "90",
+      "gps_msgs": "22",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198641935154563,
+          "corners_px": [
+            [
+              428.004638671875,
+              212.7818145751953
+            ],
+            [
+              383.4214782714844,
+              211.54652404785156
+            ],
+            [
+              339.72772216796875,
+              212.02212524414062
+            ],
+            [
+              296.3787841796875,
+              211.86244201660156
+            ],
+            [
+              251.68177795410156,
+              212.81785583496094
+            ],
+            [
+              207.0027618408203,
+              212.61106872558594
+            ],
+            [
+              162.90005493164062,
+              213.11849975585938
+            ],
+            [
+              118.65241241455078,
+              213.36614990234375
+            ],
+            [
+              73.65250396728516,
+              214.32806396484375
+            ],
+            [
+              427.8509826660156,
+              165.94786071777344
+            ],
+            [
+              383.1561584472656,
+              166.60906982421875
+            ],
+            [
+              339.6928405761719,
+              166.8966827392578
+            ],
+            [
+              295.34930419921875,
+              167.0994873046875
+            ],
+            [
+              251.83734130859375,
+              167.576171875
+            ],
+            [
+              207.32057189941406,
+              167.74700927734375
+            ],
+            [
+              163.56396484375,
+              167.63829040527344
+            ],
+            [
+              117.81719207763672,
+              167.9628143310547
+            ],
+            [
+              73.60865783691406,
+              167.3910369873047
+            ],
+            [
+              426.6710205078125,
+              122.65547943115234
+            ],
+            [
+              383.6546936035156,
+              122.58100891113281
+            ],
+            [
+              339.04693603515625,
+              122.92302703857422
+            ],
+            [
+              295.4985656738281,
+              123.0907974243164
+            ],
+            [
+              250.86204528808594,
+              123.39461517333984
+            ],
+            [
+              207.32936096191406,
+              123.88458251953125
+            ],
+            [
+              162.36404418945312,
+              123.62224578857422
+            ],
+            [
+              118.36483764648438,
+              123.49720001220703
+            ],
+            [
+              72.53055572509766,
+              123.7394790649414
+            ],
+            [
+              427.24676513671875,
+              78.34214782714844
+            ],
+            [
+              382.5843811035156,
+              78.4272689819336
+            ],
+            [
+              339.1872253417969,
+              78.67085266113281
+            ],
+            [
+              294.5502624511719,
+              78.70006561279297
+            ],
+            [
+              251.2781982421875,
+              79.21629333496094
+            ],
+            [
+              206.05740356445312,
+              79.0242691040039
+            ],
+            [
+              162.37937927246094,
+              79.39833068847656
+            ],
+            [
+              117.09298706054688,
+              79.16796112060547
+            ],
+            [
+              72.91564178466797,
+              78.93914794921875
+            ],
+            [
+              426.54168701171875,
+              34.52891159057617
+            ],
+            [
+              383.0365295410156,
+              34.19407272338867
+            ],
+            [
+              338.2322692871094,
+              34.41196060180664
+            ],
+            [
+              294.47943115234375,
+              34.09559631347656
+            ],
+            [
+              250.20257568359375,
+              34.229164123535156
+            ],
+            [
+              206.60206604003906,
+              34.285091400146484
+            ],
+            [
+              161.52362060546875,
+              34.35857391357422
+            ],
+            [
+              117.44065856933594,
+              34.229679107666016
+            ],
+            [
+              72.09255981445312,
+              34.79946517944336
+            ]
+          ],
+          "panel_box_xyxy": [
+            8.02838134765625,
+            1.6537513732910156,
+            492.0688171386719,
+            246.76991271972656
+          ],
+          "orientation_deg": 179.7499859850653,
+          "rotation_ok": true,
+          "quality": 83.48270511627197,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        },
+        "nir": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782198641831578682,
+          "corners_px": [
+            [
+              457.5295715332031,
+              227.5787353515625
+            ],
+            [
+              413.0331726074219,
+              226.75927734375
+            ],
+            [
+              369.63995361328125,
+              226.47991943359375
+            ],
+            [
+              324.8292236328125,
+              226.4452667236328
+            ],
+            [
+              281.3023376464844,
+              226.28680419921875
+            ],
+            [
+              235.29965209960938,
+              226.737060546875
+            ],
+            [
+              191.85545349121094,
+              226.2366943359375
+            ],
+            [
+              146.47750854492188,
+              226.83642578125
+            ],
+            [
+              102.63422393798828,
+              226.89501953125
+            ],
+            [
+              457.2337646484375,
+              181.5839080810547
+            ],
+            [
+              413.02801513671875,
+              181.17794799804688
+            ],
+            [
+              369.0129699707031,
+              181.33714294433594
+            ],
+            [
+              324.72979736328125,
+              181.0014190673828
+            ],
+            [
+              280.75762939453125,
+              181.2548370361328
+            ],
+            [
+              236.5353240966797,
+              181.2348175048828
+            ],
+            [
+              192.09385681152344,
+              181.13072204589844
+            ],
+            [
+              147.13917541503906,
+              181.01541137695312
+            ],
+            [
+              102.43513488769531,
+              181.0026397705078
+            ],
+            [
+              456.7918395996094,
+              137.50790405273438
+            ],
+            [
+              413.20703125,
+              137.2805633544922
+            ],
+            [
+              368.8411560058594,
+              136.6265869140625
+            ],
+            [
+              324.8408203125,
+              136.81597900390625
+            ],
+            [
+              280.6318054199219,
+              136.92868041992188
+            ],
+            [
+              236.35289001464844,
+              137.37608337402344
+            ],
+            [
+              191.6973114013672,
+              137.07127380371094
+            ],
+            [
+              147.2315673828125,
+              136.902099609375
+            ],
+            [
+              102.23062896728516,
+              136.16943359375
+            ],
+            [
+              456.8876647949219,
+              93.54688262939453
+            ],
+            [
+              412.7282409667969,
+              92.75957489013672
+            ],
+            [
+              368.8623962402344,
+              92.84386444091797
+            ],
+            [
+              324.5244140625,
+              92.50518798828125
+            ],
+            [
+              280.6476745605469,
+              92.91314697265625
+            ],
+            [
+              236.0574493408203,
+              92.73332977294922
+            ],
+            [
+              191.80078125,
+              92.91773986816406
+            ],
+            [
+              147.1063232421875,
+              92.07760620117188
+            ],
+            [
+              102.58003234863281,
+              92.21073150634766
+            ],
+            [
+              456.784912109375,
+              49.196720123291016
+            ],
+            [
+              412.8292541503906,
+              49.15251159667969
+            ],
+            [
+              368.48077392578125,
+              48.28324508666992
+            ],
+            [
+              324.4777526855469,
+              48.19694137573242
+            ],
+            [
+              280.40460205078125,
+              48.02307891845703
+            ],
+            [
+              236.1745147705078,
+              48.142215728759766
+            ],
+            [
+              191.69798278808594,
+              47.94707107543945
+            ],
+            [
+              147.40223693847656,
+              47.97832489013672
+            ],
+            [
+              102.1668472290039,
+              47.38121795654297
+            ]
+          ],
+          "panel_box_xyxy": [
+            38.20155334472656,
+            14.945663452148438,
+            521.494873046875,
+            260.0142822265625
+          ],
+          "orientation_deg": -179.8896182160496,
+          "rotation_ok": true,
+          "quality": 83.41696119308472,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-12-23.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-12-23.bag",
+      "label_raw": "calib_p14_mid_left",
+      "label_norm": "calib_p14_mid_left",
+      "pose_index": "14",
+      "height_level": "mid",
+      "pose": "left",
+      "repeat_group": "",
+      "all_labels": "calib_p14_mid_left | calib_p14_mid_left",
+      "size_gb": "1.534",
+      "duration_s": "8.8",
+      "messages": "12888",
+      "rgb_msgs": "35",
+      "vis_msgs": "36",
+      "nir_msgs": "35",
+      "thermal_c_msgs": "60",
+      "cloud_msgs": "88",
+      "gps_msgs": "22",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782198748687510699,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            389.76000000000005,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 34318.23233288565,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_clahe_sb_exh_p8x5_guided_s1.25_inv",
+          "frame_index": 0,
+          "stamp_ns": 1782198748573095666,
+          "corners_px": [
+            [
+              25.536617279052734,
+              41.40140914916992
+            ],
+            [
+              70.25923919677734,
+              41.74239730834961
+            ],
+            [
+              115.10740661621094,
+              42.322364807128906
+            ],
+            [
+              158.5814208984375,
+              42.64417266845703
+            ],
+            [
+              204.9110107421875,
+              43.83772659301758
+            ],
+            [
+              247.6850128173828,
+              43.86595916748047
+            ],
+            [
+              292.68682861328125,
+              44.3674430847168
+            ],
+            [
+              345.82452392578125,
+              35.271480560302734
+            ],
+            [
+              25.26255989074707,
+              85.30226135253906
+            ],
+            [
+              69.54839324951172,
+              85.48023986816406
+            ],
+            [
+              114.81719970703125,
+              86.32524871826172
+            ],
+            [
+              159.5293426513672,
+              87.11054992675781
+            ],
+            [
+              203.26736450195312,
+              87.4684066772461
+            ],
+            [
+              248.47396850585938,
+              88.44782257080078
+            ],
+            [
+              290.47369384765625,
+              89.75825500488281
+            ],
+            [
+              343.4490966796875,
+              73.84361267089844
+            ],
+            [
+              24.551509857177734,
+              130.48208618164062
+            ],
+            [
+              69.63510131835938,
+              130.96633911132812
+            ],
+            [
+              114.49336242675781,
+              131.50067138671875
+            ],
+            [
+              158.28445434570312,
+              131.56475830078125
+            ],
+            [
+              204.43765258789062,
+              133.07144165039062
+            ],
+            [
+              246.41238403320312,
+              133.28836059570312
+            ],
+            [
+              292.31536865234375,
+              133.3579559326172
+            ],
+            [
+              349.4031066894531,
+              121.35417175292969
+            ],
+            [
+              24.86121368408203,
+              173.92430114746094
+            ],
+            [
+              69.58663940429688,
+              175.25137329101562
+            ],
+            [
+              113.9713134765625,
+              175.48594665527344
+            ],
+            [
+              159.10491943359375,
+              176.40664672851562
+            ],
+            [
+              202.79808044433594,
+              176.39962768554688
+            ],
+            [
+              248.3743133544922,
+              177.6329345703125
+            ],
+            [
+              290.58941650390625,
+              177.7130584716797
+            ],
+            [
+              349.79302978515625,
+              173.91502380371094
+            ],
+            [
+              23.451826095581055,
+              220.797119140625
+            ],
+            [
+              68.21781158447266,
+              221.26345825195312
+            ],
+            [
+              113.69915771484375,
+              221.7386474609375
+            ],
+            [
+              158.04075622558594,
+              221.0576629638672
+            ],
+            [
+              204.06167602539062,
+              222.50503540039062
+            ],
+            [
+              245.99435424804688,
+              222.13119506835938
+            ],
+            [
+              291.8202819824219,
+              223.1233673095703
+            ],
+            [
+              350.6058044433594,
+              231.87271118164062
+            ]
+          ],
+          "panel_box_xyxy": [
+            -35.43589782714844,
+            -0.11674118041992188,
+            409.4935302734375,
+            267.26092529296875
+          ],
+          "orientation_deg": -1.0964390476141896,
+          "rotation_ok": true,
+          "quality": 84.10652160644531,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            8,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-14-07.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-14-07.bag",
+      "label_raw": "calib_p15_mid_right",
+      "label_norm": "calib_p15_mid_right",
+      "pose_index": "15",
+      "height_level": "mid",
+      "pose": "right",
+      "repeat_group": "",
+      "all_labels": "calib_p15_mid_right | calib_p15_mid_right",
+      "size_gb": "1.694",
+      "duration_s": "9.7",
+      "messages": "14166",
+      "rgb_msgs": "39",
+      "vis_msgs": "39",
+      "nir_msgs": "39",
+      "thermal_c_msgs": "65",
+      "cloud_msgs": "97",
+      "gps_msgs": "25",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "max4_norm_sb_exh_p8x5_guided_s1_inv",
+          "frame_index": 0,
+          "stamp_ns": 1782198853196386233,
+          "corners_px": [
+            [
+              473.23626708984375,
+              210.26307678222656
+            ],
+            [
+              429.2447814941406,
+              210.58111572265625
+            ],
+            [
+              385.0851745605469,
+              210.8538360595703
+            ],
+            [
+              340.8978271484375,
+              210.20701599121094
+            ],
+            [
+              296.9695739746094,
+              210.89785766601562
+            ],
+            [
+              253.11874389648438,
+              211.08729553222656
+            ],
+            [
+              207.89671325683594,
+              212.0696563720703
+            ],
+            [
+              150.13990783691406,
+              222.9735107421875
+            ],
+            [
+              472.5045471191406,
+              165.08457946777344
+            ],
+            [
+              428.783203125,
+              164.87168884277344
+            ],
+            [
+              384.86395263671875,
+              165.15509033203125
+            ],
+            [
+              341.378662109375,
+              166.10867309570312
+            ],
+            [
+              297.7206726074219,
+              165.6466827392578
+            ],
+            [
+              252.09353637695312,
+              166.4143829345703
+            ],
+            [
+              208.7108612060547,
+              165.87889099121094
+            ],
+            [
+              147.32334899902344,
+              167.2364044189453
+            ],
+            [
+              472.54083251953125,
+              121.07432556152344
+            ],
+            [
+              428.5480651855469,
+              120.78497314453125
+            ],
+            [
+              384.7885437011719,
+              121.60022735595703
+            ],
+            [
+              341.2795715332031,
+              121.60484313964844
+            ],
+            [
+              296.3894348144531,
+              122.07691955566406
+            ],
+            [
+              252.72569274902344,
+              121.84117126464844
+            ],
+            [
+              207.69273376464844,
+              122.09117126464844
+            ],
+            [
+              153.95718383789062,
+              117.80097198486328
+            ],
+            [
+              472.24969482421875,
+              77.09346008300781
+            ],
+            [
+              428.2669677734375,
+              76.81571197509766
+            ],
+            [
+              384.445068359375,
+              77.47699737548828
+            ],
+            [
+              340.458740234375,
+              77.81603240966797
+            ],
+            [
+              297.0359191894531,
+              77.78380584716797
+            ],
+            [
+              251.68063354492188,
+              77.7333984375
+            ],
+            [
+              208.37881469726562,
+              77.62976837158203
+            ],
+            [
+              148.73057556152344,
+              70.81510925292969
+            ],
+            [
+              471.97509765625,
+              33.068565368652344
+            ],
+            [
+              427.9994812011719,
+              33.095237731933594
+            ],
+            [
+              384.2456359863281,
+              32.96023178100586
+            ],
+            [
+              340.5049743652344,
+              33.09829330444336
+            ],
+            [
+              295.9832458496094,
+              33.48486328125
+            ],
+            [
+              252.277587890625,
+              33.17033767700195
+            ],
+            [
+              207.6500244140625,
+              33.242977142333984
+            ],
+            [
+              144.2188262939453,
+              17.890771865844727
+            ]
+          ],
+          "panel_box_xyxy": [
+            84.99568176269531,
+            -19.02412223815918,
+            532.4594116210938,
+            259.8883972167969
+          ],
+          "orientation_deg": 177.74717716654,
+          "rotation_ok": true,
+          "quality": 85.30852317810059,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            8,
+            5
+          ]
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782198853077039715,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            149.12,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 42846.93227190834,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-17-27.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-17-27.bag",
+      "label_raw": "calib_p16_mid_top",
+      "label_norm": "calib_p16_mid_top",
+      "pose_index": "16",
+      "height_level": "mid",
+      "pose": "top",
+      "repeat_group": "",
+      "all_labels": "calib_p16_mid_top | calib_p16_mid_top",
+      "size_gb": "1.674",
+      "duration_s": "9.6",
+      "messages": "14095",
+      "rgb_msgs": "38",
+      "vis_msgs": "39",
+      "nir_msgs": "39",
+      "thermal_c_msgs": "66",
+      "cloud_msgs": "96",
+      "gps_msgs": "24",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199052431340628,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            184.8
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 33445.0282848842,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199052572496310,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            1.2800000000000011,
+            0.0,
+            511.0,
+            198.24
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 44163.046868045356,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-19-08.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-19-08.bag",
+      "label_raw": "calib_p17_mid_bottom",
+      "label_norm": "calib_p17_mid_bottom",
+      "pose_index": "17",
+      "height_level": "mid",
+      "pose": "bottom",
+      "repeat_group": "",
+      "all_labels": "calib_p17_mid_bottom | calib_p17_mid_bottom",
+      "size_gb": "1.469",
+      "duration_s": "8.4",
+      "messages": "12292",
+      "rgb_msgs": "34",
+      "vis_msgs": "33",
+      "nir_msgs": "34",
+      "thermal_c_msgs": "56",
+      "cloud_msgs": "84",
+      "gps_msgs": "21",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782199152941316299,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            33.120000000000005,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 34266.023072264026,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782199152822692411,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            1.7600000000000051,
+            47.68,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 39526.08370506529,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-21-49.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-21-49.bag",
+      "label_raw": "calib_p18_mid_topleft",
+      "label_norm": "calib_p18_mid_topleft",
+      "pose_index": "18",
+      "height_level": "mid",
+      "pose": "topleft",
+      "repeat_group": "",
+      "all_labels": "calib_p18_mid_topleft | calib_p18_mid_topleft",
+      "size_gb": "1.267",
+      "duration_s": "7.3",
+      "messages": "10678",
+      "rgb_msgs": "29",
+      "vis_msgs": "29",
+      "nir_msgs": "29",
+      "thermal_c_msgs": "48",
+      "cloud_msgs": "73",
+      "gps_msgs": "18",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199313437151191,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            446.88000000000005,
+            181.44000000000003
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 28871.486824937227,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199313322466403,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            441.28000000000003,
+            193.76000000000002
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 41107.32727141594,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-23-06.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-23-06.bag",
+      "label_raw": "calib_p19_mid_topright",
+      "label_norm": "calib_p19_mid_topright",
+      "pose_index": "19",
+      "height_level": "mid",
+      "pose": "topright",
+      "repeat_group": "",
+      "all_labels": "calib_p19_mid_topright | calib_p19_mid_topright",
+      "size_gb": "1.608",
+      "duration_s": "9.2",
+      "messages": "13453",
+      "rgb_msgs": "37",
+      "vis_msgs": "37",
+      "nir_msgs": "37",
+      "thermal_c_msgs": "62",
+      "cloud_msgs": "92",
+      "gps_msgs": "23",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199391685884978,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            68.48,
+            0.0,
+            511.0,
+            191.52
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 30355.614132871266,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199391822543057,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            102.08,
+            0.0,
+            511.0,
+            209.44000000000003
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 40580.204007333596,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-24-53.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-24-53.bag",
+      "label_raw": "calib_p20_mid_bottomleft",
+      "label_norm": "calib_p20_mid_bottomleft",
+      "pose_index": "20",
+      "height_level": "mid",
+      "pose": "bottomleft",
+      "repeat_group": "",
+      "all_labels": "calib_p20_mid_bottomleft | calib_p20_mid_bottomleft",
+      "size_gb": "1.616",
+      "duration_s": "9.2",
+      "messages": "13489",
+      "rgb_msgs": "37",
+      "vis_msgs": "37",
+      "nir_msgs": "37",
+      "thermal_c_msgs": "62",
+      "cloud_msgs": "93",
+      "gps_msgs": "23",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782199498941710852,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            17.44,
+            413.28000000000003,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 27116.345827703775,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782199498839192691,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            32.0,
+            392.00000000000006,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 41757.33366160259,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-27-27.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-27-27.bag",
+      "label_raw": "calib_p21_mid_bottomright",
+      "label_norm": "calib_p21_mid_bottomright",
+      "pose_index": "21",
+      "height_level": "mid",
+      "pose": "bottomright",
+      "repeat_group": "",
+      "all_labels": "calib_p21_mid_bottomright | calib_p21_mid_bottomright",
+      "size_gb": "1.529",
+      "duration_s": "8.7",
+      "messages": "12769",
+      "rgb_msgs": "35",
+      "vis_msgs": "35",
+      "nir_msgs": "35",
+      "thermal_c_msgs": "59",
+      "cloud_msgs": "88",
+      "gps_msgs": "22",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199652435655733,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            98.72,
+            42.08,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 27446.638181844268,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782199652578277587,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            132.32,
+            56.64,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 39295.562312960166,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-49-39.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-49-39.bag",
+      "label_raw": "calib_p22_mid_roll_plus",
+      "label_norm": "calib_p22_mid_roll_plus",
+      "pose_index": "22",
+      "height_level": "mid",
+      "pose": "roll_plus",
+      "repeat_group": "",
+      "all_labels": "calib_p22_mid_roll_plus | calib_p22_mid_roll_plus",
+      "size_gb": "1.601",
+      "duration_s": "9.3",
+      "messages": "13537",
+      "rgb_msgs": "36",
+      "vis_msgs": "37",
+      "nir_msgs": "37",
+      "thermal_c_msgs": "62",
+      "cloud_msgs": "93",
+      "gps_msgs": "23",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782200984246721337,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 43009.98004975155,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782200984312194444,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 42226.98004975155,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-51-00.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-51-00.bag",
+      "label_raw": "calib_p23_mid_roll_minus",
+      "label_norm": "calib_p23_mid_roll_minus",
+      "pose_index": "23",
+      "height_level": "mid",
+      "pose": "roll_minus",
+      "repeat_group": "",
+      "all_labels": "calib_p23_mid_roll_minus | calib_p23_mid_roll_minus",
+      "size_gb": "1.512",
+      "duration_s": "8.7",
+      "messages": "12654",
+      "rgb_msgs": "35",
+      "vis_msgs": "35",
+      "nir_msgs": "32",
+      "thermal_c_msgs": "58",
+      "cloud_msgs": "87",
+      "gps_msgs": "22",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201065308465810,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 43390.98668144865,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201065569209272,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 41637.105572809,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-09-55-04.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-09-55-04.bag",
+      "label_raw": "calib_p24_mid_tilt",
+      "label_norm": "calib_p24_mid_tilt",
+      "pose_index": "24",
+      "height_level": "mid",
+      "pose": "tilt",
+      "repeat_group": "",
+      "all_labels": "calib_p24_mid_tilt | calip_p24_mid_tilt",
+      "size_gb": "1.708",
+      "duration_s": "9.8",
+      "messages": "14383",
+      "rgb_msgs": "39",
+      "vis_msgs": "40",
+      "nir_msgs": "39",
+      "thermal_c_msgs": "66",
+      "cloud_msgs": "98",
+      "gps_msgs": "25",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782201309952428833,
+          "corners_px": [
+            [
+              431.9428405761719,
+              202.0840301513672
+            ],
+            [
+              387.374267578125,
+              201.1462860107422
+            ],
+            [
+              343.2428894042969,
+              201.91204833984375
+            ],
+            [
+              298.7359924316406,
+              202.36378479003906
+            ],
+            [
+              253.9499053955078,
+              203.4640350341797
+            ],
+            [
+              208.21168518066406,
+              203.84915161132812
+            ],
+            [
+              164.2589874267578,
+              203.9947052001953
+            ],
+            [
+              118.46249389648438,
+              204.88323974609375
+            ],
+            [
+              72.75849151611328,
+              205.66522216796875
+            ],
+            [
+              433.8926086425781,
+              159.8120880126953
+            ],
+            [
+              388.5173034667969,
+              160.6910858154297
+            ],
+            [
+              344.0823974609375,
+              160.6696319580078
+            ],
+            [
+              298.6939392089844,
+              161.3274688720703
+            ],
+            [
+              254.1765594482422,
+              161.63011169433594
+            ],
+            [
+              208.7244110107422,
+              162.17236328125
+            ],
+            [
+              163.65313720703125,
+              162.21958923339844
+            ],
+            [
+              117.22794342041016,
+              162.81861877441406
+            ],
+            [
+              71.8573226928711,
+              162.72056579589844
+            ],
+            [
+              435.6396484375,
+              118.74861145019531
+            ],
+            [
+              390.5819091796875,
+              119.020263671875
+            ],
+            [
+              344.814697265625,
+              119.78912353515625
+            ],
+            [
+              299.779296875,
+              119.80455017089844
+            ],
+            [
+              253.919189453125,
+              120.5827407836914
+            ],
+            [
+              208.57948303222656,
+              121.11168670654297
+            ],
+            [
+              162.32052612304688,
+              121.70659637451172
+            ],
+            [
+              116.22727966308594,
+              121.56875610351562
+            ],
+            [
+              69.58212280273438,
+              121.50460815429688
+            ],
+            [
+              438.7732849121094,
+              75.07205963134766
+            ],
+            [
+              391.8114318847656,
+              75.89288330078125
+            ],
+            [
+              346.3626708984375,
+              76.6467056274414
+            ],
+            [
+              299.8560485839844,
+              77.07749938964844
+            ],
+            [
+              254.412353515625,
+              77.60842895507812
+            ],
+            [
+              207.5879364013672,
+              78.05506896972656
+            ],
+            [
+              161.57720947265625,
+              78.28146362304688
+            ],
+            [
+              114.61933898925781,
+              78.64551544189453
+            ],
+            [
+              68.07952880859375,
+              78.50894927978516
+            ],
+            [
+              440.3525390625,
+              32.018978118896484
+            ],
+            [
+              394.5384521484375,
+              32.226993560791016
+            ],
+            [
+              346.84967041015625,
+              32.224205017089844
+            ],
+            [
+              301.1060485839844,
+              32.457008361816406
+            ],
+            [
+              253.98399353027344,
+              33.202301025390625
+            ],
+            [
+              207.98379516601562,
+              33.29762649536133
+            ],
+            [
+              160.1123809814453,
+              33.66054153442383
+            ],
+            [
+              113.85096740722656,
+              33.4593620300293
+            ],
+            [
+              65.31707000732422,
+              33.847442626953125
+            ]
+          ],
+          "panel_box_xyxy": [
+            -2.1893157958984375,
+            0.7626533508300781,
+            507.8589172363281,
+            236.92153930664062
+          ],
+          "orientation_deg": 179.42876022940973,
+          "rotation_ok": true,
+          "quality": 84.38970708847046,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        },
+        "nir": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_sb_exh_p9x5_guided_s1_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782201309893011343,
+          "corners_px": [
+            [
+              462.2074890136719,
+              216.80447387695312
+            ],
+            [
+              417.13739013671875,
+              216.28050231933594
+            ],
+            [
+              373.3104248046875,
+              216.35438537597656
+            ],
+            [
+              327.7166748046875,
+              216.5751495361328
+            ],
+            [
+              283.7557678222656,
+              216.89817810058594
+            ],
+            [
+              237.30392456054688,
+              217.25999450683594
+            ],
+            [
+              193.23048400878906,
+              217.3179473876953
+            ],
+            [
+              147.44068908691406,
+              217.78948974609375
+            ],
+            [
+              102.95016479492188,
+              218.04518127441406
+            ],
+            [
+              464.5933837890625,
+              175.07640075683594
+            ],
+            [
+              419.3835144042969,
+              174.7599639892578
+            ],
+            [
+              374.25140380859375,
+              175.17059326171875
+            ],
+            [
+              329.0812683105469,
+              174.68223571777344
+            ],
+            [
+              284.01507568359375,
+              175.42124938964844
+            ],
+            [
+              238.86416625976562,
+              175.27008056640625
+            ],
+            [
+              193.50592041015625,
+              175.4673309326172
+            ],
+            [
+              147.49777221679688,
+              175.51954650878906
+            ],
+            [
+              101.90093994140625,
+              175.66172790527344
+            ],
+            [
+              467.0947265625,
+              133.31358337402344
+            ],
+            [
+              421.8939514160156,
+              133.45208740234375
+            ],
+            [
+              376.2742919921875,
+              133.03013610839844
+            ],
+            [
+              330.42376708984375,
+              133.48934936523438
+            ],
+            [
+              284.9628601074219,
+              133.5375213623047
+            ],
+            [
+              238.81594848632812,
+              134.5259246826172
+            ],
+            [
+              192.96946716308594,
+              134.29083251953125
+            ],
+            [
+              146.89903259277344,
+              134.38819885253906
+            ],
+            [
+              100.6495590209961,
+              133.6619873046875
+            ],
+            [
+              470.00067138671875,
+              90.80791473388672
+            ],
+            [
+              424.0120544433594,
+              90.33374786376953
+            ],
+            [
+              378.00067138671875,
+              90.5920639038086
+            ],
+            [
+              331.6001281738281,
+              90.5610580444336
+            ],
+            [
+              285.6338195800781,
+              91.19660949707031
+            ],
+            [
+              239.1529541015625,
+              91.20439147949219
+            ],
+            [
+              192.8986053466797,
+              91.59827423095703
+            ],
+            [
+              146.2939910888672,
+              91.32522583007812
+            ],
+            [
+              99.58070373535156,
+              91.70790100097656
+            ],
+            [
+              472.93145751953125,
+              46.914146423339844
+            ],
+            [
+              426.63726806640625,
+              47.05022430419922
+            ],
+            [
+              379.5545349121094,
+              46.35123062133789
+            ],
+            [
+              333.07586669921875,
+              46.72239303588867
+            ],
+            [
+              286.4105529785156,
+              46.78071212768555
+            ],
+            [
+              239.67388916015625,
+              47.31851577758789
+            ],
+            [
+              192.54666137695312,
+              47.00968551635742
+            ],
+            [
+              146.09913635253906,
+              47.03713607788086
+            ],
+            [
+              97.67623901367188,
+              46.36789321899414
+            ]
+          ],
+          "panel_box_xyxy": [
+            30.130294799804688,
+            15.446317672729492,
+            540.4774169921875,
+            248.95008850097656
+          ],
+          "orientation_deg": 179.80212786190285,
+          "rotation_ok": true,
+          "quality": 83.86499071121216,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            9,
+            5
+          ]
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-00-18.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-00-18.bag",
+      "label_raw": "calib_p25_high_center",
+      "label_norm": "calib_p25_high_center",
+      "pose_index": "25",
+      "height_level": "high",
+      "pose": "center",
+      "repeat_group": "",
+      "all_labels": "calib_p25_high_center | calib_p25_high_center",
+      "size_gb": "1.648",
+      "duration_s": "9.4",
+      "messages": "13713",
+      "rgb_msgs": "38",
+      "vis_msgs": "38",
+      "nir_msgs": "38",
+      "thermal_c_msgs": "64",
+      "cloud_msgs": "94",
+      "gps_msgs": "23",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201623940202979,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 37764.229217758846,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201624157041734,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 39250.12148395144,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-02-00.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-02-00.bag",
+      "label_raw": "calib_p26_high_left",
+      "label_norm": "calib_p26_high_left",
+      "pose_index": "26",
+      "height_level": "high",
+      "pose": "left",
+      "repeat_group": "",
+      "all_labels": "calib_p26_high_left | calib_p26_high_left",
+      "size_gb": "1.932",
+      "duration_s": "11.1",
+      "messages": "16215",
+      "rgb_msgs": "44",
+      "vis_msgs": "44",
+      "nir_msgs": "44",
+      "thermal_c_msgs": "77",
+      "cloud_msgs": "111",
+      "gps_msgs": "27",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201726687105130,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            390.88000000000005,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 33623.669050381366,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201726657594113,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            430.08000000000004,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 38459.55264503512,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-03-25.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-03-25.bag",
+      "label_raw": "calib_p27_high_right",
+      "label_norm": "calib_p27_high_right",
+      "pose_index": "27",
+      "height_level": "high",
+      "pose": "right",
+      "repeat_group": "",
+      "all_labels": "calib_p27_high_right | calip_p27_high_right",
+      "size_gb": "2.084",
+      "duration_s": "11.9",
+      "messages": "17370",
+      "rgb_msgs": "48",
+      "vis_msgs": "48",
+      "nir_msgs": "48",
+      "thermal_c_msgs": "81",
+      "cloud_msgs": "119",
+      "gps_msgs": "30",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782201811693838191,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            163.68,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 30915.22064304573,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_full",
+          "frame_index": 0,
+          "stamp_ns": 1782201811656133298,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            207.36,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 41193.08408424108,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-05-51.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-05-51.bag",
+      "label_raw": "calib_p28_high_top",
+      "label_norm": "calib_p28_high_top",
+      "pose_index": "28",
+      "height_level": "high",
+      "pose": "top",
+      "repeat_group": "",
+      "all_labels": "calib_p28_high_top | calib_p28_high_top",
+      "size_gb": "1.790",
+      "duration_s": "10.2",
+      "messages": "14978",
+      "rgb_msgs": "41",
+      "vis_msgs": "41",
+      "nir_msgs": "41",
+      "thermal_c_msgs": "69",
+      "cloud_msgs": "103",
+      "gps_msgs": "26",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201956936171885,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            197.12
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 34046.35951959909,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782201956905716122,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            210.56000000000003
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 36814.197015091595,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-08-32.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-08-32.bag",
+      "label_raw": "calib_p29_high_bottom",
+      "label_norm": "calib_p29_high_bottom",
+      "pose_index": "29",
+      "height_level": "high",
+      "pose": "bottom",
+      "repeat_group": "",
+      "all_labels": "calib_p29_high_bottom | calip_p29_high_bottom",
+      "size_gb": "1.580",
+      "duration_s": "9.1",
+      "messages": "13293",
+      "rgb_msgs": "36",
+      "vis_msgs": "36",
+      "nir_msgs": "36",
+      "thermal_c_msgs": "62",
+      "cloud_msgs": "91",
+      "gps_msgs": "22",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202117437898319,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 36759.43431457505,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202117407138442,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 40840.0,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-10-54.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-10-54.bag",
+      "label_raw": "calib_p30_high_topleft",
+      "label_norm": "calib_p30_high_topleft",
+      "pose_index": "30",
+      "height_level": "high",
+      "pose": "topleft",
+      "repeat_group": "",
+      "all_labels": "calib_p30_high_topleft | calip_p30_high_topleft",
+      "size_gb": "1.883",
+      "duration_s": "10.8",
+      "messages": "15751",
+      "rgb_msgs": "43",
+      "vis_msgs": "43",
+      "nir_msgs": "43",
+      "thermal_c_msgs": "75",
+      "cloud_msgs": "108",
+      "gps_msgs": "26",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202260944402886,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            367.36,
+            168.00000000000003
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 26167.460841862125,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202260902908517,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            398.72,
+            170.24
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 33193.33055326013,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-12-24.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-12-24.bag",
+      "label_raw": "calib_p31_high_topright",
+      "label_norm": "calib_p31_high_topright",
+      "pose_index": "31",
+      "height_level": "high",
+      "pose": "topright",
+      "repeat_group": "",
+      "all_labels": "calib_p31_high_topright | calip_p31_high_topright",
+      "size_gb": "1.755",
+      "duration_s": "10.1",
+      "messages": "14726",
+      "rgb_msgs": "40",
+      "vis_msgs": "40",
+      "nir_msgs": "40",
+      "thermal_c_msgs": "69",
+      "cloud_msgs": "101",
+      "gps_msgs": "25",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202350447161275,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            99.84,
+            0.0,
+            511.0,
+            146.72000000000003
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 26618.172541421845,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202350393341013,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            143.52,
+            0.0,
+            511.0,
+            160.16000000000003
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 31002.308961294275,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-14-20.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-14-20.bag",
+      "label_raw": "calib_p32_high_bottomleft",
+      "label_norm": "calib_p32_high_bottomleft",
+      "pose_index": "32",
+      "height_level": "high",
+      "pose": "bottomleft",
+      "repeat_group": "",
+      "all_labels": "calib_p32_high_bottomleft | calib_p32_high_bottomleft",
+      "size_gb": "1.667",
+      "duration_s": "9.6",
+      "messages": "14036",
+      "rgb_msgs": "38",
+      "vis_msgs": "38",
+      "nir_msgs": "38",
+      "thermal_c_msgs": "65",
+      "cloud_msgs": "96",
+      "gps_msgs": "24",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202465441978192,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            353.92,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 30061.998974365717,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202465650219905,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            395.36,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 35326.79873418989,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-16-16.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-16-16.bag",
+      "label_raw": "calib_p33_high_bottomright",
+      "label_norm": "calib_p33_high_bottomright",
+      "pose_index": "33",
+      "height_level": "high",
+      "pose": "bottomright",
+      "repeat_group": "",
+      "all_labels": "calib_p33_high_bottomright | calip_p33_high_bottomright",
+      "size_gb": "1.667",
+      "duration_s": "9.5",
+      "messages": "13935",
+      "rgb_msgs": "38",
+      "vis_msgs": "38",
+      "nir_msgs": "39",
+      "thermal_c_msgs": "65",
+      "cloud_msgs": "96",
+      "gps_msgs": "24",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202581689801136,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            140.16,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 30838.598895036055,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202581642594738,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            181.6,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 36637.667989831905,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-18-28.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-18-28.bag",
+      "label_raw": "calib_p34_high_roll_plus",
+      "label_norm": "calib_p34_high_roll_plus",
+      "pose_index": "34",
+      "height_level": "high",
+      "pose": "roll_plus",
+      "repeat_group": "",
+      "all_labels": "calib_p34_high_roll_plus | calip_p34_high_roll_plus",
+      "size_gb": "1.682",
+      "duration_s": "9.6",
+      "messages": "14034",
+      "rgb_msgs": "39",
+      "vis_msgs": "38",
+      "nir_msgs": "38",
+      "thermal_c_msgs": "65",
+      "cloud_msgs": "96",
+      "gps_msgs": "24",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202713696558188,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 38976.43431457505,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202713907135215,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 39392.43431457505,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-20-30.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-20-30.bag",
+      "label_raw": "calib_p35_high_roll_minus",
+      "label_norm": "calib_p35_high_roll_minus",
+      "pose_index": "35",
+      "height_level": "high",
+      "pose": "roll_minus",
+      "repeat_group": "",
+      "all_labels": "calib_p35_high_roll_minus | calip_p35_high_roll_minus",
+      "size_gb": "1.745",
+      "duration_s": "10.0",
+      "messages": "14633",
+      "rgb_msgs": "40",
+      "vis_msgs": "40",
+      "nir_msgs": "40",
+      "thermal_c_msgs": "68",
+      "cloud_msgs": "100",
+      "gps_msgs": "25",
+      "detections": {
+        "vis": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202835936063229,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 38986.43431457505,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202835902535255,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 38572.58751218325,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    },
+    {
+      "include_default": "yes",
+      "bag": "2026-06-23-10-22-47.bag",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-10-22-47.bag",
+      "label_raw": "calib_p36_high_tilt",
+      "label_norm": "calib_p36_high_tilt",
+      "pose_index": "36",
+      "height_level": "high",
+      "pose": "tilt",
+      "repeat_group": "",
+      "all_labels": "calib_p36_high_tilt | calip_p36_high_tilt",
+      "size_gb": "1.611",
+      "duration_s": "9.1",
+      "messages": "13373",
+      "rgb_msgs": "37",
+      "vis_msgs": "36",
+      "nir_msgs": "37",
+      "thermal_c_msgs": "65",
+      "cloud_msgs": "92",
+      "gps_msgs": "23",
+      "detections": {
+        "vis": {
+          "checker_detected": true,
+          "panel_detected": true,
+          "method": "mean4_norm_classic_p8x5_guided_s1.25_norm",
+          "frame_index": 0,
+          "stamp_ns": 1782202972697608483,
+          "corners_px": [
+            [
+              448.0,
+              233.60000610351562
+            ],
+            [
+              400.79998779296875,
+              236.8000030517578
+            ],
+            [
+              341.6000061035156,
+              236.0
+            ],
+            [
+              289.6000061035156,
+              240.0
+            ],
+            [
+              232.0,
+              238.8000030517578
+            ],
+            [
+              176.8000030517578,
+              238.8000030517578
+            ],
+            [
+              121.2036361694336,
+              238.78732299804688
+            ],
+            [
+              65.5999984741211,
+              238.39999389648438
+            ],
+            [
+              454.79998779296875,
+              187.1999969482422
+            ],
+            [
+              400.3999938964844,
+              188.39999389648438
+            ],
+            [
+              344.3999938964844,
+              188.0
+            ],
+            [
+              289.20001220703125,
+              187.60000610351562
+            ],
+            [
+              233.60000610351562,
+              188.0
+            ],
+            [
+              178.39999389648438,
+              186.8000030517578
+            ],
+            [
+              120.4000015258789,
+              187.1999969482422
+            ],
+            [
+              62.79999923706055,
+              188.39999389648438
+            ],
+            [
+              459.6000061035156,
+              136.39999389648438
+            ],
+            [
+              403.20001220703125,
+              136.8000030517578
+            ],
+            [
+              347.20001220703125,
+              136.0
+            ],
+            [
+              290.0,
+              135.60000610351562
+            ],
+            [
+              233.60000610351562,
+              135.60000610351562
+            ],
+            [
+              176.0,
+              136.0
+            ],
+            [
+              118.0,
+              137.1999969482422
+            ],
+            [
+              62.79999923706055,
+              136.39999389648438
+            ],
+            [
+              461.6000061035156,
+              84.0
+            ],
+            [
+              405.6000061035156,
+              84.4000015258789
+            ],
+            [
+              348.3999938964844,
+              83.19999694824219
+            ],
+            [
+              290.0,
+              84.4000015258789
+            ],
+            [
+              233.60000610351562,
+              82.4000015258789
+            ],
+            [
+              176.39999389648438,
+              82.4000015258789
+            ],
+            [
+              118.80000305175781,
+              84.4000015258789
+            ],
+            [
+              61.599998474121094,
+              81.5999984741211
+            ],
+            [
+              466.3999938964844,
+              29.600000381469727
+            ],
+            [
+              408.3999938964844,
+              29.600000381469727
+            ],
+            [
+              352.0,
+              32.79999923706055
+            ],
+            [
+              292.0,
+              28.799999237060547
+            ],
+            [
+              235.1999969482422,
+              26.799999237060547
+            ],
+            [
+              174.8000030517578,
+              28.0
+            ],
+            [
+              116.80000305175781,
+              28.0
+            ],
+            [
+              58.400001525878906,
+              28.399999618530273
+            ]
+          ],
+          "panel_box_xyxy": [
+            -15.040000915527344,
+            -11.576000213623047,
+            539.8399658203125,
+            278.3760070800781
+          ],
+          "orientation_deg": 179.28084570069416,
+          "rotation_ok": true,
+          "quality": 108.29322910308838,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "",
+          "pattern_internal_corners": [
+            8,
+            5
+          ]
+        },
+        "nir": {
+          "checker_detected": false,
+          "panel_detected": true,
+          "method": "contrast_guided",
+          "frame_index": 0,
+          "stamp_ns": 1782202972659212430,
+          "corners_px": null,
+          "panel_box_xyxy": [
+            0.0,
+            0.0,
+            511.0,
+            255.0
+          ],
+          "orientation_deg": null,
+          "rotation_ok": false,
+          "quality": 41087.43431457505,
+          "source_shape_hw": [
+            256,
+            512
+          ],
+          "reason": "panel_only",
+          "pattern_internal_corners": null
+        }
+      }
+    }
+  ]
+}

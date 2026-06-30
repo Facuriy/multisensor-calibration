@@ -1,0 +1,232 @@
+{
+  "thermal_tau2_640_19mm": {
+    "resolution_px": [
+      640,
+      512
+    ],
+    "focal_length_mm": 19.0,
+    "pixel_pitch_mm": 0.017,
+    "sensor_size_mm": [
+      10.88,
+      8.704
+    ],
+    "focal_px": [
+      1117.6470588235293,
+      1117.6470588235293
+    ],
+    "principal_point_px": [
+      320.0,
+      256.0
+    ],
+    "K_initial": [
+      [
+        1117.6470588235293,
+        0.0,
+        320.0
+      ],
+      [
+        0.0,
+        1117.6470588235293,
+        256.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fov_deg": [
+      31.95450686841076,
+      25.802401601586965
+    ],
+    "source": "Informe Exhaustivo paragraphs 174-182; local cfg confirms focal_length_mm=19."
+  },
+  "rgb_blackfly_bfs_u3_50s5c_c": {
+    "resolution_px": [
+      2448,
+      2048
+    ],
+    "focal_length_mm": 12.5,
+    "pixel_pitch_mm": 0.00345,
+    "sensor_size_mm": [
+      8.4456,
+      7.0656
+    ],
+    "focal_px": [
+      3623.1884057971015,
+      3623.1884057971015
+    ],
+    "principal_point_px": [
+      1224.0,
+      1024.0
+    ],
+    "K_initial": [
+      [
+        3623.1884057971015,
+        0.0,
+        1224.0
+      ],
+      [
+        0.0,
+        3623.1884057971015,
+        1024.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "fov_deg": [
+      37.332405285629115,
+      31.563130653247015
+    ],
+    "source": "Informe Exhaustivo paragraphs 183-191 for pixel pitch/resolution formula; local cfg sets focal_length_mm=12.5."
+  },
+  "vis_photonfocus_hs03_single_band_preview": {
+    "resolution_px": [
+      512,
+      256
+    ],
+    "focal_length_mm": 16.0,
+    "base_pixel_pitch_mm": 0.0055,
+    "mosaic": [
+      4,
+      4
+    ],
+    "effective_pixel_pitch_mm": 0.022,
+    "focal_px": [
+      727.2727272727274,
+      727.2727272727274
+    ],
+    "principal_point_px": [
+      256.0,
+      128.0
+    ],
+    "K_initial": [
+      [
+        727.2727272727274,
+        0.0,
+        256.0
+      ],
+      [
+        0.0,
+        727.2727272727274,
+        128.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "source": "Informe Exhaustivo paragraphs 192-199; local XML confirms 4x4, filter 2048x1024, pixel_pitch=5.5um; local cfg focal_length_mm=16."
+  },
+  "nir_photonfocus_hs02_single_band_preview": {
+    "resolution_px": [
+      409,
+      217
+    ],
+    "focal_length_mm": 16.0,
+    "base_pixel_pitch_mm": 0.0055,
+    "mosaic": [
+      5,
+      5
+    ],
+    "effective_pixel_pitch_mm": 0.0275,
+    "focal_px": [
+      581.8181818181819,
+      581.8181818181819
+    ],
+    "principal_point_px": [
+      204.5,
+      108.5
+    ],
+    "K_initial": [
+      [
+        581.8181818181819,
+        0.0,
+        204.5
+      ],
+      [
+        0.0,
+        581.8181818181819,
+        108.5
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "source": "Informe Exhaustivo paragraph 200; local XML confirms 5x5, filter 2045x1085, pixel_pitch=5.5um; local cfg focal_length_mm=16."
+  },
+  "vis_photonfocus_raw_mosaic": {
+    "resolution_px": [
+      2048,
+      1088
+    ],
+    "focal_length_mm": 16.0,
+    "pixel_pitch_mm": 0.0055,
+    "focal_px": [
+      2909.0909090909095,
+      2909.0909090909095
+    ],
+    "principal_point_px": [
+      1024.0,
+      544.0
+    ],
+    "K_initial": [
+      [
+        2909.0909090909095,
+        0.0,
+        1024.0
+      ],
+      [
+        0.0,
+        2909.0909090909095,
+        544.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "note": "Use only if calibrating on raw mosaic image before band extraction."
+  },
+  "nir_photonfocus_raw_mosaic": {
+    "resolution_px": [
+      2048,
+      1088
+    ],
+    "focal_length_mm": 16.0,
+    "pixel_pitch_mm": 0.0055,
+    "focal_px": [
+      2909.0909090909095,
+      2909.0909090909095
+    ],
+    "principal_point_px": [
+      1024.0,
+      544.0
+    ],
+    "K_initial": [
+      [
+        2909.0909090909095,
+        0.0,
+        1024.0
+      ],
+      [
+        0.0,
+        2909.0909090909095,
+        544.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "note": "Use only if calibrating on raw mosaic image before band extraction."
+  }
+}

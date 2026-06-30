@@ -1,0 +1,46 @@
+{
+  "checker": {
+    "internal_corners": [
+      9,
+      6
+    ],
+    "square_size_m": 0.04
+  },
+  "manifest": "data\\calibration\\new_session\\20260623\\bag_manifest_20260623.csv",
+  "sensors": [
+    "thermal_c"
+  ],
+  "n_bags": 1,
+  "detections": {
+    "thermal_c": 0
+  },
+  "rescue_candidates": 3,
+  "rescue_promoted_detections": {
+    "thermal_c": 0
+  },
+  "calibration_status": {
+    "thermal_c": "insufficient_views"
+  },
+  "calibrations": {
+    "thermal_c": {
+      "status": "insufficient_views",
+      "n_views": 0,
+      "n_views_input": 0,
+      "min_views": 1
+    }
+  },
+  "failures": [
+    {
+      "label": "calib_p01_low_center",
+      "sensor": "thermal_c",
+      "bag_path": "X:\\PhenoRob_UAVClimate\\Projects\\MSP_im_Mais\\UGV\\BAGS\\20260623\\2026-06-23-08-26-48.bag",
+      "error": "no_detection_or_missing_topic"
+    }
+  ],
+  "notes": [
+    "VIS/NIR intrinsics are for the Photonfocus demosaiced/downsampled preview image plane used by the RGB-master pipeline.",
+    "thermal_c and thermal_raw intrinsics are calibrated in their scalar image coordinate systems.",
+    "Default behavior keeps one best checkerboard detection per bag/sensor to avoid overweighting static duplicate frames.",
+    "Rescue detections are written separately. Only full 9x6 subpixel detections in the calibrated image plane are promoted into intrinsics."
+  ]
+}

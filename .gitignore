@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Local outputs
+runs/
+tmp/
+cache/
+
+# Large raw data should stay outside this repo
+*.bag
+*.db3
+*.pcd
+*.ply
+*.las
+*.laz
+
+# Keep curated summaries under runs_summaries/
+!runs_summaries/
