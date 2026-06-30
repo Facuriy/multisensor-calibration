@@ -688,6 +688,78 @@ preliminar. Para producto metrico final, reemplazar este mosaico visual por
 pose(t) FAST-LIO/GPS/pose-graph + proyeccion/ortorrectificacion por profundidad.
 ```
 
+### Prueba FAST-LIO/GPS + profundidad RGB-D directa
+
+Script:
+
+```text
+src\extraction\build_fastlio_rgbd_orthomosaic.py
+```
+
+Objetivo:
+
+```text
+Probar una salida donde la geometria venga de FAST-LIO/GPS y la profundidad
+LiDAR, no de homografias visuales. Cada punto de /cloud_registered se lleva al
+frame LiDAR del instante, se proyecta a RGB con T_cam_lidar, toma color del
+frame RGB mas cercano y se rasteriza en UTM.
+```
+
+Comando diagnostico recomendado:
+
+```powershell
+python src\extraction\build_fastlio_rgbd_orthomosaic.py `
+  --odometry-csv runs\fastlio_plot17_ouster_full\odometry.csv `
+  --fastlio-bag runs\fastlio_plot17_ouster_full\fastlio_outputs.bag `
+  --original-bag X:\PhenoRob_UAVClimate\Projects\MSP_im_Mais\UGV\BAGS\20260601\2026-06-01-14-59-48.bag `
+  --out runs\fastlio_rgbd_ortho_plot17_roi_fill_20260630 `
+  --cloud-every 2 `
+  --max-points-total 1200000 `
+  --resolution-m 0.03 `
+  --fill-radius-px 4 `
+  --max-rgb-dt-ms 500 `
+  --max-odom-dt-ms 160 `
+  --rgb-roi 649 1176 1794 1543
+```
+
+Resultado:
+
+```text
+rgb_frames_loaded: 58
+clouds_seen: 135
+clouds_used: 68
+raw_points: 1068628
+projected_points: 1047199
+colored_points: 13404 despues de limitar a ROI de plantas
+CRS: EPSG:32632
+```
+
+Capas:
+
+```text
+runs\fastlio_rgbd_ortho_plot17_roi_fill_20260630\qgis\fastlio_rgbd_rgb.tif
+runs\fastlio_rgbd_ortho_plot17_roi_fill_20260630\qgis\fastlio_rgbd_height_rel_m.tif
+runs\fastlio_rgbd_ortho_plot17_roi_fill_20260630\qgis\fastlio_rgbd_depth_m.tif
+runs\fastlio_rgbd_ortho_plot17_roi_fill_20260630\qgis\fastlio_rgbd_intensity.tif
+runs\fastlio_rgbd_ortho_plot17_roi_fill_20260630\qgis\fastlio_rgbd_density.tif
+runs\fastlio_rgbd_ortho_plot17_roi_fill_20260630\fastlio_rgbd_trajectory_wgs84.geojson
+```
+
+Interpretacion:
+
+```text
+La cadena geometrica funciona: produce puntos LiDAR coloreados y capas QGIS en
+UTM. Pero no sirve todavia como ortofoto visual continua porque el Ouster ve el
+suelo en lineas/rings sparse; al rasterizar aparecen tiras de medicion. Esto
+no es un fallo de FAST-LIO, sino una limitacion de texturizar solamente puntos
+LiDAR.
+
+Decision: usar este producto como diagnostico de depth/height/intensity y como
+base DSM. Para la ortofoto final, usar FAST-LIO/GPS como pose(t), LiDAR como
+superficie/profundidad, y proyectar las imagenes completas RGB/VIS/NIR/Thermal
+sobre esa superficie, no solo colorear puntos LiDAR.
+```
+
 ## SLAM / odometria / poses metricas
 
 Estado implementado:
