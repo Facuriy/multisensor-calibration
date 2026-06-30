@@ -416,6 +416,129 @@ tools\run_low_resource_orthomosaic_20260601.ps1 -Mode camera -PlotId 17 -Frames 
 tools\run_low_resource_orthomosaic_20260601.ps1 -Mode lidar -PlotId 17
 ```
 
+## Corrida QGIS liviana - 2026-06-30
+
+Objetivo: generar productos abribles en QGIS mientras la PC esta ocupada,
+separando claramente los mosaicos de camaras del producto FAST-LIO/GPS.
+
+### Ortomosaico RGB-master bajo consumo, 3 plots
+
+Comando ejecutado:
+
+```powershell
+python src\extraction\run_rgb_master_orthomosaic_batch.py `
+  --bag X:\PhenoRob_UAVClimate\Projects\MSP_im_Mais\UGV\BAGS\20260601\2026-06-01-14-59-48.bag `
+  --gpkg N:\Sensorik\02_Projekte\2026\SE08\versuchslayout.gpkg `
+  --out-root runs\orthomosaic_rgb_master_lowmem_qgis_3plots_20260630 `
+  --sample-windows 6 `
+  --window-ms 5000 `
+  --min-frames 8 `
+  --frames 6 `
+  --plots 17 18 24 `
+  --max-plots 3 `
+  --skip-lidar `
+  --child-timeout-sec 300
+```
+
+Salida principal:
+
+```text
+runs\orthomosaic_rgb_master_lowmem_qgis_3plots_20260630
+```
+
+Resultados:
+
+```text
+plot 17: production_candidate, reliable_fraction 1.0
+plot 18: production_candidate, reliable_fraction 1.0
+plot 24: visual_review_only, reliable_fraction 0.0, fallback_pairs 5
+```
+
+Capas para abrir en QGIS:
+
+```text
+runs\orthomosaic_rgb_master_lowmem_qgis_3plots_20260630\plot_17\qgis\
+runs\orthomosaic_rgb_master_lowmem_qgis_3plots_20260630\plot_18\qgis\
+runs\orthomosaic_rgb_master_lowmem_qgis_3plots_20260630\plot_24\qgis\
+```
+
+Capas utiles por plot:
+
+```text
+rgb.tif
+vis.tif
+nir.tif
+thermal_celsius_float.tif
+thermal_celsius_color.tif
+soil_cover.tif
+camera_valid_mask.tif
+```
+
+Nota: esta corrida uso `--skip-lidar`. Por eso las capas `depth_mm`,
+`height_m` e `intensity` son placeholders/no deben interpretarse como producto
+LiDAR real en esta salida. Para LiDAR real usar las salidas SLAM-like previas o
+la salida FAST-LIO/GPS de abajo.
+
+### FAST-LIO/GPS georreferenciado para QGIS, plot 17
+
+Script:
+
+```text
+src\extraction\export_fastlio_gps_qgis.py
+```
+
+Comando ejecutado:
+
+```powershell
+python src\extraction\export_fastlio_gps_qgis.py `
+  --odometry-csv runs\fastlio_plot17_ouster_full\odometry.csv `
+  --fastlio-bag runs\fastlio_plot17_ouster_full\fastlio_outputs.bag `
+  --original-bag X:\PhenoRob_UAVClimate\Projects\MSP_im_Mais\UGV\BAGS\20260601\2026-06-01-14-59-48.bag `
+  --out runs\fastlio_plot17_gps_qgis_20260630 `
+  --max-gps-dt-ms 700 `
+  --cloud-every 4 `
+  --max-points-total 700000 `
+  --resolution-m 0.025
+```
+
+Salida:
+
+```text
+runs\fastlio_plot17_gps_qgis_20260630
+```
+
+Metricas:
+
+```text
+CRS: EPSG:32632
+odometry poses: 135
+GPS fixes: 447
+associated poses: 135
+GPS residual mean: 0.429 m
+GPS residual median: 0.358 m
+GPS residual max: 1.180 m
+raster points used: 534299
+```
+
+Capas QGIS:
+
+```text
+runs\fastlio_plot17_gps_qgis_20260630\fastlio_trajectory_wgs84.geojson
+runs\fastlio_plot17_gps_qgis_20260630\fastlio_pose_points_wgs84.geojson
+runs\fastlio_plot17_gps_qgis_20260630\qgis\fastlio_height_m.tif
+runs\fastlio_plot17_gps_qgis_20260630\qgis\fastlio_intensity.tif
+runs\fastlio_plot17_gps_qgis_20260630\qgis\fastlio_density.tif
+runs\fastlio_plot17_gps_qgis_20260630\qgis\fastlio_height_color.tif
+runs\fastlio_plot17_gps_qgis_20260630\qgis\fastlio_intensity_color.tif
+runs\fastlio_plot17_gps_qgis_20260630\qgis\fastlio_density_color.tif
+```
+
+Advertencia tecnica: esta salida alinea FAST-LIO local con GNSS mediante una
+similaridad 2D para inspeccion QGIS. Es mucho mejor que el prototipo
+velocity-only, pero todavia no es el pose-graph GPS/FAST-LIO final. El siguiente
+paso serio es reemplazar esta alineacion por una optimizacion con factores GPS
+para producir `pose(t)` de produccion.
+
 ## SLAM / odometria / poses metricas
 
 Estado implementado:

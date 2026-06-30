@@ -421,3 +421,57 @@ runs\fastlio_plot17_ouster_full\trajectory_fastlio_vs_gps.png
 runs\fastlio_plot17_ouster_full\fastlio_registered_cloud_preview.png
 runs\fastlio_plot17_ouster_full\fastlio_metrics.json
 ```
+
+### FAST-LIO/GPS QGIS Export - 2026-06-30
+
+FAST-LIO plot 17 was georeferenced for QGIS inspection with:
+
+```text
+src\extraction\export_fastlio_gps_qgis.py
+```
+
+Input:
+
+```text
+runs\fastlio_plot17_ouster_full\odometry.csv
+runs\fastlio_plot17_ouster_full\fastlio_outputs.bag
+X:\PhenoRob_UAVClimate\Projects\MSP_im_Mais\UGV\BAGS\20260601\2026-06-01-14-59-48.bag
+```
+
+Output:
+
+```text
+runs\fastlio_plot17_gps_qgis_20260630
+```
+
+QGIS layers:
+
+```text
+fastlio_trajectory_wgs84.geojson
+fastlio_pose_points_wgs84.geojson
+qgis\fastlio_height_m.tif
+qgis\fastlio_intensity.tif
+qgis\fastlio_density.tif
+qgis\fastlio_height_color.tif
+qgis\fastlio_intensity_color.tif
+qgis\fastlio_density_color.tif
+```
+
+Summary:
+
+```text
+CRS: EPSG:32632
+associated FAST-LIO/GPS poses: 135
+GPS residual mean: 0.429 m
+GPS residual median: 0.358 m
+rasterized points: 534299
+```
+
+Interpretation:
+
+```text
+This is a QGIS inspection product. FAST-LIO local XY is aligned to GNSS UTM by
+2D similarity. It should be used to visually validate pose(t), trajectory
+orientation and LiDAR raster placement. It is not yet the final GPS-factor
+pose-graph trajectory.
+```
