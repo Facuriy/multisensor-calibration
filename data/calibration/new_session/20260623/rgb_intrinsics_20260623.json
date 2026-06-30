@@ -1,0 +1,42 @@
+{
+  "camera": "rgb",
+  "source": "20260623 checkerboard detections",
+  "selected_model": "free_5coeff",
+  "pattern_internal_corners": [
+    9,
+    6
+  ],
+  "square_size_m": 0.04,
+  "image_size_wh": [
+    2448,
+    2048
+  ],
+  "K": [
+    [
+      2273.026369454379,
+      0.0,
+      1192.9728593218376
+    ],
+    [
+      0.0,
+      2258.9076208129713,
+      574.7640375775383
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "dist_coeffs": [
+    -0.05104753106212825,
+    0.15543002356536476,
+    -0.00044412772562835775,
+    0.010153781403091446,
+    -0.1214632096927373
+  ],
+  "rms_px": 1.6945741521421875,
+  "n_views": 32,
+  "outlier_labels": [],
+  "status": "candidate_fixed_principal_point"
+}

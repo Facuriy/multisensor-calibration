@@ -760,6 +760,124 @@ superficie/profundidad, y proyectar las imagenes completas RGB/VIS/NIR/Thermal
 sobre esa superficie, no solo colorear puntos LiDAR.
 ```
 
+### DSM FAST-LIO + RGB ortorrectificado sobre superficie
+
+Script:
+
+```text
+src\extraction\build_fastlio_dsm_orthoproject.py
+```
+
+Objetivo:
+
+```text
+Separar correctamente geometria y textura:
+  1. FAST-LIO /cloud_registered + GPS -> DSM en UTM
+  2. RGB completo + pose(t) + T_cam_lidar -> textura proyectada sobre el DSM
+
+Este paso ya no usa homografias 2D entre frames para deformar el plot.
+```
+
+Decisiones cientificas:
+
+```text
+align-mode rigid:
+  usa GPS solo para yaw/traslacion UTM, preservando escala metrica FAST-LIO.
+  La similitud libre daba residual GPS ligeramente menor, pero escala 1.516,
+  incoherente con la validacion FAST-LIO vs GPS/velocidad.
+
+trajectory corridor:
+  filtra puntos LiDAR a un corredor de 1.2 m alrededor de la trayectoria.
+  Sin esto, puntos laterales/lejanos inflan el DSM y arruinan la grilla.
+
+surface-mode p95:
+  usa percentil alto por celda para aproximar superficie/canopia sin depender
+  de un unico outlier maximo.
+
+bright low-saturation rejection:
+  evita que panel/robot blanco contaminen la textura RGB cuando se usa full RGB.
+```
+
+Comando recomendado de diagnostico:
+
+```powershell
+python src\extraction\build_fastlio_dsm_orthoproject.py `
+  --odometry-csv runs\fastlio_plot17_ouster_full\odometry.csv `
+  --fastlio-bag runs\fastlio_plot17_ouster_full\fastlio_outputs.bag `
+  --original-bag X:\PhenoRob_UAVClimate\Projects\MSP_im_Mais\UGV\BAGS\20260601\2026-06-01-14-59-48.bag `
+  --out runs\fastlio_dsm_orthoproject_plot17_no_roi_filtered_20260630 `
+  --align-mode rigid `
+  --cloud-every 2 `
+  --max-points-total 1500000 `
+  --resolution-m 0.03 `
+  --fill-radius-px 4 `
+  --surface-mode p95 `
+  --strip-half-width-m 1.2 `
+  --strip-end-pad-m 0.4 `
+  --rgb-every 2 `
+  --max-odom-dt-ms 160 `
+  --no-rgb-roi
+```
+
+Salida principal:
+
+```text
+runs\fastlio_dsm_orthoproject_plot17_no_roi_filtered_20260630
+```
+
+Metricas:
+
+```text
+CRS: EPSG:32632
+alignment: rigid SE(2), scale_used 1.0
+GPS residual mean: 0.483 m
+GPS residual median: 0.454 m
+diagnostic similarity scale: 1.516
+
+LiDAR points before corridor: 1052597
+LiDAR points after corridor: 323884
+DSM shape: 84 x 111 cells
+DSM resolution: 0.03 m
+raw valid DSM cells: 174
+filled valid DSM cells: 2925
+
+RGB frames loaded: 29
+RGB frames used: 27
+painted cells: 805
+painted fraction of filled DSM: 0.275
+```
+
+Capas QGIS:
+
+```text
+qgis\fastlio_dsm_local_z_m.tif
+qgis\fastlio_height_rel_m.tif
+qgis\fastlio_intensity.tif
+qgis\fastlio_density.tif
+qgis\fastlio_dsm_valid_mask.tif
+qgis\fastlio_rgb_orthoproject.tif
+qgis\fastlio_rgb_orthoproject_valid_mask.tif
+qgis\fastlio_height_color.tif
+qgis\fastlio_intensity_color.tif
+fastlio_dsm_trajectory_wgs84.geojson
+```
+
+Interpretacion:
+
+```text
+Este es el primer producto correcto de geometria metrica:
+  DSM/height/intensity estan en UTM y vienen de FAST-LIO/LiDAR.
+  RGB se proyecta hacia la superficie DSM usando pose(t).
+
+La textura RGB todavia no cubre todo el DSM ni se ve tan bonita como el mosaico
+vertical_strip. Eso no invalida el DSM: muestra que falta cerrar mejor la
+cadena FAST-LIO body -> LiDAR -> RGB y/o usar pose-graph GPS en vez de una
+alineacion rigida corta.
+
+Producto visual para presentacion: vertical_strip + centerline.
+Producto metrico para ciencia: fastlio_dsm_orthoproject + valid masks.
+```
+
 ## SLAM / odometria / poses metricas
 
 Estado implementado:
