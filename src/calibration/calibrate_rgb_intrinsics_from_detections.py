@@ -221,7 +221,11 @@ def run_model(
     initial = calibrate(detections, pattern, square_size_m, image_size_wh, flags, k0.copy(), d0.copy())
     keep = robust_keep_mask(initial["errors"], min(min_views, len(detections)))
     final_detections = [d for d, used in zip(detections, keep) if used]
-    final = calibrate(final_detections, pattern, square_size_m, image_size_wh, flags, k0.copy(), d0.copy())
+    # Warm-start from first-pass result so both passes converge to the same
+    # local minimum (previously they both started from the hardcoded k0).
+    k1 = np.asarray(initial["K"], dtype=np.float64)
+    d1 = np.asarray(initial["dist"], dtype=np.float64).reshape(-1, 1)
+    final = calibrate(final_detections, pattern, square_size_m, image_size_wh, flags, k1.copy(), d1.copy())
 
     final_errors_full = list(initial["errors"])
     for idx, err in zip(np.flatnonzero(keep), final["errors"]):
@@ -287,13 +291,16 @@ def reprojection_errors(
 
 def robust_keep_mask(errors: list[dict[str, float]], min_views: int) -> np.ndarray:
     mean_err = np.asarray([e["mean_px"] for e in errors], dtype=np.float64)
+    max_err = np.asarray([e["max_px"] for e in errors], dtype=np.float64)
     med = float(np.median(mean_err))
     mad = float(np.median(np.abs(mean_err - med)))
     sigma = 1.4826 * mad if mad > 1e-9 else float(np.std(mean_err))
     threshold = max(3.0, med + 3.0 * sigma, 3.0 * med)
-    keep = mean_err <= threshold
+    mean_ok = mean_err <= threshold
+    max_ok = max_err <= max(10.0, 5.0 * med)  # Fix A3: reject views with outlier corners
+    keep = mean_ok & max_ok
     if int(keep.sum()) < min_views:
-        order = np.argsort(mean_err)
+        order = np.argsort(mean_err + 0.1 * max_err)
         keep[:] = False
         keep[order[:min_views]] = True
     return keep
@@ -393,6 +400,7 @@ def main() -> int:
     ]
     comparisons = [model_summary(model) for model in models]
     free_rms = comparisons[0]["rms_px"]
+    free_summary = comparisons[0]
     preferred_order = [
         "fixed_pp_zero_tangent_fix_k3",
         "fixed_pp_zero_tangent_fix_aspect_5coeff",
@@ -401,9 +409,30 @@ def main() -> int:
     selected = None
     for preferred_name in preferred_order:
         for model, row in zip(models, comparisons):
-            if model["name"] == preferred_name and row["rms_px"] <= free_rms + 0.75:
-                selected = model
-                break
+            if model["name"] != preferred_name:
+                continue
+            if row["rms_px"] > free_rms + 0.35:
+                # Too much accuracy loss — the constraint is hurting.
+                continue
+            # Parameter coherence guard: if the constrained model's focal or
+            # principal point differs dramatically from the free model, the
+            # constraint is absorbing real optical parameters via distortion.
+            # These thresholds are generous but catch pathological cases like
+            # a 1185 px focal shift or a 382 px cy shift seen in the 20260623 run.
+            focal_shift = max(
+                abs(row["fx"] - free_summary["fx"]),
+                abs(row["fy"] - free_summary["fy"]),
+            )
+            pp_shift = max(
+                abs(row["cx"] - free_summary["cx"]),
+                abs(row["cy"] - free_summary["cy"]),
+            )
+            if focal_shift > 300 or pp_shift > 100:
+                # Constrained model parameters diverge too far from the free
+                # model — the constraint is compensating rather than regularizing.
+                continue
+            selected = model
+            break
         if selected is not None:
             break
     if selected is None:

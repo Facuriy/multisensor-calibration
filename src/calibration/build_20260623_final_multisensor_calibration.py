@@ -93,6 +93,28 @@ def object_points(pattern: tuple[int, int], square_size_m: float = SQUARE_SIZE_M
     return obj
 
 
+def object_points_with_offset(
+    pattern: tuple[int, int],
+    col0: int,
+    row0: int,
+    square_size_m: float = SQUARE_SIZE_M,
+) -> np.ndarray:
+    """Like object_points but shifts the origin to (col0, row0) on the board.
+
+    When a subgrid is extracted from a full checkerboard pattern (e.g. the
+    common_pattern starting at source_offset_col_row = [col0, row0]), the
+    physical 3-D coordinates must start at (col0*sq, row0*sq, 0) rather
+    than (0, 0, 0).  Using the wrong origin causes cv2.stereoCalibrate to
+    absorb the board offset into the extrinsic translation, corrupting R and T.
+    """
+    cols, rows = pattern
+    obj = np.zeros((cols * rows, 3), np.float32)
+    grid = np.mgrid[0:cols, 0:rows].T.reshape(-1, 2)
+    obj[:, 0] = (grid[:, 0] + col0) * float(square_size_m)
+    obj[:, 1] = (grid[:, 1] + row0) * float(square_size_m)
+    return obj
+
+
 def normalize_candidate(raw: Any, pattern: tuple[int, int]) -> np.ndarray | None:
     pts = np.asarray(raw, dtype=np.float32)
     if pts.shape != (pattern[0] * pattern[1], 2):
@@ -358,10 +380,13 @@ def calibrate_intrinsics(
     )
     errors = reprojection_errors(objpoints, imgpoints, rvecs, tvecs, k, dist)
     mean_err = np.asarray([e["mean_px"] for e in errors], dtype=np.float64)
+    max_err = np.asarray([e["max_px"] for e in errors], dtype=np.float64)
     med = float(np.median(mean_err))
     mad = float(np.median(np.abs(mean_err - med)))
     sigma = 1.4826 * mad if mad > 1e-9 else float(np.std(mean_err))
-    keep = mean_err <= max(3.0, 2.8 * med, med + 3.0 * sigma)
+    mean_ok = mean_err <= max(3.0, 2.8 * med, med + 3.0 * sigma)
+    max_ok = max_err <= max(10.0, 5.0 * med)  # Fix A3: reject views with outlier corners
+    keep = mean_ok & max_ok
     if int(keep.sum()) < min_views:
         order = np.argsort(mean_err)
         keep[:] = False
@@ -372,6 +397,16 @@ def calibrate_intrinsics(
     rms2, k2, dist2, rvecs2, tvecs2 = cv2.calibrateCamera(
         obj2, img2, image_size_wh, k0.copy(), d0.copy(), flags=flags
     )
+    # Fix C2: if k2 magnitude is physically implausible (>8), retry with k2 fixed at 0.
+    # k2=-15 or k2=-21 indicates the distortion polynomial is overfitting with too few
+    # unique radii — the model is compensating with large oscillating coefficients.
+    if abs(float(dist2.reshape(-1)[1])) > 8.0 and sensor in ("vis", "nir"):
+        flags_k2fixed = flags | cv2.CALIB_FIX_K2
+        rms2_k2, k2_k2, dist2_k2, rvecs2_k2, tvecs2_k2 = cv2.calibrateCamera(
+            obj2, img2, image_size_wh, k0.copy(), d0.copy(), flags=flags_k2fixed
+        )
+        if float(rms2_k2) <= float(rms2) * 1.15:
+            rms2, k2, dist2, rvecs2, tvecs2 = rms2_k2, k2_k2, dist2_k2, rvecs2_k2, tvecs2_k2
     errors2 = reprojection_errors(obj2, img2, rvecs2, tvecs2, k2, dist2)
     status = "candidate"
     if sensor in ("vis", "nir"):
@@ -501,7 +536,18 @@ def fit_sensor_to_rgb(
                 "seed_mean_error_px": mean_err,
             }
         )
-        stereo_objects.append(object_points(tuple(opt["common_pattern"])))
+        # The subgrid image corners start at (src_col0, src_row0) in the full
+        # board.  The 3D object points must reflect that physical offset so the
+        # stereo solver sees the correct geometry.  Previously this always used
+        # (0,0) which corrupted T_rgb_sensor for pairs with non-zero offsets.
+        _src_col0, _src_row0 = opt["source_offset_col_row"]
+        stereo_objects.append(
+            object_points_with_offset(
+                tuple(opt["common_pattern"]),
+                col0=int(_src_col0),
+                row0=int(_src_row0),
+            )
+        )
         stereo_src.append(opt["_src"].reshape(-1, 1, 2).astype(np.float32))
         stereo_rgb.append(opt["_dst"].reshape(-1, 1, 2).astype(np.float32))
 
