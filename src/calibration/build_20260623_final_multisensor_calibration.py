@@ -397,10 +397,10 @@ def calibrate_intrinsics(
     rms2, k2, dist2, rvecs2, tvecs2 = cv2.calibrateCamera(
         obj2, img2, image_size_wh, k0.copy(), d0.copy(), flags=flags
     )
-    # Fix C2: if k2 magnitude is physically implausible (>8), retry with k2 fixed at 0.
-    # k2=-15 or k2=-21 indicates the distortion polynomial is overfitting with too few
-    # unique radii — the model is compensating with large oscillating coefficients.
-    if abs(float(dist2.reshape(-1)[1])) > 8.0 and sensor in ("vis", "nir"):
+    # Fix C2: if k2 magnitude is physically implausible, retry with k2 fixed at 0.
+    # Thresholds per sensor: thermal cameras have near-zero k2; VIS/NIR with k2<-8 are overfitting.
+    _k2_thresh = 2.0 if sensor == "thermal" else 8.0
+    if abs(float(dist2.reshape(-1)[1])) > _k2_thresh and sensor in ("vis", "nir", "thermal"):
         flags_k2fixed = flags | cv2.CALIB_FIX_K2
         rms2_k2, k2_k2, dist2_k2, rvecs2_k2, tvecs2_k2 = cv2.calibrateCamera(
             obj2, img2, image_size_wh, k0.copy(), d0.copy(), flags=flags_k2fixed
