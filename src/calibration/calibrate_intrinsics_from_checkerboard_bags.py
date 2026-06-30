@@ -39,6 +39,11 @@ if str(CALIB_DIR) not in sys.path:
 from src.extraction.extract_all_bag_images import decode_ros_image, photonfocus_preview, robust_preview  # noqa: E402
 from src.calibration.thermal_checker import detect_board as detect_thermal_colormap  # noqa: E402
 from src.calibration.thermal_checker_raw import detect_board_raw, preprocess_raw_variants, robust01  # noqa: E402
+from src.calibration.checker_detect import (  # noqa: E402
+    extra_detector_variants,
+    gradient_variance_roi,
+    grid_homography_residual,
+)
 
 
 DEFAULT_MANIFEST = Path("data/calibration/new_session/20260623/bag_manifest_20260623.csv")
@@ -161,6 +166,10 @@ def visible_variants(img: np.ndarray, sensor: str, include_bands: bool = False) 
                 ("pf_mean_unsharp", unsharp(base)),
             ]
         )
+        # Local normalization and tophat enhance detection under uneven lighting
+        # and when the board is partially in shadow (common at close robot range).
+        for _name, _enh in extra_detector_variants(base):
+            variants.append((f"pf_{_name}", _enh))
 
         if include_bands:
             # Individual mosaic bands rescue cases where one band has much
@@ -192,6 +201,8 @@ def visible_variants(img: np.ndarray, sensor: str, include_bands: bool = False) 
             ("gray_blur_clahe", clahe(cv2.GaussianBlur(base, (5, 5), 0), 2.0, 8)),
         ]
     )
+    for _name, _enh in extra_detector_variants(base):
+        variants.append((_name, _enh))
     return variants
 
 
@@ -643,9 +654,22 @@ def detect_in_image(
     else:
         scales = (1.0, 2.0, 0.5, 1.5) if deep else (1.0, 0.5)
     rotations = (0, 6, -6, 12, -12) if deep else (0,)
+    # Compute gradient-variance ROI once from the first variant as a spatial
+    # prior.  The checkerboard pattern has distinctively high and periodic
+    # gradient energy; this crops the search to that region first.
+    _gv_box: tuple[int, int, int, int] | None = None
     best: tuple[float, np.ndarray, dict[str, Any]] | None = None
     for variant_name, u8 in visible_variants(img, sensor, include_bands=deep):
-        for x0, y0, x1, y1, region_name in search_regions(u8.shape[:2], crops=crops):
+        if _gv_box is None:
+            _gv = gradient_variance_roi(u8)
+            if _gv is not None:
+                _gv_box = (int(_gv[0]), int(_gv[1]), int(_gv[2]), int(_gv[3]))
+        regions = list(search_regions(u8.shape[:2], crops=crops))
+        if _gv_box is not None:
+            gx0, gy0, gx1, gy1 = _gv_box
+            if gx1 > gx0 and gy1 > gy0:
+                regions.insert(0, (gx0, gy0, gx1, gy1, "gradient_roi"))
+        for x0, y0, x1, y1, region_name in regions:
             crop = u8[y0:y1, x0:x1]
             if crop.size == 0:
                 continue
@@ -662,12 +686,20 @@ def detect_in_image(
             corners[:, 0] += x0
             corners[:, 1] += y0
             score = checker_score(corners, (u8.shape[1], u8.shape[0]), u8)
+            # Penalize detections whose corners don't fit a regular perspective
+            # grid — catches false positives and badly ordered corner sets.
+            _res = grid_homography_residual(corners, pattern)
+            if _res["ok"]:
+                score += 5.0
+            elif _res["max_px"] > 4.0:
+                score -= min(_res["max_px"] * 2.0, 15.0)
             info = {
                 "method": method,
                 "variant": variant_name,
                 "region": region_name,
                 "score_u8": u8,
                 "score": score,
+                "grid_residual_px": _res,
             }
             if best is None or score > best[0]:
                 best = (score, corners, info)
@@ -881,6 +913,11 @@ def scan_bag_sensor_rescue(
                                     score += 50.0
                                 if rotation_ok:
                                     score += 15.0
+                                _res = grid_homography_residual(pts, pat)
+                                if _res["ok"]:
+                                    score += 5.0
+                                elif _res["max_px"] > 4.0:
+                                    score -= min(_res["max_px"] * 2.0, 15.0)
                                 usable_for_intrinsics = bool(pat == pattern and intrinsic_plane and rotation_ok)
                                 confidence = "subpixel_full_rescue" if usable_for_intrinsics else "subpixel_partial_rescue"
                                 if pat == pattern and not intrinsic_plane:

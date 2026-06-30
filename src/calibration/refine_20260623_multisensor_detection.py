@@ -22,6 +22,11 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.extraction.extract_all_bag_images import decode_ros_image, photonfocus_preview, robust_preview  # noqa: E402
+from src.calibration.checker_detect import (  # noqa: E402
+    extra_detector_variants,
+    gradient_variance_roi,
+    grid_homography_residual,
+)
 
 
 TOPICS = {
@@ -210,6 +215,10 @@ def gray_candidates(sensor: str, img: np.ndarray) -> list[tuple[str, np.ndarray]
         if sensor == "thermal_c":
             out.append((f"{name}_local", local_contrast(u)))
             out.append((f"{name}_blur", cv2.GaussianBlur(u, (3, 3), 0)))
+        # Local normalization and tophat enhance detection under shadow or
+        # uneven spectral weighting (especially useful for Photonfocus sensors).
+        for _vname, _enh in extra_detector_variants(u):
+            out.append((f"{name}_{_vname}", _enh))
     if sensor in ("vis", "nir"):
         # Keep the expensive detector bounded. These variants gave the best
         # signal in spot checks; all share the same 1/4 Photonfocus geometry.
@@ -217,6 +226,9 @@ def gray_candidates(sensor: str, img: np.ndarray) -> list[tuple[str, np.ndarray]
         keys = (
             "mean4_norm", "mean4_clahe", "median4_norm",
             "max4_norm", "band05_norm", "band10_norm", "band15_norm",
+            # local-normalization and tophat variants for challenging lighting
+            "mean4_local_norm", "mean4_tophat", "mean4_local_norm_tophat",
+            "median4_local_norm", "max4_local_norm",
         )
         by_name = {name: img for name, img in out}
         for key in keys:
@@ -229,6 +241,7 @@ def gray_candidates(sensor: str, img: np.ndarray) -> list[tuple[str, np.ndarray]
             "thermal_p05_95_clahe", "thermal_p05_95_local",
             "thermal_p10_90_clahe", "thermal_inv_p05_95_clahe",
             "thermal_p01_99_clahe", "thermal_p05_95_unsharp",
+            "thermal_p05_95_local_norm", "thermal_p05_95_tophat",
         )
         by_name = {name: img for name, img in out}
         for key in keys:
@@ -286,9 +299,24 @@ def try_checker_on_gray(gray: np.ndarray, projected_box: list[float] | None, sen
     elif sensor == "thermal_c":
         crops = [c for c in crops_all if c[4] == "full"]
     elif sensor in ("vis", "nir"):
-        crops = [c for c in crops_all if c[4] == "full"]
+        # For Photonfocus sensors: prepend the gradient-variance ROI so the
+        # detector tries the most likely board region before the full frame.
+        crops = []
+        _gv = gradient_variance_roi(gray)
+        if _gv is not None:
+            _gx0, _gy0, _gx1, _gy1 = int(_gv[0]), int(_gv[1]), int(_gv[2]), int(_gv[3])
+            if _gx1 > _gx0 and _gy1 > _gy0:
+                crops.append((_gx0, _gy0, _gx1, _gy1, "gradient_roi"))
+        crops += [c for c in crops_all if c[4] == "full"]
     else:
-        crops = [c for c in crops_all if c[4] in ("full", "left_half", "right_half", "top_half", "bottom_half")]
+        # For RGB: prepend gradient-variance ROI (board is small in 2448×2048).
+        crops = []
+        _gv = gradient_variance_roi(gray)
+        if _gv is not None:
+            _gx0, _gy0, _gx1, _gy1 = int(_gv[0]), int(_gv[1]), int(_gv[2]), int(_gv[3])
+            if _gx1 > _gx0 and _gy1 > _gy0:
+                crops.append((_gx0, _gy0, _gx1, _gy1, "gradient_roi"))
+        crops += [c for c in crops_all if c[4] in ("full", "left_half", "right_half", "top_half", "bottom_half")]
 
     for x0, y0, x1, y1, crop_name in crops:
         crop = gray[y0:y1, x0:x1]
@@ -361,6 +389,12 @@ def canonicalize_and_score(corners: np.ndarray, shape: tuple[int, int]) -> tuple
     bbox_area = max(1.0, (bbox[2] - bbox[0]) * (bbox[3] - bbox[1]))
     image_area = max(1.0, shape[0] * shape[1])
     quality = spacing + 80.0 * min(1.0, bbox_area / image_area)
+    # Boost score for detections whose corners fit a regular perspective grid.
+    _res = grid_homography_residual(pts.reshape(-1, 2), (COLS, ROWS))
+    if _res["ok"]:
+        quality += 5.0
+    elif _res["max_px"] > 4.0:
+        quality -= min(_res["max_px"] * 2.0, 15.0)
     return pts.reshape(-1, 2), angle, quality, rotation_ok
 
 
